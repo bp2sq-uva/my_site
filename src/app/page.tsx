@@ -85,16 +85,16 @@ const FEATURED_PROJECTS: Project[] = [
     title: "Nuclear Particle Detectors Assembly and Testing Fixtures",
     tagline:
       "Designed and built mechanical fixtures for detector assembly, alignment, and HV testing.",
-    tags: ["ML Estimation", "COSY", "Polarimetry", "Analysis"],
+    tags: ["Mechanical Design", "Fabrication", "Instrumentation"],
     highlights: [
       "Designed custom jigs and frames to meet precise alignment and handling requirements.",
       "Collaborated with technicians and engineers to iterate designs based on fabrication feedback.",
       "Ensured all fixtures met safety and operational standards for lab use.",
     ],
     links: [{ label: "Slides", href: "#" }],
-    images: [{ src: "/projects/HV_1.jpg", alt: "HV testing fixture" },
-            { src: "/projects/HV_2.jpg", alt: "HV testing setup" },
-            { src: "/projects/stretcher.jpg", alt: "GEM stretcher apparatues" }
+    images: [{ src: "/public/projects/HV_1.jpg", alt: "HV testing fixture" },
+            { src: "/public/projects/HV_2.jpg", alt: "HV testing setup" },
+            { src: "/public/projects/stretcher.jpg", alt: "GEM stretcher apparatues" }
     ],
   },
 ];
