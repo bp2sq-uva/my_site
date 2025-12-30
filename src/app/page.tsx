@@ -8,7 +8,7 @@ type Project = {
   tags: string[];
   highlights: string[];
   links: Link[];
-  image?: { src: string; alt: string };
+  images?: { src: string; alt: string }[];
 };
 type Publication = {
   title: string;
@@ -92,7 +92,7 @@ const FEATURED_PROJECTS: Project[] = [
       "Ensured all fixtures met safety and operational standards for lab use.",
     ],
     links: [{ label: "Slides", href: "#" }],
-    image: [{ src: "/projects/HV_1.jpg", alt: "HV testing fixture" },
+    images: [{ src: "/projects/HV_1.jpg", alt: "HV testing fixture" },
             { src: "/projects/HV_2.jpg", alt: "HV testing setup" },
             { src: "/projects/stretcher.jpg", alt: "GEM stretcher apparatues" }
     ],
