@@ -1,5 +1,6 @@
 // app/page.tsx
 import type { ReactNode } from "react";
+import Image from "next/image";
 
 type Link = { label: string; href: string };
 type Project = {
@@ -305,6 +306,19 @@ function ProjectGrid() {
       {FEATURED_PROJECTS.map((p) => (
         <Card key={p.title} className="flex flex-col">
           <div>
+            {p.images ? (
+              <div className="mb-4 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
+                <Image
+                  src={p.images.src}
+                  alt={p.images.alt}
+                  width={1200}
+                  height={800}
+                  className="h-40 w-full object-cover"
+                  priority={false}
+                />
+              </div>
+            ) : null}
+
             <h3 className="text-lg font-semibold tracking-tight text-zinc-900">
               {p.title}
             </h3>
