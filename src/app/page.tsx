@@ -8,6 +8,7 @@ type Project = {
   tags: string[];
   highlights: string[];
   links: Link[];
+  image?: { src: string; alt: string };
 };
 type Publication = {
   title: string;
@@ -79,6 +80,22 @@ const FEATURED_PROJECTS: Project[] = [
       "Built clear plotting + reporting for review and iteration.",
     ],
     links: [{ label: "Slides", href: "#" }],
+  },
+  {
+    title: "Nuclear Particle Detectors Assembly and Testing Fixtures",
+    tagline:
+      "Designed and built mechanical fixtures for detector assembly, alignment, and HV testing.",
+    tags: ["ML Estimation", "COSY", "Polarimetry", "Analysis"],
+    highlights: [
+      "Designed custom jigs and frames to meet precise alignment and handling requirements.",
+      "Collaborated with technicians and engineers to iterate designs based on fabrication feedback.",
+      "Ensured all fixtures met safety and operational standards for lab use.",
+    ],
+    links: [{ label: "Slides", href: "#" }],
+    image: [{ src: "/projects/HV_1.jpg", alt: "HV testing fixture" },
+            { src: "/projects/HV_2.jpg", alt: "HV testing setup" },
+            { src: "/projects/stretcher.jpg", alt: "GEM stretcher apparatues" }
+    ],
   },
 ];
 
