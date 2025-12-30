@@ -93,9 +93,10 @@ const FEATURED_PROJECTS: Project[] = [
       "Ensured all fixtures met safety and operational standards for lab use.",
     ],
     links: [{ label: "Slides", href: "#" }],
-    images: [{ src: "/public/projects/HV_1.jpg", alt: "HV testing fixture" },
-            { src: "/public/projects/HV_2.jpg", alt: "HV testing setup" },
-            { src: "/public/projects/stretcher.jpg", alt: "GEM stretcher apparatues" }
+    images: [
+      { src: "/projects/HV_1.jpg", alt: "HV testing fixture" },
+      { src: "/projects/HV_2.jpg", alt: "HV testing setup" },
+      { src: "/projects/stretcher.jpg", alt: "GEM stretcher apparatus" },
     ],
   },
 ];
@@ -306,22 +307,49 @@ function ProjectGrid() {
       {FEATURED_PROJECTS.map((p) => (
         <Card key={p.title} className="flex flex-col">
           <div>
-            {p.images ? (
-              <div className="mb-4 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
-                <Image
-                  src={p.images.src}
-                  alt={p.images.alt}
-                  width={1200}
-                  height={800}
-                  className="h-40 w-full object-cover"
-                  priority={false}
-                />
+            {/* --- Images (optional) --- */}
+            {p.images?.length ? (
+              <div className="mb-4">
+                {/* Main image */}
+                <div className="overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
+                  <Image
+                    src={p.images[0].src}
+                    alt={p.images[0].alt}
+                    width={1200}
+                    height={800}
+                    className="h-40 w-full object-cover"
+                    priority={false}
+                  />
+                </div>
+
+                {/* Thumbnails (if more than 1 image) */}
+                {p.images.length > 1 ? (
+                  <div className="mt-2 grid grid-cols-3 gap-2">
+                    {p.images.slice(1).map((img) => (
+                      <div
+                        key={img.src}
+                        className="overflow-hidden rounded-lg border border-zinc-200 bg-zinc-50"
+                      >
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          width={600}
+                          height={400}
+                          className="h-16 w-full object-cover"
+                          priority={false}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             ) : null}
 
+            {/* --- Title + content --- */}
             <h3 className="text-lg font-semibold tracking-tight text-zinc-900">
               {p.title}
             </h3>
+
             <p className="mt-2 text-sm text-zinc-600">{p.tagline}</p>
 
             <div className="mt-4 flex flex-wrap gap-2">
@@ -358,6 +386,7 @@ function ProjectGrid() {
     </div>
   );
 }
+
 
 function Publications() {
   return (
