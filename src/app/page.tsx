@@ -112,7 +112,7 @@ const FEATURED_PROJECTS: Project[] = [
     ],
     links: [{ label: "Slides", href: "#" }],
     images: [
-      { src: "/projects/GNN.jpg", alt: "GNNs" },
+      { src: "/projects/GNN-2.png", alt: "GNNs" },
     ],
   },
 ];
