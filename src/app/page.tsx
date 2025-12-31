@@ -135,7 +135,7 @@ const EXPERIENCE: Experience[] = [
   {
     title: "PhD Researcher (Experimental Nuclear Physics)",
     org: "University of Virginia / Jefferson Lab",
-    dates: "20XX — Present",
+    dates: "2021 — Present",
     bullets: [
       "Built calibration + reconstruction workflows for GEM trackers and calorimeters.",
       "Developed analysis methods for polarization-transfer observables and QA.",
@@ -143,12 +143,33 @@ const EXPERIENCE: Experience[] = [
     ],
   },
   {
-    title: "Mechanical Engineering / Instrumentation Work",
-    org: "Lab / Project",
-    dates: "20XX — 20XX",
+    title: "Machine Learning Engineer Intern",
+    org: "Dedrone by AXON",
+    dates: "2024 (Summer)",
     bullets: [
-      "Designed fixtures, frames, and test rigs (HV testing, assembly tooling, alignment).",
-      "Iterated designs from requirements → fabrication → validation.",
+      "Developed ML models for drone detection and classification using sensor data.",
+      "Optimized data pipelines for real-time processing and analysis.",
+      "Collaborated with cross-functional teams to integrate ML solutions into existing systems.",
+    ],
+  },
+  {
+    title: "Graduate Researcher (Machine Learning and Data Analysis for Nuclear Physics)",
+    org: "Graduate Researcher (Machine Learning and Data Analysis for Nuclear Physics)",
+    dates: "2023 - Present",
+    bullets: [
+      "Front-end electronics installation, testing and real-time data acquisition system development for nuclear physics experiments.",
+      "Applied machine learning techniques to enhance data analysis and interpretation in nuclear physics experiments.",
+      "Collaborated with interdisciplinary teams to develop innovative solutions for complex research challenges.",
+    ],
+  },
+  {
+    title: "Research Engineer Intern",
+    org: "Korea Maritime & Ocean University, South Korea",
+    dates: "2017 - 2018",
+    bullets: [
+      "Conducted CFD simulations to optimize novel small scale wind turbine blade designs.",
+      "Analyzed simulation data to inform design improvements and enhance performance.",
+      "Conducted wind tunnel experiments to validate simulation results and assess aerodynamic performance.",
     ],
   },
 ];
