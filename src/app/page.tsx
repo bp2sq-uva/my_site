@@ -368,12 +368,14 @@ function Hero() {
               </ul> */}
 
               <ul className="mt-3 space-y-2 text-sm text-zinc-600">
-                <li>• GEM tracking/decoding + reconstruction pipelines</li>
-                <li>• Coincidence timing calibration + QA automation (HCAL/HODO)</li>
-                <li>• Polarization-transfer analysis (MLE) + spin transport</li>
-                <li>• ML for signals & tracking (RF drone detection, GNN particle tracking)</li>
-                <li>• Hardware + simulation: fixtures/HV tooling; ANSYS CFD & structural analysis</li>
+                <li>• GEM tracking + reconstruction pipelines</li>
+                <li>• Front-end electronics + DAQ / readout systems</li>
+                <li>• RF signal detection + deep learning classification (drone surveillance)</li>
+                <li>• Graph neural networks for particle tracking (detector ML)</li>
+                <li>• ANSYS CFD + structural simulations (design & optimization)</li>
+                <li>• Fixtures &amp; test rigs (HV/assembly tooling)</li>
               </ul>
+
 
 
               <div className="mt-5 rounded-xl border border-zinc-200 bg-zinc-50 p-4">
