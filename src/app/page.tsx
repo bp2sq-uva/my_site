@@ -99,6 +99,21 @@ const FEATURED_PROJECTS: Project[] = [
       { src: "/projects/stretcher.jpg", alt: "GEM stretcher apparatus" },
     ],
   },
+  {
+    title: "Computational Fluid Dynamics Simulations(CFD) and Static Structural Simulations",
+    tagline:
+      "Performed CFD and Static Structural Simulations using ANSYS software for various engineering projects including nuclear particle detectors.",
+    tags: ["CFD", "ANSYS", "Structural Analysis", "Simulation"],
+    highlights: [
+      "Conducted fluid flow simulations to optimize flow systems for detector systems.",
+      "Performed static structural analysis to ensure mechanical integrity of detector components under operational loads.",
+      "Analyzed simulation results to inform design improvements and ensure compliance with engineering standards.",
+    ],
+    links: [{ label: "Slides", href: "#" }],
+    images: [
+      { src: "/projects/gem_demo.gif", alt: "GEM gas flow simulations" },
+    ]
+  },
 ];
 
 const PUBLICATIONS: Publication[] = [
@@ -301,6 +316,37 @@ function Hero() {
   );
 }
 
+function ProjectMedia({
+  src,
+  alt,
+  className,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+}) {
+  const isGif = src.toLowerCase().endsWith(".gif");
+
+  if (isGif) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src={src} alt={alt} className={className} />
+    );
+  }
+
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={1200}
+      height={800}
+      className={className}
+      priority={false}
+    />
+  );
+}
+
+
 function ProjectGrid() {
   return (
     <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -312,13 +358,10 @@ function ProjectGrid() {
               <div className="mb-4">
                 {/* Main image */}
                 <div className="overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
-                  <Image
+                  <ProjectMedia
                     src={p.images[0].src}
                     alt={p.images[0].alt}
-                    width={1200}
-                    height={800}
                     className="h-40 w-full object-cover"
-                    priority={false}
                   />
                 </div>
 
@@ -330,14 +373,11 @@ function ProjectGrid() {
                         key={img.src}
                         className="overflow-hidden rounded-lg border border-zinc-200 bg-zinc-50"
                       >
-                        <Image
-                          src={img.src}
-                          alt={img.alt}
-                          width={600}
-                          height={400}
-                          className="h-16 w-full object-cover"
-                          priority={false}
-                        />
+                      <ProjectMedia
+                        src={img.src}
+                        alt={img.alt}
+                        className="h-16 w-full object-cover"
+                      />
                       </div>
                     ))}
                   </div>
