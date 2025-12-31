@@ -45,8 +45,7 @@ const SITE = {
 const FEATURED_PROJECTS: Project[] = [
   {
     title: "Wind Turbine Blade Design Optimization using CFD Simulations",
-    tagline:
-      "Conducted CFD simulations to optimize the aerodynamic performance of small-scale wind turbine blades.",
+    tagline: "Experimental nuclear physics • detector instrumentation • electronics/DAQ • ML for reconstruction",
     tags: ["CFD", "Wind Turbine Design", "ANSYS Fluent", "Ansys CFX"],
     highlights: [
       "Performed detailed CFD simulations using ANSYS Fluent and Ansys CFX to analyze airflow and performance characteristics of various blade designs.",
@@ -279,89 +278,194 @@ function Nav() {
   );
 }
 
+
+
 function Hero() {
+  const pills = [
+    "Detector instrumentation",
+    "Calibration & QA",
+    "Reconstruction pipelines",
+    "Detector ML",
+    "Front-end electronics",
+    "DAQ / readout",
+    "FPGA / Verilog",
+    "Signal processing",
+  ];
+
   return (
-    <div className="border-b border-zinc-200 bg-zinc-50">
-      <div className="mx-auto w-full max-w-6xl px-5 py-16">
-        <div className="grid gap-10 lg:grid-cols-5 lg:items-center">
-          <div className="lg:col-span-3">
+    <section className="relative overflow-hidden border-b border-zinc-200 bg-white">
+      {/* subtle background */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-24 left-1/2 h-72 w-[900px] -translate-x-1/2 rounded-full bg-zinc-100 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto w-full max-w-6xl px-5 py-14 sm:py-16">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          {/* Left column */}
+          <div>
             <p className="text-sm font-medium text-zinc-600">{SITE.location}</p>
-            <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl leading-[1.1]">
-              Experimental Nuclear Physics &amp; Detector ML
+
+            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl leading-[1.05]">
+              {SITE.name}
             </h1>
 
-            <p className="mt-4 max-w-2xl text-base text-zinc-600 sm:text-lg leading-relaxed">
-              Instrumentation • calibration &amp; QA • reconstruction pipelines
-            </p>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600">
-              I work across physics analysis, detector instrumentation, and
-              machine learning, building tools that turn messy data into clean
-              observables.
+            <p className="mt-4 max-w-2xl text-lg text-zinc-700 sm:text-xl leading-relaxed">
+              {SITE.tagline}
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Pill>Mechanical Design and Prototyping</Pill>
-              <Pill>Detector ML</Pill>
-              <Pill>Calibration &amp; QA</Pill>
-              <Pill>Data Analysis</Pill>
-              <Pill>Hardware Prototyping</Pill>
+            <p className="mt-4 max-w-2xl text-base text-zinc-600 leading-relaxed">
+              I build analysis + reconstruction pipelines for high-rate detector data, working
+              across hardware, physics, and ML to turn messy signals into clean observables.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {pills.map((x) => (
+                <Pill key={x}>{x}</Pill>
+              ))}
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              {SITE.links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  className="rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 hover:border-zinc-300 hover:bg-zinc-50 transition"
-                >
-                  {l.label}
-                </a>
-              ))}
+              {/* Primary CTA */}
+              <a
+                href={`mailto:${SITE.email}`}
+                className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 transition"
+              >
+                Email
+              </a>
+
+              {/* Secondary CTA */}
+              <a
+                href="/cv.pdf"
+                className="rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-50 transition"
+              >
+                Download CV
+              </a>
+
+              {/* Social/other links */}
+              {SITE.links
+                .filter((l) => l.label !== "CV (PDF)")
+                .map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    className="rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-zinc-300 hover:bg-zinc-50 transition"
+                  >
+                    {l.label}
+                  </a>
+                ))}
             </div>
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Pill>Mechanical Design and Prototyping</Pill>
-            <Pill>Detector ML</Pill>
-            <Pill>Calibration &amp; QA</Pill>
-            <Pill>Data Analysis</Pill>
-            <Pill>Hardware Prototyping</Pill>
-
-            {/* EE / electronics */}
-            <Pill>Front-end Electronics</Pill>
-            <Pill>DAQ &amp; Readout Systems</Pill>
-            <Pill>RF / Signal Processing</Pill>
-            {/* optional if you want */}
-            <Pill>FPGA / Verilog</Pill>
-          </div>
-
-          <div className="lg:col-span-2">
-            <Card className="bg-white">
-              <h3 className="text-sm font-semibold text-zinc-900">
-                Quick highlights
-              </h3>
+          {/* Right column */}
+          <div className="lg:justify-self-end">
+            <Card className="p-6">
+              <h3 className="text-sm font-semibold text-zinc-900">Quick highlights</h3>
               <ul className="mt-3 space-y-2 text-sm text-zinc-600">
                 <li>• GEM tracking + reconstruction pipelines</li>
                 <li>• HCAL/HODO timing calibration workflows</li>
                 <li>• MLE polarization extraction + spin transport</li>
                 <li>• Fixtures &amp; test rigs (HV/assembly tooling)</li>
               </ul>
+
               <div className="mt-5 rounded-xl border border-zinc-200 bg-zinc-50 p-4">
-                <p className="text-xs font-medium text-zinc-700">
-                  Looking for
-                </p>
+                <p className="text-xs font-medium text-zinc-700">Looking for</p>
                 <p className="mt-1 text-sm text-zinc-700">
-                  Cross-disciplinary engineering roles (hardware + software +
-                  data).
+                  Cross-disciplinary engineering roles (hardware + software + data).
                 </p>
               </div>
             </Card>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
+
+
+
+// function Hero() {
+//   return (
+//     <div className="border-b border-zinc-200 bg-zinc-50">
+//       <div className="mx-auto w-full max-w-6xl px-5 py-16">
+//         <div className="grid gap-10 lg:grid-cols-5 lg:items-center">
+//           <div className="lg:col-span-3">
+//             <p className="text-sm font-medium text-zinc-600">{SITE.location}</p>
+//             <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl leading-[1.1]">
+//               Experimental Nuclear Physics &amp; Detector ML
+//             </h1>
+
+//             <p className="mt-4 max-w-2xl text-base text-zinc-600 sm:text-lg leading-relaxed">
+//               Instrumentation • calibration &amp; QA • reconstruction pipelines
+//             </p>
+//             <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600">
+//               I work across physics analysis, detector instrumentation, and
+//               machine learning, building tools that turn messy data into clean
+//               observables.
+//             </p>
+
+//             <div className="mt-6 flex flex-wrap gap-3">
+//               <Pill>Mechanical Design and Prototyping</Pill>
+//               <Pill>Detector ML</Pill>
+//               <Pill>Calibration &amp; QA</Pill>
+//               <Pill>Data Analysis</Pill>
+//               <Pill>Hardware Prototyping</Pill>
+//             </div>
+
+//             <div className="mt-8 flex flex-wrap gap-3">
+//               {SITE.links.map((l) => (
+//                 <a
+//                   key={l.href}
+//                   href={l.href}
+//                   className="rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 hover:border-zinc-300 hover:bg-zinc-50 transition"
+//                 >
+//                   {l.label}
+//                 </a>
+//               ))}
+//             </div>
+//           </div>
+
+//           <div className="mt-6 flex flex-wrap gap-3">
+//             <Pill>Mechanical Design and Prototyping</Pill>
+//             <Pill>Detector ML</Pill>
+//             <Pill>Calibration &amp; QA</Pill>
+//             <Pill>Data Analysis</Pill>
+//             <Pill>Hardware Prototyping</Pill>
+
+//             {/* EE / electronics */}
+//             <Pill>Front-end Electronics</Pill>
+//             <Pill>DAQ &amp; Readout Systems</Pill>
+//             <Pill>RF / Signal Processing</Pill>
+//             {/* optional if you want */}
+//             <Pill>FPGA / Verilog</Pill>
+//           </div>
+
+//           <div className="lg:col-span-2">
+//             <Card className="bg-white">
+//               <h3 className="text-sm font-semibold text-zinc-900">
+//                 Quick highlights
+//               </h3>
+//               <ul className="mt-3 space-y-2 text-sm text-zinc-600">
+//                 <li>• GEM tracking + reconstruction pipelines</li>
+//                 <li>• HCAL/HODO timing calibration workflows</li>
+//                 <li>• MLE polarization extraction + spin transport</li>
+//                 <li>• Fixtures &amp; test rigs (HV/assembly tooling)</li>
+//               </ul>
+//               <div className="mt-5 rounded-xl border border-zinc-200 bg-zinc-50 p-4">
+//                 <p className="text-xs font-medium text-zinc-700">
+//                   Looking for
+//                 </p>
+//                 <p className="mt-1 text-sm text-zinc-700">
+//                   Cross-disciplinary engineering roles (hardware + software +
+//                   data).
+//                 </p>
+//               </div>
+//             </Card>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
 function ProjectMedia({
   src,
