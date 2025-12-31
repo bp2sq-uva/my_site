@@ -112,7 +112,7 @@ const FEATURED_PROJECTS: Project[] = [
     links: [{ label: "Slides", href: "#" }],
     images: [
       { src: "/projects/gem_demo.gif", alt: "GEM gas flow simulations" },
-    ]
+    ],
   },
 ];
 
