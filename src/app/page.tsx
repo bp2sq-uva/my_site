@@ -538,7 +538,7 @@ function ProjectGrid() {
                           <ProjectMedia
                             src={img.src}
                             alt={img.alt}
-                            className="h-44 w-full object-cover sm:h-48"
+                            className="h-24 w-full object-cover sm:h-48"
                           />
                         </div>
                       ))}
