@@ -56,9 +56,9 @@ const FEATURED_PROJECTS: Project[] = [
       { label: "Write-up", href: "#" },
     ],
     images: [
-      { src: "/projects/wind-1.jpg", alt: "wind turbine blade" },
-      { src: "/projects/wind-2.jpg", alt: "wind turbine blade" },
-      { src: "/projects/wind-3.jpg", alt: "wind blade" },
+      { src: "/projects/wind-1.png", alt: "wind turbine blade" },
+      { src: "/projects/wind-2.png", alt: "wind turbine blade" },
+      { src: "/projects/wind-3.png", alt: "wind blade" },
     ],
   },
   {
