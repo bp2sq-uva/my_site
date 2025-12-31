@@ -59,30 +59,6 @@ const FEATURED_PROJECTS: Project[] = [
     ],
   },
   {
-    title: "HCAL + Hodoscope Timing Calibration",
-    tagline:
-      "Coincidence-time alignment, per-block offsets, QA plots, and DB parameter updates.",
-    tags: ["ROOT", "Calibration", "Time-of-Flight", "Hall-A"],
-    highlights: [
-      "Automated peak-finding + fitting with safeguards for low-stat bins.",
-      "Produced run-by-run QA PDFs and stable DB updates.",
-      "Improved coincidence timing stability after replay.",
-    ],
-    links: [{ label: "Note", href: "#" }],
-  },
-  {
-    title: "Recoil Polarimetry / Polarization Transfer",
-    tagline:
-      "Maximum-likelihood extraction of polarization components with spin-transport (COSY).",
-    tags: ["ML Estimation", "COSY", "Polarimetry", "Analysis"],
-    highlights: [
-      "Implemented likelihood model and validated with closure tests.",
-      "Transported polarimeter observables back to target for physics extraction.",
-      "Built clear plotting + reporting for review and iteration.",
-    ],
-    links: [{ label: "Slides", href: "#" }],
-  },
-  {
     title: "Nuclear Particle Detectors Assembly and Testing Fixtures",
     tagline:
       "Designed and built mechanical fixtures for detector assembly, alignment, and HV testing.",
@@ -98,6 +74,32 @@ const FEATURED_PROJECTS: Project[] = [
       { src: "/projects/HV_2.jpg", alt: "HV testing setup" },
       { src: "/projects/stretcher.jpg", alt: "GEM stretcher apparatus" },
     ],
+  },
+  {
+    title: "Computational Fluid Dynamics Simulations(CFD) and Static Structural Simulations",
+    tagline:
+      "Performed CFD and Static Structural Simulations using ANSYS software for various engineering projects including nuclear particle detectors.",
+    tags: ["CFD", "ANSYS", "Structural Analysis", "Simulation"],
+    highlights: [
+      "Conducted fluid flow simulations to optimize flow systems for detector systems.",
+      "Performed static structural analysis to ensure mechanical integrity of detector components under operational loads.",
+      "Analyzed simulation results to inform design improvements and ensure compliance with engineering standards.",
+    ],
+    links: [{ label: "Slides", href: "#" }],
+    images: [
+      { src: "/projects/gem_demo.gif", alt: "GEM gas flow simulations" },
+    ],
+  },
+  {
+    title: "Deep Learning based RF Signal Detection and Classification for Drone Surveillance",
+    tagline:
+      "Conducted Frequency domain signal analysis for RF signals emitted by drones and developed deep learning models for surveillance applications.",
+    tags: ["Deep Learning", "RF Signal Processing", "Signal Analysis"],
+    highlights: [
+      "Analyzed RF signals in the frequency domain to identify characteristic patterns associated with drone emissions.",
+      "Developed and trained deep learning models to accurately detect and classify RF signals from drones amidst background noise.",
+    ],
+    links: [{ label: "Slides", href: "#" }],
   },
   {
     title: "Computational Fluid Dynamics Simulations(CFD) and Static Structural Simulations",
