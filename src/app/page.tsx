@@ -320,6 +320,21 @@ function Hero() {
             </div>
           </div>
 
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Pill>Mechanical Design and Prototyping</Pill>
+            <Pill>Detector ML</Pill>
+            <Pill>Calibration &amp; QA</Pill>
+            <Pill>Data Analysis</Pill>
+            <Pill>Hardware Prototyping</Pill>
+
+            {/* EE / electronics */}
+            <Pill>Front-end Electronics</Pill>
+            <Pill>DAQ &amp; Readout Systems</Pill>
+            <Pill>RF / Signal Processing</Pill>
+            {/* optional if you want */}
+            <Pill>FPGA / Verilog</Pill>
+          </div>
+
           <div className="lg:col-span-2">
             <Card className="bg-white">
               <h3 className="text-sm font-semibold text-zinc-900">
