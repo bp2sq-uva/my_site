@@ -525,7 +525,7 @@ function ProjectGrid() {
                       <ProjectMedia
                         src={p.images[0].src}
                         alt={p.images[0].alt}
-                        className="h-24 w-full object-cover sm:h-36"
+                        className="h-44 w-full object-cover sm:h-36"
                       />
                     </div>
 
@@ -538,7 +538,7 @@ function ProjectGrid() {
                           <ProjectMedia
                             src={img.src}
                             alt={img.alt}
-                            className="h-24 w-full object-cover sm:h-36"
+                            className="h-44 w-full object-cover sm:h-36"
                           />
                         </div>
                       ))}
@@ -551,7 +551,7 @@ function ProjectGrid() {
                       <ProjectMedia
                         src={p.images[0].src}
                         alt={p.images[0].alt}
-                        className="h-40 w-full object-cover"
+                        className="h-20 w-full object-cover"
                       />
                     </div>
 
