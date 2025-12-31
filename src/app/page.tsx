@@ -29,11 +29,11 @@ const SITE = {
   tagline:
     "Experimental nuclear physics • detector instrumentation • ML for reconstruction",
   location: "Virginia, USA",
-  email: "bhasitha@example.com", // TODO
+  email: "bhasitha.d@gmail.com", // TODO
   links: [
-    { label: "GitHub", href: "https://github.com/yourhandle" }, // TODO
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/yourhandle" }, // TODO
-    { label: "Google Scholar", href: "https://scholar.google.com/" }, // TODO
+    { label: "GitHub", href: "https://github.com/bp2sq-uva" }, // TODO
+    { label: "LinkedIn", href: "www.linkedin.com/in/bhasitha-dharmasena-877287177" }, // TODO
+    { label: "Google Scholar", href: "https://scholar.google.com/citations?user=le3tNbYAAAAJ&hl=en" }, // TODO
     { label: "CV (PDF)", href: "/cv.pdf" }, // put cv.pdf in /public
   ] satisfies Link[],
   about: [
