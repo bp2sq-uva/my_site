@@ -102,18 +102,17 @@ const FEATURED_PROJECTS: Project[] = [
     links: [{ label: "Slides", href: "#" }],
   },
   {
-    title: "Computational Fluid Dynamics Simulations(CFD) and Static Structural Simulations",
+    title: "Graph Neural Networks(GNNs) for Nuclear Particle Tracking",
     tagline:
-      "Performed CFD and Static Structural Simulations using ANSYS software for various engineering projects including nuclear particle detectors.",
-    tags: ["CFD", "ANSYS", "Structural Analysis", "Simulation"],
+      "Implemented GNN architectures to enhance particle tracking accuracy in high-rate nuclear physics experiments.",
+    tags: ["Graph Neural Networks", "Detector ML", "Reconstruction"],
     highlights: [
-      "Conducted fluid flow simulations to optimize flow systems for detector systems.",
-      "Performed static structural analysis to ensure mechanical integrity of detector components under operational loads.",
-      "Analyzed simulation results to inform design improvements and ensure compliance with engineering standards.",
+      "Developed GNN models to capture complex spatial relationships in detector data.",
+      "Improved tracking efficiency and resolution compared to traditional methods.",
     ],
     links: [{ label: "Slides", href: "#" }],
     images: [
-      { src: "/projects/gem_demo.gif", alt: "GEM gas flow simulations" },
+      { src: "/projects/GNN.jpg", alt: "GNNs" },
     ],
   },
 ];
