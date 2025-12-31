@@ -124,15 +124,15 @@ const FEATURED_PROJECTS: Project[] = [
 
 const PUBLICATIONS: Publication[] = [
   {
-    title: "Your paper / thesis title here",
-    venue: "Journal / Conference",
-    year: "2025",
+    title: "Thesis",
+    // venue: "Journal / Conference",
+    // year: "2025",
     links: [{ label: "PDF", href: "#" }],
   },
   {
-    title: "Another publication / note",
-    venue: "arXiv",
-    year: "2024",
+    title: "Another publications",
+    // venue: "arXiv",
+    // year: "2024",
     links: [{ label: "Link", href: "#" }],
   },
 ];
@@ -360,12 +360,21 @@ function Hero() {
           <div className="lg:justify-self-end">
             <Card className="p-6">
               <h3 className="text-sm font-semibold text-zinc-900">Quick highlights</h3>
-              <ul className="mt-3 space-y-2 text-sm text-zinc-600">
+              {/* <ul className="mt-3 space-y-2 text-sm text-zinc-600">
                 <li>• GEM tracking + reconstruction pipelines</li>
                 <li>• HCAL/HODO timing calibration workflows</li>
                 <li>• MLE polarization extraction + spin transport</li>
                 <li>• Fixtures &amp; test rigs (HV/assembly tooling)</li>
+              </ul> */}
+
+              <ul className="mt-3 space-y-2 text-sm text-zinc-600">
+                <li>• GEM tracking/decoding + reconstruction pipelines</li>
+                <li>• Coincidence timing calibration + QA automation (HCAL/HODO)</li>
+                <li>• Polarization-transfer analysis (MLE) + spin transport</li>
+                <li>• ML for signals & tracking (RF drone detection, GNN particle tracking)</li>
+                <li>• Hardware + simulation: fixtures/HV tooling; ANSYS CFD & structural analysis</li>
               </ul>
+
 
               <div className="mt-5 rounded-xl border border-zinc-200 bg-zinc-50 p-4">
                 <p className="text-xs font-medium text-zinc-700">Looking for</p>
