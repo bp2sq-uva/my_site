@@ -32,7 +32,7 @@ const SITE = {
   email: "bhasitha.d@gmail.com", // TODO
   links: [
     { label: "GitHub", href: "https://github.com/bp2sq-uva" }, // TODO
-    { label: "LinkedIn", href: "www.linkedin.com/in/bhasitha-dharmasena-877287177" }, // TODO
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/bhasitha-dharmasena-877287177/" }, // TODO
     { label: "Google Scholar", href: "https://scholar.google.com/citations?user=le3tNbYAAAAJ&hl=en" }, // TODO
     { label: "CV (PDF)", href: "/cv.pdf" }, // put cv.pdf in /public
   ] satisfies Link[],
@@ -288,15 +288,15 @@ function Hero() {
             </p>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600">
               I work across physics analysis, detector instrumentation, and
-              machine learning — building tools that turn messy data into clean
+              machine learning, building tools that turn messy data into clean
               observables.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
+              <Pill>Mechanical Design and Prototyping</Pill>
               <Pill>Detector ML</Pill>
               <Pill>Calibration &amp; QA</Pill>
-              <Pill>Tracking</Pill>
-              <Pill>Polarimetry</Pill>
+              <Pill>Data Analysis</Pill>
               <Pill>Hardware Prototyping</Pill>
             </div>
 
