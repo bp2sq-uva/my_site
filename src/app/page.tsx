@@ -100,6 +100,9 @@ const FEATURED_PROJECTS: Project[] = [
       "Developed and trained deep learning models to accurately detect and classify RF signals from drones amidst background noise.",
     ],
     links: [{ label: "Slides", href: "#" }],
+    images: [
+      { src: "/projects/Dedrone.png", alt: "GNNs" },
+    ],
   },
   {
     title: "Graph Neural Networks(GNNs) for Nuclear Particle Tracking",
