@@ -44,18 +44,21 @@ const SITE = {
 
 const FEATURED_PROJECTS: Project[] = [
   {
-    title: "GEM Raw Decoding with ML",
+    title: "Wind Turbine Blade Design Optimization using CFD Simulations",
     tagline:
-      "Learning-based denoising/segmentation to reconstruct clusters directly from raw readout.",
-    tags: ["PyTorch", "Segmentation", "Detector ML", "GEM"],
+      "Conducted CFD simulations to optimize the aerodynamic performance of small-scale wind turbine blades.",
+    tags: ["CFD", "Wind Turbine Design", "ANSYS Fluent", "Ansys CFX"],
     highlights: [
-      "Event-wise image/tensor pipelines with robust normalization and augmentation.",
-      "Reduced false positives while preserving cluster purity under rate.",
-      "Designed evaluation metrics aligned with physics reconstruction goals.",
+      "Performed detailed CFD simulations using ANSYS Fluent and Ansys CFX to analyze airflow and performance characteristics of various blade designs.",
+      "Optimized blade geometry to enhance efficiency and power output based on simulation results.",
     ],
     links: [
-      { label: "Code", href: "https://github.com/yourhandle/project" },
       { label: "Write-up", href: "#" },
+    ],
+    images: [
+      { src: "/projects/wind-1.jpg", alt: "wind turbine blade" },
+      { src: "/projects/wind-2.jpg", alt: "wind turbine blade" },
+      { src: "/projects/wind-3.jpg", alt: "wind blade" },
     ],
   },
   {
