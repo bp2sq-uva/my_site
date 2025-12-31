@@ -258,9 +258,13 @@ function Hero() {
         <div className="grid gap-10 lg:grid-cols-5 lg:items-center">
           <div className="lg:col-span-3">
             <p className="text-sm font-medium text-zinc-600">{SITE.location}</p>
-            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
-              {SITE.tagline}
+            <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl leading-[1.1]">
+              Experimental Nuclear Physics &amp; Detector ML
             </h1>
+
+            <p className="mt-4 max-w-2xl text-base text-zinc-600 sm:text-lg leading-relaxed">
+              Instrumentation • calibration &amp; QA • reconstruction pipelines
+            </p>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600">
               I work across physics analysis, detector instrumentation, and
               machine learning — building tools that turn messy data into clean
