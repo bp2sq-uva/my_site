@@ -518,34 +518,68 @@ function ProjectGrid() {
             {/* --- Images (optional) --- */}
             {p.images?.length ? (
               <div className="mb-4">
-                {/* Main image */}
-                <div className="overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
-                  <ProjectMedia
-                    src={p.images[0].src}
-                    alt={p.images[0].alt}
-                    className="h-40 w-full object-cover"
-                  />
-                </div>
-
-                {/* Thumbnails (if more than 1 image) */}
-                {p.images.length > 1 ? (
-                  <div className="mt-2 grid grid-cols-3 gap-2">
-                    {p.images.slice(1).map((img) => (
-                      <div
-                        key={img.src}
-                        className="overflow-hidden rounded-lg border border-zinc-200 bg-zinc-50"
-                      >
+                {/* Special layout for exactly 3 images: 1 big on top, 2 big on bottom */}
+                {p.images.length === 3 ? (
+                  <div className="grid gap-2">
+                    <div className="overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
                       <ProjectMedia
-                        src={img.src}
-                        alt={img.alt}
-                        className="h-16 w-full object-cover"
+                        src={p.images[0].src}
+                        alt={p.images[0].alt}
+                        className="h-44 w-full object-cover sm:h-48"
                       />
-                      </div>
-                    ))}
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2">
+                      {p.images.slice(1).map((img) => (
+                        <div
+                          key={img.src}
+                          className="overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50"
+                        >
+                          <ProjectMedia
+                            src={img.src}
+                            alt={img.alt}
+                            className="h-44 w-full object-cover sm:h-48"
+                          />
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                ) : null}
+                ) : (
+                  <>
+                    {/* Default layout for 1 or 2+ images */}
+                    <div className="overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
+                      <ProjectMedia
+                        src={p.images[0].src}
+                        alt={p.images[0].alt}
+                        className="h-40 w-full object-cover"
+                      />
+                    </div>
+
+                    {p.images.length > 1 ? (
+                      <div
+                        className={`mt-2 grid gap-2 ${
+                          p.images.length - 1 >= 3 ? "grid-cols-3" : "grid-cols-2"
+                        }`}
+                      >
+                        {p.images.slice(1).map((img) => (
+                          <div
+                            key={img.src}
+                            className="overflow-hidden rounded-lg border border-zinc-200 bg-zinc-50"
+                          >
+                            <ProjectMedia
+                              src={img.src}
+                              alt={img.alt}
+                              className="h-16 w-full object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    ) : null}
+                  </>
+                )}
               </div>
             ) : null}
+
 
             {/* --- Title + content --- */}
             <h3 className="text-lg font-semibold tracking-tight text-zinc-900">
