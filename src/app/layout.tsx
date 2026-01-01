@@ -34,17 +34,66 @@ export const metadata: Metadata = {
 //   );
 // }
 
+// export default function RootLayout({ children }: { children: React.ReactNode }) {
+//   return (
+//     <html lang="en">
+//       <body className="bg-white text-zinc-900">
+//         {children}
+//         <footer className="border-t border-zinc-200 py-8">
+//           <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
+//             © {new Date().getFullYear()} {SITE.name}
+//           </div>
+//         </footer>
+//       </body>
+//     </html>
+//   );
+// }
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-white text-zinc-900">
+      <body className="min-h-screen bg-white text-zinc-900">
         {children}
-        <footer className="border-t border-zinc-200 py-8">
-          <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
-            © {new Date().getFullYear()} {SITE.name}
+
+        {/* ✅ Global footer shown on ALL pages */}
+        <footer className="border-t border-zinc-200">
+          <div className="mx-auto w-full max-w-6xl px-5 py-10">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <div className="text-sm font-semibold text-zinc-900">{SITE.name}</div>
+                <div className="mt-1 text-sm text-zinc-600">{SITE.location}</div>
+
+                <div className="mt-4 text-sm">
+                  <span className="text-zinc-600">Email: </span>
+                  <a
+                    href={`mailto:${SITE.email}`}
+                    className="font-medium text-zinc-900 hover:underline"
+                  >
+                    {SITE.email}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                {SITE.links.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    className="rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-50 transition"
+                  >
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 text-xs text-zinc-500">
+              © {new Date().getFullYear()} {SITE.name}
+            </div>
           </div>
         </footer>
       </body>
     </html>
   );
 }
+
