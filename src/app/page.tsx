@@ -5,7 +5,6 @@ import { Card, Pill } from "@/app/components/ui";
 import { FEATURED_PROJECTS, SITE, slugify } from "@/app/lib/site";
 import { CURRENT } from "@/app/lib/site";
 import Image from "next/image";
-import { SITE } from "@/app/lib/site"; // or wherever you keep SITE
 
 function HeroSimple() {
   const pills = [
