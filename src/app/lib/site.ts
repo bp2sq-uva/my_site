@@ -26,24 +26,18 @@ export type Experience = {
 
 export const SITE = {
   name: "Bhasitha Dharmasena",
-  tagline: "Experimental nuclear physics • detector instrumentation • ML for reconstruction",
+  tagline: "...",
   location: "Virginia, USA",
   email: "bhasitha.d@gmail.com",
-  links: [
-    { label: "GitHub", href: "..." },
-    { label: "LinkedIn", href: "..." },
-    { label: "Google Scholar", href: "..." },
-    { label: "CV (PDF)", href: "/cv.pdf" },
-  ],
-  about: [
-    "...",
-    "...",
-  ],
-
-  // ✅ add these:
+  links: [/*...*/],
+  about: [/*...*/],
   currentTitle: "PhD Researcher (Experimental Nuclear & Particle Physics)",
   currentOrg: "University of Virginia / Jefferson Lab (Hall A)",
+
+  // ✅ add this:
+  phone: "", // or "+1 (xxx) xxx-xxxx"
 } as const;
+
 
 export const CURRENT = {
   title: "PhD Researcher (Experimental Nuclear & Particle Physics)",
