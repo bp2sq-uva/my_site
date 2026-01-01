@@ -67,7 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <span className="text-zinc-600">Email: </span>
                   <a
                     href={`mailto:${SITE.email}`}
-                    className="font-medium text-zinc-900 hover:underline"
+                    className="font-medium text-zinc-250 hover:underline"
                   >
                     {SITE.email}
                   </a>
@@ -79,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <a
                     key={l.href}
                     href={l.href}
-                    className="rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-50 transition"
+                    className="rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-300 hover:bg-zinc-50 transition"
                   >
                     {l.label}
                   </a>
