@@ -188,18 +188,18 @@ export default function Page() {
   );
 }
 
-export default function Page() {
-  return (
-    <div className="min-h-screen bg-white text-zinc-900">
-      <SiteNav />
-      <HeroSimple />
-      <NavTiles />
-      <FeaturedProjectsPreview />
-      <footer className="border-t border-zinc-200 py-8">
-        <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
-          © {new Date().getFullYear()} {SITE.name}
-        </div>
-      </footer>
-    </div>
-  );
-}
+// export default function Page() {
+//   return (
+//     <div className="min-h-screen bg-white text-zinc-900">
+//       <SiteNav />
+//       <HeroSimple />
+//       <NavTiles />
+//       <FeaturedProjectsPreview />
+//       <footer className="border-t border-zinc-200 py-8">
+//         <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
+//           © {new Date().getFullYear()} {SITE.name}
+//         </div>
+//       </footer>
+//     </div>
+//   );
+// }
