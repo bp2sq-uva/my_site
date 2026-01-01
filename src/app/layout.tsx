@@ -32,3 +32,18 @@ export default function RootLayout({
     </html>
   );
 }
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body className="bg-white text-zinc-900">
+        {children}
+        <footer className="border-t border-zinc-200 py-8">
+          <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
+            © {new Date().getFullYear()} {SITE.name}
+          </div>
+        </footer>
+      </body>
+    </html>
+  );
+}

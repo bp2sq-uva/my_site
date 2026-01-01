@@ -70,7 +70,7 @@ function NavTiles() {
     { title: "Projects", desc: "Selected work with full detail pages.", href: "/projects" },
     { title: "Publications", desc: "Thesis, papers, notes, talks.", href: "/publications" },
     { title: "Experience", desc: "Timeline + key contributions.", href: "/experience" },
-    { title: "Contact", desc: "Email + links.", href: "/contact" },
+    // { title: "Contact", desc: "Email + links.", href: "/contact" },
   ];
 
   return (
@@ -130,6 +130,61 @@ function FeaturedProjectsPreview() {
         })}
       </div>
     </section>
+  );
+}
+
+function AboutPreview() {
+  return (
+    <section className="mx-auto w-full max-w-6xl px-5 py-10">
+      <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+          <div className="max-w-3xl">
+            <h2 className="text-xl font-semibold text-zinc-900">About me</h2>
+            <p className="mt-2 text-zinc-700 leading-relaxed">
+              I work at the intersection of detector instrumentation, reconstruction, and ML—building
+              analysis pipelines that are robust, fast, and usable.
+            </p>
+            <p className="mt-3 text-zinc-700 leading-relaxed">
+              My background spans nuclear/particle experiments, electronics/DAQ workflows, and
+              practical engineering (designing/testing hardware fixtures) — I like cross-disciplinary problems.
+            </p>
+          </div>
+
+          <div className="flex gap-3">
+            <a
+              href="/about"
+              className="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500 transition"
+            >
+              Read more
+            </a>
+            <a
+              href="/projects"
+              className="rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-50 transition"
+            >
+              Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+export default function Page() {
+  return (
+    <div className="min-h-screen bg-white text-zinc-900">
+      <SiteNav />
+      <HeroSimple />
+      <AboutPreview />
+      <NavTiles />
+      <FeaturedProjectsPreview />
+      <footer className="border-t border-zinc-200 py-8">
+        <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
+          © {new Date().getFullYear()} {SITE.name}
+        </div>
+      </footer>
+    </div>
   );
 }
 
