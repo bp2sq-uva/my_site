@@ -17,7 +17,8 @@ function HeroSimple() {
   ];
 
   return (
-    <section className="relative overflow-hidden border-b border-zinc-200 bg-white">
+    // <section className="relative overflow-hidden border-b border-zinc-200 bg-white">
+    <section className="relative overflow-hidden border-b border-zinc-200 bg-gradient-to-b from-indigo-50 to-white">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-24 left-1/2 h-72 w-[900px] -translate-x-1/2 rounded-full bg-zinc-100 blur-3xl" />
       </div>
@@ -42,8 +43,8 @@ function HeroSimple() {
         <div className="mt-8 flex flex-wrap gap-3">
           <a
             href={`mailto:${SITE.email}`}
-            className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 transition"
-          >
+            // className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 transition"
+            className="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500 transition">
             Email
           </a>
           <Link

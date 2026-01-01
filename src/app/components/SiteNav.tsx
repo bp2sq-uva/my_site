@@ -29,7 +29,8 @@ export default function SiteNav() {
 
         <a
           href={`mailto:${SITE.email}`}
-          className="rounded-xl border border-zinc-200 bg-zinc-900 px-3 py-2 text-sm font-medium text-white hover:bg-zinc-800 transition"
+          // className="rounded-xl border border-zinc-200 bg-zinc-900 px-3 py-2 text-sm font-medium text-white hover:bg-zinc-800 transition"
+          className="rounded-xl bg-indigo-600 px-3 py-2 text-sm font-medium text-white hover:bg-indigo-500 transition"
         >
           Email
         </a>
