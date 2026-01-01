@@ -275,15 +275,34 @@ export function HeroWix() {
 
           {/* Right: contact panel (like the Wix site) */}
           <div className="lg:col-span-2 lg:justify-self-end">
-            <div className="rounded-3xl border border-white/15 bg-white/10 p-6 text-white backdrop-blur">
-              <p className="text-xs font-semibold uppercase tracking-wide text-white/80">
+            <div className="relative rounded-3xl border border-white/15 bg-white/10 p-6 text-white backdrop-blur">
+            {/* concave notches */}
+            <svg
+                aria-hidden="true"
+                className="absolute -top-6 left-0 h-6 w-6"
+                viewBox="0 0 24 24"
+            >
+                <path
+                d="M24 0H0v24C0 10.745 10.745 0 24 0Z"
+                fill="rgb(9 9 11 / 0.55)"   // matches bg-zinc-950/55 overlay vibe
+                />
+            </svg>
+
+            <svg
+                aria-hidden="true"
+                className="absolute -top-6 right-0 h-6 w-6"
+                viewBox="0 0 24 24"
+            >
+                <path
+                d="M0 0h24v24C24 10.745 13.255 0 0 0Z"
+                fill="rgb(9 9 11 / 0.55)"
+                />
+            </svg>
+
+            {/* content stays the same */}
+            <p className="text-xs font-semibold uppercase tracking-wide text-white/80">
                 Current
-              </p>
-              <p className="mt-2 text-sm text-white/90">
-                {SITE.currentTitle}
-                <br />
-                <span className="text-white/70">{SITE.currentOrg}</span>
-              </p>
+            </p>
 
               <div className="mt-5 space-y-2 text-sm">
                 <p>
