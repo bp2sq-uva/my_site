@@ -24,19 +24,17 @@ export type Experience = {
   bullets: string[];
 };
 
-export const SITE = {
-  name: "Bhasitha Dharmasena",
-  tagline: "...",
-  location: "Virginia, USA",
-  email: "bhasitha.d@gmail.com",
-  links: [/*...*/],
-  about: [/*...*/],
-  currentTitle: "PhD Researcher (Experimental Nuclear & Particle Physics)",
-  currentOrg: "University of Virginia / Jefferson Lab (Hall A)",
+export type Link = { label: string; href: string };
 
-  // ✅ add this:
-  phone: "", // or "+1 (xxx) xxx-xxxx"
+export const SITE = {
+  // ...
+  links: [
+    { label: "GitHub", href: "https://github.com/..." },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/..." },
+    { label: "CV (PDF)", href: "/cv.pdf" },
+  ] satisfies Link[],
 } as const;
+
 
 
 export const CURRENT = {
