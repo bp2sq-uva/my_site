@@ -4,6 +4,8 @@ import SiteNav from "@/app/components/SiteNav";
 import { Card, Pill } from "@/app/components/ui";
 import { FEATURED_PROJECTS, SITE, slugify } from "@/app/lib/site";
 import { CURRENT } from "@/app/lib/site";
+import Image from "next/image";
+import { SITE } from "@/app/lib/site"; // or wherever you keep SITE
 
 function HeroSimple() {
   const pills = [
@@ -197,6 +199,96 @@ function CurrentStatus() {
             <p className="mt-4 text-sm font-medium text-zinc-800">
               {CURRENT.availability}
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function HeroWix() {
+  return (
+    <section className="relative overflow-hidden border-b border-zinc-200">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/hero.jpg"
+          alt="Hero background"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-zinc-950/55" />
+      </div>
+
+      {/* Content */}
+      <div className="relative mx-auto w-full max-w-6xl px-5 py-16">
+        <div className="grid gap-10 lg:grid-cols-5 lg:items-start">
+          {/* Left: name + tagline */}
+          <div className="lg:col-span-3">
+            <p className="text-sm font-medium text-zinc-200">{SITE.location}</p>
+            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-5xl leading-[1.05]">
+              {SITE.name}
+            </h1>
+            <p className="mt-4 max-w-2xl text-base text-zinc-200 sm:text-lg leading-relaxed">
+              {SITE.tagline}
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="/cv.pdf"
+                className="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500 transition"
+              >
+                Download CV
+              </a>
+              <a
+                href="/projects"
+                className="rounded-xl border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:bg-white/15 transition"
+              >
+                View Projects
+              </a>
+            </div>
+          </div>
+
+          {/* Right: contact panel (like the Wix site) */}
+          <div className="lg:col-span-2 lg:justify-self-end">
+            <div className="rounded-3xl border border-white/15 bg-white/10 p-6 text-white backdrop-blur">
+              <p className="text-xs font-semibold uppercase tracking-wide text-white/80">
+                Current
+              </p>
+              <p className="mt-2 text-sm text-white/90">
+                {SITE.currentTitle}
+                <br />
+                <span className="text-white/70">{SITE.currentOrg}</span>
+              </p>
+
+              <div className="mt-5 space-y-2 text-sm">
+                <p>
+                  <span className="text-white/70">Email: </span>
+                  <a className="font-medium hover:underline" href={`mailto:${SITE.email}`}>
+                    {SITE.email}
+                  </a>
+                </p>
+                {SITE.phone ? (
+                  <p>
+                    <span className="text-white/70">Phone: </span>
+                    <span className="font-medium">{SITE.phone}</span>
+                  </p>
+                ) : null}
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {SITE.links.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    className="rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/15 transition"
+                  >
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
