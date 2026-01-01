@@ -3,7 +3,7 @@ import SiteNav from "@/app/components/SiteNav";
 import { Card, ProjectMedia } from "@/app/components/ui";
 import { FEATURED_PROJECTS, slugify } from "@/app/lib/site";
 import Image from "next/image";
-import { PROJECTS } from "@/app/lib/site";
+
 
 function PageBanner() {
   return (
@@ -23,7 +23,7 @@ export default function ProjectsPage() {
       <PageBanner />
 
       <div className="mx-auto w-full max-w-6xl px-5 py-12 space-y-10">
-        {PROJECTS.map((p) => (
+        {FEATURED_PROJECTS.map((p) => (
           <div key={p.slug} className="grid gap-6 lg:grid-cols-5 lg:items-start">
             <div className="lg:col-span-2">
               <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50">
