@@ -195,6 +195,88 @@ function AboutPreview() {
   );
 }
 
+function AboutSplitPreview() {
+  const professional = [
+    "Cross-disciplinary engineer-scientist spanning mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and ML/data pipelines.",
+    "Strong in collaborative environments—owning problems end-to-end: design → simulate → build → test → iterate.",
+  ];
+
+  const personal = [
+    "I like building things, exploring new places, and learning new tools.",
+    "Photography/video, live music, and projects that mix creativity with engineering.",
+  ];
+
+  return (
+    <section className="mx-auto w-full max-w-6xl px-5 py-12">
+      <div className="flex items-end justify-between gap-4">
+        <div>
+          <h2 className="text-xl font-semibold text-zinc-900">About</h2>
+          <p className="mt-1 text-sm text-zinc-600">
+            Quick snapshot — professional and personal.
+          </p>
+        </div>
+
+        <a href="/about" className="text-sm font-medium text-zinc-700 hover:underline">
+          Read more →
+        </a>
+      </div>
+
+      <div className="mt-6 grid gap-5 lg:grid-cols-2">
+        {/* Professional */}
+        <div className="relative overflow-hidden rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
+          <div className="absolute inset-x-0 top-0 h-1 bg-indigo-600" />
+          <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
+            Professional
+          </p>
+
+          <div className="mt-4 space-y-3 text-sm leading-relaxed text-zinc-700">
+            {professional.map((p, i) => (
+              <p key={i} className="line-clamp-3">
+                {p}
+              </p>
+            ))}
+          </div>
+
+          <div className="mt-5">
+            <a
+              href="/about#professional"
+              className="inline-flex rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 transition"
+            >
+              More →
+            </a>
+          </div>
+        </div>
+
+        {/* Personal */}
+        <div className="relative overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50 p-6 shadow-sm">
+          <div className="absolute inset-x-0 top-0 h-1 bg-zinc-400" />
+          <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
+            Personal
+          </p>
+
+          <div className="mt-4 space-y-3 text-sm leading-relaxed text-zinc-700">
+            {personal.map((p, i) => (
+              <p key={i} className="line-clamp-3">
+                {p}
+              </p>
+            ))}
+          </div>
+
+          <div className="mt-5">
+            <a
+              href="/about#personal"
+              className="inline-flex rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-800 hover:bg-zinc-100 transition"
+            >
+              More →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function CurrentStatus() {
   return (
     <section className="mx-auto w-full max-w-6xl px-5 pb-2">
@@ -388,7 +470,7 @@ export default function Page() {
       <SiteNav />
       <HeroWix />
       <CurrentStatus />
-      <AboutPreview />
+      <AboutSplitPreview />
       <NavTiles />
       <FeaturedProjectsPreview />
       <footer className="border-t border-zinc-200 py-8">
