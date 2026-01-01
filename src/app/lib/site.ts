@@ -1,0 +1,161 @@
+// app/lib/site.ts
+export type Link = { label: string; href: string };
+
+export type Project = {
+  title: string;
+  tagline: string;
+  tags: string[];
+  highlights: string[];
+  links?: Link[];
+  images?: { src: string; alt: string }[];
+};
+
+export type Publication = {
+  title: string;
+  venue?: string;
+  year?: string;
+  links?: Link[];
+};
+
+export type Experience = {
+  title: string;
+  org: string;
+  dates: string;
+  bullets: string[];
+};
+
+export const SITE = {
+  name: "Bhasitha Dharmasena",
+  tagline:
+    "Experimental nuclear physics • detector instrumentation • ML for reconstruction",
+  location: "Virginia, USA",
+  email: "bhasitha.d@gmail.com",
+  links: [
+    { label: "GitHub", href: "https://github.com/bp2sq-uva" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/bhasitha-dharmasena-877287177/" },
+    { label: "Google Scholar", href: "https://scholar.google.com/citations?user=le3tNbYAAAAJ&hl=en" },
+    { label: "CV (PDF)", href: "/cv.pdf" },
+  ] satisfies Link[],
+  about: [
+    `I build analysis + reconstruction pipelines for high-rate detector data, and I like the messy interface between hardware, physics, and ML.`,
+    `Recent work includes GEM tracking/decoding, coincidence timing + calibration workflows, and polarization-transfer analysis.`,
+  ],
+};
+
+export function slugify(s: string) {
+  return s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}
+
+export const FEATURED_PROJECTS: Project[] = [
+  {
+    title: "Wind Turbine Blade Design Optimization using CFD Simulations",
+    tagline: "CFD-based blade design iteration for improved efficiency and power output.",
+    tags: ["CFD", "Wind Turbine Design", "ANSYS Fluent", "Ansys CFX"],
+    highlights: [
+      "Performed detailed CFD simulations using ANSYS Fluent and Ansys CFX to analyze airflow and performance characteristics of various blade designs.",
+      "Optimized blade geometry to enhance efficiency and power output based on simulation results.",
+    ],
+    images: [
+      { src: "/projects/wind-1.png", alt: "wind turbine blade" },
+      { src: "/projects/wind-2.png", alt: "wind turbine blade" },
+      { src: "/projects/wind-3.png", alt: "wind blade" },
+    ],
+  },
+  {
+    title: "Nuclear Particle Detectors Assembly and Testing Fixtures",
+    tagline: "Designed and built fixtures for assembly, alignment, and high-voltage testing.",
+    tags: ["Mechanical Design", "Fabrication", "Instrumentation"],
+    highlights: [
+      "Designed custom jigs and frames to meet precise alignment and handling requirements.",
+      "Collaborated with technicians and engineers to iterate designs based on fabrication feedback.",
+      "Ensured all fixtures met safety and operational standards for lab use.",
+    ],
+    images: [
+      { src: "/projects/HV_1.jpg", alt: "HV testing fixture" },
+      { src: "/projects/HV_2.jpg", alt: "HV testing setup" },
+      { src: "/projects/stretcher.jpg", alt: "GEM stretcher apparatus" },
+    ],
+  },
+  {
+    title: "Computational Fluid Dynamics Simulations(CFD) and Static Structural Simulations",
+    tagline: "ANSYS-based flow + structural simulations for engineering systems and detectors.",
+    tags: ["CFD", "ANSYS", "Structural Analysis", "Simulation"],
+    highlights: [
+      "Conducted fluid flow simulations to optimize flow systems for detector systems.",
+      "Performed static structural analysis to ensure mechanical integrity under operational loads.",
+      "Analyzed simulation results to guide design improvements and engineering decisions.",
+    ],
+    images: [{ src: "/projects/gem_demo.gif", alt: "GEM gas flow simulations" }],
+  },
+  {
+    title: "Deep Learning based RF Signal Detection and Classification for Drone Surveillance",
+    tagline: "Frequency-domain RF analysis + deep learning models for drone detection.",
+    tags: ["Deep Learning", "RF Signal Processing", "Signal Analysis"],
+    highlights: [
+      "Analyzed RF signals in the frequency domain to identify characteristic emission patterns.",
+      "Trained deep learning models to detect and classify drone RF signals amid background noise.",
+    ],
+    images: [{ src: "/projects/Dedrone.png", alt: "RF signal detection" }],
+  },
+  {
+    title: "Graph Neural Networks(GNNs) for Nuclear Particle Tracking",
+    tagline: "GNN architectures to improve tracking accuracy in high-rate detector data.",
+    tags: ["Graph Neural Networks", "Detector ML", "Reconstruction"],
+    highlights: [
+      "Developed GNN models to capture complex spatial relationships in detector data.",
+      "Improved tracking efficiency and resolution compared to traditional methods.",
+    ],
+    images: [{ src: "/projects/GNN-2.png", alt: "GNNs" }],
+  },
+];
+
+export const PUBLICATIONS: Publication[] = [
+  { title: "Thesis", links: [{ label: "PDF", href: "#" }] },
+  { title: "Another publication", links: [{ label: "Link", href: "#" }] },
+];
+
+export const EXPERIENCE: Experience[] = [
+  {
+    title: "PhD Researcher (Experimental Nuclear Physics)",
+    org: "University of Virginia / Jefferson Lab",
+    dates: "2021 — Present",
+    bullets: [
+      "Built calibration + reconstruction workflows for GEM trackers and calorimeters.",
+      "Developed analysis methods for polarization-transfer observables and QA.",
+      "Prototyped testing/assembly apparatuses for detector hardware.",
+    ],
+  },
+  {
+    title: "Machine Learning Engineer Intern",
+    org: "Dedrone by AXON",
+    dates: "2024 (Summer)",
+    bullets: [
+      "Developed ML models for drone detection and classification using sensor data.",
+      "Optimized data pipelines for real-time processing and analysis.",
+      "Collaborated with cross-functional teams to integrate ML solutions into existing systems.",
+    ],
+  },
+  {
+    title: "Graduate Researcher (Machine Learning and Data Analysis for Nuclear Physics)",
+    org: "University of Virginia / Jefferson Lab",
+    dates: "2023 — Present",
+    bullets: [
+      "Front-end electronics installation, testing and real-time data acquisition system development.",
+      "Applied ML techniques to enhance data analysis and interpretation.",
+      "Built tools with interdisciplinary teams to solve reconstruction problems.",
+    ],
+  },
+  {
+    title: "Research Engineer Intern",
+    org: "Korea Maritime & Ocean University, South Korea",
+    dates: "2017 — 2018",
+    bullets: [
+      "Conducted CFD simulations to optimize small-scale wind turbine blade designs.",
+      "Analyzed simulation data to inform design improvements and enhance performance.",
+      "Ran wind tunnel experiments to validate aerodynamic performance.",
+    ],
+  },
+];
