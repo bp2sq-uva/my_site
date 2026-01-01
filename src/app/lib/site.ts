@@ -42,6 +42,20 @@ export const SITE = {
   ],
 };
 
+export const CURRENT = {
+  title: "PhD Researcher (Experimental Nuclear & Particle Physics)",
+  org: "University of Virginia / Jefferson Lab (Hall A)",
+  supervisor: "Supervisor: Prof. [Name Here]",
+  focus: [
+    "Detector instrumentation + reconstruction for GEM-based trackers",
+    "Calibration, QA automation, and analysis pipelines",
+    "ML methods for signal/cluster reconstruction and tracking",
+  ],
+  location: "Virginia, USA",
+  availability: "Open to versatile engineering roles (US-wide)",
+};
+
+
 export function slugify(s: string) {
   return s
     .toLowerCase()

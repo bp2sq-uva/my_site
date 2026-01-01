@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteNav from "@/app/components/SiteNav";
 import { Card, Pill } from "@/app/components/ui";
 import { FEATURED_PROJECTS, SITE, slugify } from "@/app/lib/site";
+import { CURRENT } from "@/app/lib/site";
 
 function HeroSimple() {
   const pills = [
@@ -142,12 +143,10 @@ function AboutPreview() {
           <div className="max-w-3xl">
             <h2 className="text-xl font-semibold text-zinc-900">About me</h2>
             <p className="mt-2 text-zinc-700 leading-relaxed">
-              I work at the intersection of detector instrumentation, reconstruction, and ML—building
-              analysis pipelines that are robust, fast, and usable.
-            </p>
-            <p className="mt-3 text-zinc-700 leading-relaxed">
-              My background spans nuclear/particle experiments, electronics/DAQ workflows, and
-              practical engineering (designing/testing hardware fixtures) — I like cross-disciplinary problems.
+            I’m a cross-disciplinary engineer-scientist with hands-on experience across mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and data/ML pipelines. In my PhD work at the University of Virginia / Jefferson Lab, I’ve routinely owned problems end-to-end: turning requirements into practical designs, building and validating test setups, and developing analysis and calibration software that converts raw detector measurements into reliable, decision-ready results.
+            On the mechanical side, I’ve designed and built fixtures and tooling for detector assembly, alignment, handling, and high-voltage testing—working closely with technicians and engineers to iterate based on fabrication constraints, safety requirements, and performance feedback. I also use simulation-guided design (CFD and structural analysis) to evaluate options, understand failure modes, and make design decisions that translate cleanly from model to hardware.
+            On the electrical side, I’m comfortable operating at the hardware–software boundary: timing and synchronization issues, readout constraints, debugging workflows, and the engineering discipline required to make systems stable in real environments. I bring the same mindset to software—building maintainable pipelines, QA automation, and (when it helps) ML methods for signal detection and tracking in noisy, high-rate data.
+            I work best in collaborative project environments where mechanical, electrical, and software decisions interact. My strength is bridging disciplines—communicating clearly across teams, keeping interfaces clean, validating with measurements, and iterating quickly—making me a strong fit for versatile engineering roles that involve designing, simulating, building, testing, and continuously improving complex systems.
             </p>
           </div>
 
@@ -171,12 +170,47 @@ function AboutPreview() {
   );
 }
 
+function CurrentStatus() {
+  return (
+    <section className="mx-auto w-full max-w-6xl px-5 pb-2">
+      <div className="rounded-3xl border border-zinc-200 bg-indigo-50/40 p-6 shadow-sm">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
+              Current
+            </p>
+            <h2 className="mt-2 text-lg font-semibold text-zinc-900">
+              {CURRENT.title}
+            </h2>
+            <p className="mt-1 text-sm text-zinc-700">{CURRENT.org}</p>
+            <p className="mt-1 text-sm text-zinc-600">{CURRENT.supervisor}</p>
+            <p className="mt-1 text-sm text-zinc-600">{CURRENT.location}</p>
+          </div>
+
+          <div className="sm:max-w-md">
+            <p className="text-sm font-semibold text-zinc-900">Focus right now</p>
+            <ul className="mt-2 space-y-1 text-sm text-zinc-700">
+              {CURRENT.focus.map((x) => (
+                <li key={x}>• {x}</li>
+              ))}
+            </ul>
+            <p className="mt-4 text-sm font-medium text-zinc-800">
+              {CURRENT.availability}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-white text-zinc-900">
       <SiteNav />
       <HeroSimple />
+      <CurrentStatus />
       <AboutPreview />
       <NavTiles />
       <FeaturedProjectsPreview />
@@ -188,6 +222,7 @@ export default function Page() {
     </div>
   );
 }
+
 
 // export default function Page() {
 //   return (
