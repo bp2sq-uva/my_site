@@ -6,7 +6,7 @@ export type Project = {
   tagline: string;
   tags: string[];
   highlights: string[];
-  links?: Link[];
+  links?: Link[];  // <- optional
   images?: { src: string; alt: string }[];
 };
 
