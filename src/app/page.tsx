@@ -98,6 +98,24 @@ function NavTiles() {
   );
 }
 
+function Thumb({ src, alt }: { src: string; alt: string }) {
+  const isGif = src.toLowerCase().endsWith(".gif");
+  if (isGif) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={src} alt={alt} className="h-44 w-full object-cover" />;
+  }
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={1200}
+      height={800}
+      className="h-44 w-full object-cover"
+    />
+  );
+}
+
+
 function FeaturedProjectsPreview() {
   const picks = FEATURED_PROJECTS.slice(0, 3);
   return (
@@ -114,9 +132,15 @@ function FeaturedProjectsPreview() {
           const slug = slugify(p.title);
           return (
             <Link key={p.title} href={`/projects/${slug}`}>
-              <Card className="h-full hover:border-zinc-300 transition">
-                <h3 className="text-base font-semibold text-zinc-900">{p.title}</h3>
-                <p className="mt-2 text-sm text-zinc-600">{p.tagline}</p>
+            <Card className="h-full overflow-hidden hover:border-zinc-300 transition">
+            {p.images?.[0] ? (
+                <div className="mb-4 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
+                <Thumb src={p.images[0].src} alt={p.images[0].alt} />
+                </div>
+            ) : null}
+
+            <h3 className="text-base font-semibold text-zinc-900">{p.title}</h3>
+            <p className="mt-2 text-sm text-zinc-600">{p.tagline}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {p.tags.slice(0, 4).map((t) => (
                     <span
