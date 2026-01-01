@@ -26,21 +26,24 @@ export type Experience = {
 
 export const SITE = {
   name: "Bhasitha Dharmasena",
-  tagline:
-    "Experimental nuclear physics • detector instrumentation • ML for reconstruction",
+  tagline: "Experimental nuclear physics • detector instrumentation • ML for reconstruction",
   location: "Virginia, USA",
   email: "bhasitha.d@gmail.com",
   links: [
-    { label: "GitHub", href: "https://github.com/bp2sq-uva" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/bhasitha-dharmasena-877287177/" },
-    { label: "Google Scholar", href: "https://scholar.google.com/citations?user=le3tNbYAAAAJ&hl=en" },
+    { label: "GitHub", href: "..." },
+    { label: "LinkedIn", href: "..." },
+    { label: "Google Scholar", href: "..." },
     { label: "CV (PDF)", href: "/cv.pdf" },
-  ] satisfies Link[],
-  about: [
-    `I build analysis + reconstruction pipelines for high-rate detector data, and I like the messy interface between hardware, physics, and ML.`,
-    `Recent work includes GEM tracking/decoding, coincidence timing + calibration workflows, and polarization-transfer analysis.`,
   ],
-};
+  about: [
+    "...",
+    "...",
+  ],
+
+  // ✅ add these:
+  currentTitle: "PhD Researcher (Experimental Nuclear & Particle Physics)",
+  currentOrg: "University of Virginia / Jefferson Lab (Hall A)",
+} as const;
 
 export const CURRENT = {
   title: "PhD Researcher (Experimental Nuclear & Particle Physics)",
