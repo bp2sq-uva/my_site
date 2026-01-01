@@ -26,8 +26,6 @@ export type Experience = {
 
 export type Link = { label: string; href: string };
 
-export type Link = { label: string; href: string };
-
 export type Site = {
   name: string;
   tagline: string;
