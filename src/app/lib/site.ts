@@ -24,7 +24,6 @@ export type Experience = {
   bullets: string[];
 };
 
-export type Link = { label: string; href: string };
 
 export type Site = {
   name: string;
