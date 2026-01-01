@@ -3,7 +3,6 @@ import SiteNav from "@/app/components/SiteNav";
 import { Card, ProjectMedia } from "@/app/components/ui";
 import { FEATURED_PROJECTS, slugify } from "@/app/lib/site";
 import Image from "next/image";
-import Link from "next/link";
 import { PROJECTS } from "@/app/lib/site";
 
 function PageBanner() {
