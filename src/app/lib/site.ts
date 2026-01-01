@@ -26,14 +26,40 @@ export type Experience = {
 
 export type Link = { label: string; href: string };
 
-export const SITE = {
-  // ...
+export type Link = { label: string; href: string };
+
+export type Site = {
+  name: string;
+  tagline: string;
+  location: string;
+  email: string;
+  links: Link[];
+  about: string[];
+  currentTitle?: string;
+  currentOrg?: string;
+  phone?: string;
+};
+
+export const SITE: Site = {
+  name: "Bhasitha Dharmasena",
+  tagline: "Experimental nuclear physics • detector instrumentation • ML for reconstruction",
+  location: "Virginia, USA",
+  email: "bhasitha.d@gmail.com",
   links: [
     { label: "GitHub", href: "https://github.com/..." },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/..." },
+    { label: "Google Scholar", href: "https://scholar.google.com/..." },
     { label: "CV (PDF)", href: "/cv.pdf" },
-  ] satisfies Link[],
-} as const;
+  ],
+  about: [
+    "I’m a cross-disciplinary engineer-scientist with experience across mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and data/ML pipelines.",
+    "I thrive in collaborative environments where mechanical, electrical, and software decisions interact—and I like owning problems end-to-end: design, simulate, build, test, and iterate.",
+  ],
+  currentTitle: "PhD Researcher (Experimental Nuclear & Particle Physics)",
+  currentOrg: "University of Virginia / Jefferson Lab (Hall A)",
+  // phone: "+1 ...", // optional
+};
+
 
 
 
