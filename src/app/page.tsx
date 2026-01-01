@@ -300,7 +300,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-white text-zinc-900">
       <SiteNav />
-      <HeroSimple />
+      <HeroWix />
       <CurrentStatus />
       <AboutPreview />
       <NavTiles />
