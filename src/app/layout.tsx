@@ -60,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="mx-auto w-full max-w-6xl px-5 py-10">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <div className="text-sm font-semibold text-zinc-900">{SITE.name}</div>
+                <div className="text-sm font-semibold text-zinc-500">{SITE.name}</div>
                 <div className="mt-1 text-sm text-zinc-600">{SITE.location}</div>
 
                 <div className="mt-4 text-sm">
