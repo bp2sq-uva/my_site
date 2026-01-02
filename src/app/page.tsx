@@ -510,6 +510,26 @@ export function HeroWix() {
 }
 
 
+function LogoMark({ src, alt }: { src: string; alt: string }) {
+  const isSvg = src.toLowerCase().endsWith(".svg");
+
+  if (isSvg) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={src} alt={alt} className="h-10 w-auto object-contain" />;
+  }
+
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={220}
+      height={90}
+      className="h-10 w-auto object-contain"
+    />
+  );
+}
+
+
 function LogoStrip() {
   return (
     <section className="mx-auto w-full max-w-6xl px-5 py-10">
@@ -522,13 +542,9 @@ function LogoStrip() {
           {WORK_LOGOS.map((logo) => {
             const img = (
               <div className="flex items-center justify-center rounded-2xl border border-zinc-200 bg-zinc-50 px-3 py-3">
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  width={220}
-                  height={90}
-                  className="h-10 w-auto object-contain opacity-80 grayscale hover:opacity-100 hover:grayscale-0 transition"
-                />
+                <div className="opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0">
+                  <LogoMark src={logo.src} alt={logo.name} />
+                </div>
               </div>
             );
 
