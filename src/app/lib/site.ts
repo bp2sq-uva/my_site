@@ -28,10 +28,10 @@ export type Experience = {
 export type Site = {
   name: string;
   tagline: string;
-  location: string;
   email: string;
   links: Link[];
   about: string[];
+  location?: string;
   currentTitle?: string;
   currentOrg?: string;
   phone?: string;
@@ -40,7 +40,7 @@ export type Site = {
 export const SITE: Site = {
   name: "Bhasitha Dharmasena",
   tagline: "Experimental nuclear physics • detector instrumentation • ML for reconstruction",
-  location: "Virginia, USA",
+  // location: "Virginia, USA",
   email: "bhasitha.d@gmail.com",
   links: [
     { label: "GitHub", href: "https://github.com/..." },
@@ -59,19 +59,18 @@ export const SITE: Site = {
 
 
 
-
 export const CURRENT = {
   title: "PhD Researcher (Experimental Nuclear & Particle Physics)",
   org: "University of Virginia / Jefferson Lab (Hall A)",
-  supervisor: "Supervisor: Prof. [Name Here]",
+  supervisor: "Supervisor: Prof. ____",
+  location: "Virginia, USA", // ✅ add this
   focus: [
     "Detector instrumentation + reconstruction for GEM-based trackers",
     "Calibration, QA automation, and analysis pipelines",
     "ML methods for signal/cluster reconstruction and tracking",
   ],
-  // location: "Virginia, USA",
   availability: "Open to versatile engineering roles (US-wide)",
-};
+} as const;
 
 
 export function slugify(s: string) {
