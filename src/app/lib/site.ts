@@ -69,7 +69,7 @@ export const CURRENT = {
     "Calibration, QA automation, and analysis pipelines",
     "ML methods for signal/cluster reconstruction and tracking",
   ],
-  location: "Virginia, USA",
+  // location: "Virginia, USA",
   availability: "Open to versatile engineering roles (US-wide)",
 };
 
