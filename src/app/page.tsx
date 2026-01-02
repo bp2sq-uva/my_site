@@ -274,67 +274,43 @@ function Thumb({ src, alt }: { src: string; alt: string }) {
 //   );
 // }
 
-
 function FeaturedProjectsPreview() {
   const picks = FEATURED_PROJECTS.slice(0, 3);
 
   return (
     <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
       <div className="flex items-end justify-between gap-4">
-        <div>
-          <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
-          <p className="mt-1 text-sm text-zinc-600">A few selected builds and analyses.</p>
-        </div>
-
+        <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
         <Link href="/projects" className="text-sm font-medium text-zinc-700 hover:underline">
           See all →
         </Link>
       </div>
 
-      <div className="mt-10 divide-y divide-zinc-200">
+      <div className="mt-10 grid gap-10 md:grid-cols-3">
         {picks.map((p) => {
           const slug = slugify(p.title);
           return (
-            <Link
-              key={p.title}
-              href={`/projects/${slug}`}
-              className="group block py-8"
-            >
-              <div className="grid gap-6 md:grid-cols-12 md:items-start">
-                {/* Image (optional, not a card, not rounded) */}
-                <div className="md:col-span-4">
-                  {p.images?.[0] ? (
-                    <div className="aspect-[16/10] overflow-hidden bg-zinc-100">
-                      <Thumb src={p.images[0].src} alt={p.images[0].alt} />
-                    </div>
-                  ) : (
-                    <div className="aspect-[16/10] bg-zinc-100" />
-                  )}
+            <Link key={p.title} href={`/projects/${slug}`} className="group">
+              {p.images?.[0] ? (
+                <div className="aspect-[16/10] overflow-hidden bg-zinc-100">
+                  <Thumb src={p.images[0].src} alt={p.images[0].alt} />
                 </div>
+              ) : (
+                <div className="aspect-[16/10] bg-zinc-100" />
+              )}
 
-                {/* Text */}
-                <div className="md:col-span-8">
-                  <div className="flex items-start justify-between gap-6">
-                    <h3 className="text-2xl font-semibold tracking-tight text-zinc-900 group-hover:underline underline-offset-8 decoration-zinc-300">
-                      {p.title}
-                    </h3>
-                    <span className="text-sm text-zinc-500 transition group-hover:translate-x-0.5">
-                      →
-                    </span>
-                  </div>
+              <h3 className="mt-5 text-lg font-semibold text-zinc-900 group-hover:underline underline-offset-8 decoration-zinc-300">
+                {p.title}
+              </h3>
 
-                  <p className="mt-2 max-w-2xl text-sm text-zinc-600">
-                    {p.tagline}
-                  </p>
+              <p className="mt-2 text-sm text-zinc-600">{p.tagline}</p>
 
-                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-500">
-                    {p.tags.slice(0, 5).map((t) => (
-                      <span key={t} className="border-b border-zinc-200 pb-0.5">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-500">
+                {p.tags.slice(0, 4).map((t) => (
+                  <span key={t} className="border-b border-zinc-200 pb-0.5">
+                    {t}
+                  </span>
+                ))}
               </div>
             </Link>
           );
@@ -343,7 +319,6 @@ function FeaturedProjectsPreview() {
     </section>
   );
 }
-
 
 
 
