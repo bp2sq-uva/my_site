@@ -496,7 +496,7 @@ function AboutPreviewCombined() {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+      <div className="mx-auto w-full max-w-6xl px-5py-20 sm:py-36 lg:py-48">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-xl font-semibold text-zinc-900">About</h2>
@@ -624,7 +624,7 @@ function AboutPreviewCombined() {
 function CurrentStatus() {
   return (
     <section className="w-full bg-indigo-50">
-      <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-48">
         <div className="grid gap-20 md:grid-cols-2 md:items-start">
           {/* Left */}
           <div>
