@@ -147,7 +147,7 @@ function FeaturedProjectsPreview() {
 
   return (
     <section className="w-full bg-stone-50">
-      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-48">
+      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-56">
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
           <Link href="/projects" className="text-sm font-medium text-zinc-700 hover:underline">
@@ -323,7 +323,7 @@ function AboutPreviewCombined() {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-48">
+      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-56">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-xl font-semibold text-zinc-900">About</h2>
@@ -388,7 +388,7 @@ function AboutPreviewCombined() {
 function CurrentStatus() {
   return (
     <section className="w-full bg-indigo-50">
-      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-48">
+      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-56">
         <div className="grid gap-20 md:grid-cols-2 md:items-start">
           {/* Left */}
           <div>
@@ -541,8 +541,9 @@ export function HeroWix() {
 function LogoMark({ src, alt }: { src: string; alt: string }) {
   const isSvg = src.toLowerCase().endsWith(".svg");
 
-  // Bigger, and respects the container height
-  const cls = "max-h-full w-auto object-contain";
+  // Opacity + smooth hover, and always fit inside whatever height the parent gives it
+  const cls =
+    "max-h-full w-auto object-contain opacity-70 transition-opacity duration-200 hover:opacity-100";
 
   if (isSvg) {
     // eslint-disable-next-line @next/next/no-img-element
@@ -553,8 +554,8 @@ function LogoMark({ src, alt }: { src: string; alt: string }) {
     <Image
       src={src}
       alt={alt}
-      width={520}
-      height={240}
+      width={700}
+      height={300}
       className={cls}
     />
   );
@@ -566,7 +567,7 @@ function LogoMark({ src, alt }: { src: string; alt: string }) {
 function LogoStrip() {
   return (
     <section id="worked-with" className="w-full bg-zinc-50">
-      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-48">
+      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-56">
         <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
           Worked with
         </p>
@@ -574,9 +575,9 @@ function LogoStrip() {
         <div className="mt-12 grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-3 lg:grid-cols-6">
           {WORK_LOGOS.map((logo) => {
             const item = (
-              <div className="flex h-20 items-center justify-center sm:h-24 md:h-28 lg:h-32">
+            <div className="flex h-24 items-center justify-center sm:h-28 md:h-32 lg:h-36 xl:h-40">
                 <LogoMark src={logo.src} alt={logo.name} />
-              </div>
+            </div>
             );
 
             return logo.href ? (
