@@ -4,6 +4,8 @@ import Link from "next/link";
 import SiteNav from "@/app/components/SiteNav";
 import { FEATURED_PROJECTS, slugify } from "@/app/lib/site";
 
+// testing 
+
 function PageBanner() {
   return (
     <section className="relative h-[320px] w-full overflow-hidden border-b border-zinc-200">
