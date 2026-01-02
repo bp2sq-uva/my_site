@@ -90,10 +90,6 @@ export default function ExperiencePage() {
     </div>
   );
 }
-Note: I used (e as any).logos so this compiles even if your Experience type doesn’t yet include logos. If you want it fully typed, we’ll add logos?: WorkLogo[] to the Experience type in site.ts.
-After these two changes, you’ll have only one default export in app/page.tsx, and the Experience page will correctly live at /experience.
-
-Sources
 
 
 
