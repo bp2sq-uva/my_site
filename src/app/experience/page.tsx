@@ -1,8 +1,6 @@
 import SiteNav from "@/app/components/SiteNav";
 import { Card } from "@/app/components/ui";
-import { EXPERIENCE } from "@/app/lib/site";
-
-
+import { EXPERIENCE, SITE } from "@/app/lib/site";
 
 export default function ExperiencePage() {
   return (
