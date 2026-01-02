@@ -8,6 +8,7 @@ import Image from "next/image";
 import { WORK_LOGOS } from "@/app/lib/site";
 import { EXPERIENCE } from "@/app/lib/site";
 
+
 function ExperienceLogos({
   logos,
 }: {
@@ -57,9 +58,7 @@ export default function ExperiencePage() {
 
       <main className="mx-auto w-full max-w-6xl px-5 py-12">
         <h1 className="text-3xl font-semibold tracking-tight">Experience</h1>
-        <p className="mt-2 text-zinc-600">
-          Roles, collaborations, and selected contributions.
-        </p>
+        <p className="mt-2 text-zinc-600">Timeline + key contributions.</p>
 
         <div className="mt-8 space-y-6">
           {EXPERIENCE.map((e) => (
@@ -67,17 +66,11 @@ export default function ExperiencePage() {
               key={`${e.org}-${e.title}`}
               className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm"
             >
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <h2 className="text-lg font-semibold text-zinc-900">
-                    {e.title}
-                  </h2>
-                  <p className="text-sm text-zinc-700">{e.org}</p>
-                  <p className="text-sm text-zinc-500">{e.dates}</p>
-                </div>
-              </div>
+              <h2 className="text-lg font-semibold text-zinc-900">{e.title}</h2>
+              <p className="text-sm text-zinc-700">{e.org}</p>
+              <p className="text-sm text-zinc-500">{e.dates}</p>
 
-              <ExperienceLogos logos={e.logos} />
+              <ExperienceLogos logos={(e as any).logos} />
 
               <ul className="mt-4 space-y-2 text-sm text-zinc-700">
                 {e.bullets.map((b, i) => (
@@ -97,6 +90,10 @@ export default function ExperiencePage() {
     </div>
   );
 }
+Note: I used (e as any).logos so this compiles even if your Experience type doesn’t yet include logos. If you want it fully typed, we’ll add logos?: WorkLogo[] to the Experience type in site.ts.
+After these two changes, you’ll have only one default export in app/page.tsx, and the Experience page will correctly live at /experience.
+
+Sources
 
 
 
