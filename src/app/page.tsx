@@ -321,7 +321,7 @@ function FeaturedProjectsPreview() {
   const picks = FEATURED_PROJECTS.slice(0, 3);
 
   return (
-    <section className="w-full bg-sky-50">
+    <section className="w-full bg-green-50">
       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
