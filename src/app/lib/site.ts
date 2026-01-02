@@ -215,7 +215,7 @@ export const EXPERIENCE: Experience[] = [
       "Ran wind tunnel experiments to validate aerodynamic performance.",
     ],
     logos: [
-      { name: "Dedrone by Axon", src: "/logos/kmou.svg", href: "https://www.dedrone.com" },
+      { name: "Dedrone by Axon", src: "/logos/kmou.svg", href: "https://www.kmou.ac.kr" },
     ],
 
   },
@@ -228,5 +228,5 @@ export const WORK_LOGOS: Logo[] = [
   { name: "University of Virginia", src: "/logos/uva.svg", href: "https://www.virginia.edu" },
   { name: "Jefferson Lab", src: "/logos/jlab.svg", href: "https://www.jlab.org" },
   { name: "Dedrone by Axon", src: "/logos/dedrone.svg", href: "https://www.dedrone.com" },
-  // { name: "Korea Maritime & Ocean University", src: "/logos/kmu.svg", href: "https://www.kmou.ac.kr" },
+  { name: "Korea Maritime & Ocean University", src: "/logos/kmou.svg", href: "https://www.kmou.ac.kr" },
 ];

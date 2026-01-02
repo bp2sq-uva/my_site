@@ -97,7 +97,7 @@ function ExperienceLogos({
     <div className="mt-4 flex flex-wrap gap-3">
       {logos.map((l) => {
         const img = (
-          <div className="flex h-12 w-28 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 px-3">
+          <div className="flex h-24 w-42 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 px-3">
             <Image
               src={l.src}
               alt={l.name}
