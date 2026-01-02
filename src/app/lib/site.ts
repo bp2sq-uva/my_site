@@ -17,12 +17,12 @@ export type Publication = {
   links?: Link[];
 };
 
-export type Experience = {
-  title: string;
-  org: string;
-  dates: string;
-  bullets: string[];
-};
+// export type Experience = {
+//   title: string;
+//   org: string;
+//   dates: string;
+//   bullets: string[];
+// };
 
 
 export type Site = {
