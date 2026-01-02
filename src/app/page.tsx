@@ -6,6 +6,66 @@ import { FEATURED_PROJECTS, SITE, slugify } from "@/app/lib/site";
 import { CURRENT } from "@/app/lib/site";
 import Image from "next/image";
 import { WORK_LOGOS } from "@/app/lib/site";
+import { EXPERIENCE } from "@/app/lib/site";
+
+function ExperienceLogos({ logos }: { logos?: { name: string; src: string; href?: string }[] }) {
+  if (!logos?.length) return null;
+
+  return (
+    <div className="mt-4 flex flex-wrap gap-3">
+      {logos.map((l) => {
+        const img = (
+          <div className="flex h-12 w-28 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 px-3">
+            <Image
+              src={l.src}
+              alt={l.name}
+              width={220}
+              height={90}
+              className="h-8 w-auto object-contain opacity-80 grayscale hover:opacity-100 hover:grayscale-0 transition"
+            />
+          </div>
+        );
+
+        return l.href ? (
+          <a key={l.name} href={l.href} target="_blank" rel="noreferrer" title={l.name}>
+            {img}
+          </a>
+        ) : (
+          <div key={l.name} title={l.name}>
+            {img}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+export default function ExperiencePage() {
+  return (
+    <div className="mx-auto w-full max-w-6xl px-5 py-12">
+      {EXPERIENCE.map((e) => (
+        <div key={`${e.org}-${e.title}`} className="mb-8 rounded-3xl border border-zinc-200 bg-white p-6">
+          <div className="flex items-start justify-between gap-6">
+            <div>
+              <h2 className="text-lg font-semibold text-zinc-900">{e.title}</h2>
+              <p className="text-sm text-zinc-700">{e.org}</p>
+              <p className="text-sm text-zinc-500">{e.dates}</p>
+            </div>
+          </div>
+
+          <ExperienceLogos logos={e.logos} />
+
+          <ul className="mt-4 space-y-2 text-sm text-zinc-700">
+            {e.bullets.map((b, i) => (
+              <li key={i}>• {b}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 
 function HeroSimple() {
   const pills = [

@@ -80,6 +80,20 @@ export function slugify(s: string) {
     .replace(/(^-|-$)+/g, "");
 }
 
+
+
+export type WorkLogo = { name: string; src: string; href?: string };
+
+export type Experience = {
+  title: string;
+  org: string;
+  dates: string;
+  bullets: string[];
+  logos?: WorkLogo[]; // ✅ add this
+};
+
+
+
 export const FEATURED_PROJECTS: Project[] = [
   {
     title: "Wind Turbine Blade Design Optimization using CFD Simulations",
@@ -168,6 +182,14 @@ export const EXPERIENCE: Experience[] = [
       "Optimized data pipelines for real-time processing and analysis.",
       "Collaborated with cross-functional teams to integrate ML solutions into existing systems.",
     ],
+
+    logos: [
+      { name: "University of Virginia", src: "/logos/uva.svg", href: "https://www.virginia.edu" },
+      { name: "Dedrone by Axon", src: "/logos/dedrone.svg", href: "https://www.dedrone.com" },
+      { name: "Jefferson Lab", src: "/logos/jlab.svg", href: "https://www.jlab.org" },
+    ],
+
+  
   },
   {
     title: "Graduate Researcher (Machine Learning and Data Analysis for Nuclear Physics)",
