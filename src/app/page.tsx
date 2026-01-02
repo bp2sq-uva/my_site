@@ -410,7 +410,7 @@ export function HeroWix() {
       {/* Content */}
       <div className="relative mx-auto w-full max-w-6xl px-5 py-16">
         <div className="grid gap-10 lg:grid-cols-5 lg:items-start">
-          {/* Left: name + tagline */}
+          {/* Left */}
           <div className="lg:col-span-3">
             <p className="text-sm font-medium text-zinc-200">{SITE.location}</p>
 
@@ -429,36 +429,32 @@ export function HeroWix() {
               >
                 Download CV
               </a>
-
               <a
                 href="/projects"
                 className="rounded-xl border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:bg-white/15 transition"
               >
                 View Projects
               </a>
-
               <a
                 href="/about"
                 className="rounded-xl border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:bg-white/15 transition"
               >
-                About Me
+                About
               </a>
             </div>
           </div>
 
-          {/* Right: "Current" panel */}
+          {/* Right: Current panel */}
           <div className="lg:col-span-2 lg:justify-self-end lg:-mt-6">
             <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-white/10 p-6 text-white backdrop-blur">
-              {/* Concave notches (carve into the top corners) */}
+              {/* Concave notches */}
+              {/* (Fill matches bg-zinc-950/55 overlay) */}
               <svg
                 aria-hidden="true"
                 className="absolute left-0 top-0 h-8 w-8 -translate-x-[1px] -translate-y-[1px]"
                 viewBox="0 0 32 32"
               >
-                <path
-                  d="M32 0H0v32C0 14.327 14.327 0 32 0Z"
-                  fill="rgb(9 9 11 / 0.55)"
-                />
+                <path d="M32 0H0v32C0 14.327 14.327 0 32 0Z" fill="rgb(9 9 11 / 0.55)" />
               </svg>
 
               <svg
@@ -466,41 +462,27 @@ export function HeroWix() {
                 className="absolute right-0 top-0 h-8 w-8 translate-x-[1px] -translate-y-[1px]"
                 viewBox="0 0 32 32"
               >
-                <path
-                  d="M0 0h32v32C32 14.327 17.673 0 0 0Z"
-                  fill="rgb(9 9 11 / 0.55)"
-                />
+                <path d="M0 0h32v32C32 14.327 17.673 0 0 0Z" fill="rgb(9 9 11 / 0.55)" />
               </svg>
 
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-white/80">
-                    Current
-                  </p>
-                  <p className="mt-2 text-sm text-white/90">
-                    {SITE.currentTitle}
-                    <br />
-                    <span className="text-white/70">{SITE.currentOrg}</span>
-                  </p>
-                </div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-white/80">
+                Current
+              </p>
 
-                <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white/90">
-                  {SITE.location}
-                </span>
-              </div>
+              <p className="mt-2 text-sm text-white/90">
+                {SITE.currentTitle}
+                <br />
+                <span className="text-white/70">{SITE.currentOrg}</span>
+              </p>
 
               <div className="mt-5 space-y-2 text-sm">
                 <p>
                   <span className="text-white/70">Email: </span>
-                  <a
-                    className="font-medium hover:underline"
-                    href={`mailto:${SITE.email}`}
-                  >
+                  <a className="font-medium hover:underline" href={`mailto:${SITE.email}`}>
                     {SITE.email}
                   </a>
                 </p>
 
-                {/* Keep phone optional (won't error if phone is undefined) */}
                 {SITE.phone ? (
                   <p>
                     <span className="text-white/70">Phone: </span>
@@ -520,24 +502,9 @@ export function HeroWix() {
                   </a>
                 ))}
               </div>
-
-              <div className="mt-6 pt-5 border-t border-white/10">
-                <p className="text-xs text-white/70">
-                  Want to collaborate or talk roles?
-                </p>
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500 transition"
-                >
-                  Reach out
-                </a>
-              </div>
             </div>
           </div>
         </div>
-
-        {/* Subtle bottom fade to make card feel connected to image */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-white/0 to-white/0" />
       </div>
     </section>
   );
