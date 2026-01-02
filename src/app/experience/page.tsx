@@ -19,7 +19,7 @@ function ExperienceLogosCorner({
             <img
               src={l.src}
               alt={l.name}
-              className="h-16 w-auto object-contain opacity-80 grayscale hover:opacity-100 hover:grayscale-40 transition"
+              className="h-16 w-auto object-contain opacity-80 grayscale hover:opacity-40 hover:grayscale-0 transition"
             />
           </div>
         );
