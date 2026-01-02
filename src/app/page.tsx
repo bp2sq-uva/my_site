@@ -854,7 +854,7 @@ function LogoStrip() {
           Worked with
         </p>
 
-        <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-20 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
           {WORK_LOGOS.map((logo) => {
             const item = (
               <div className="flex items-center justify-center py-3">
