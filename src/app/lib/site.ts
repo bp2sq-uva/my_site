@@ -62,7 +62,7 @@ export const SITE: Site = {
 export const CURRENT = {
   title: "PhD Researcher (Experimental Nuclear & Particle Physics)",
   org: "University of Virginia / Jefferson Lab (Hall A)",
-  supervisor: "Supervisor: Prof. ____",
+  supervisor: "Supervisor: Prof. Nilanga Liyanage",
   location: "Virginia, USA", // ✅ add this
   focus: [
     "Detector instrumentation + reconstruction for GEM-based trackers",

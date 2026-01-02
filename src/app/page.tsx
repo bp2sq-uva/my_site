@@ -146,7 +146,7 @@ function FeaturedProjectsPreview() {
   const picks = FEATURED_PROJECTS.slice(0, 3);
 
   return (
-    <section className="w-full bg-stone-50">
+    <section className="w-full bg-cyan-50">
       <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-56">
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
@@ -605,9 +605,9 @@ export default function Page() {
     <div className="min-h-screen bg-white text-zinc-900">
       <SiteNav />
       <HeroWix />
+      <AboutPreviewCombined />
       <LogoStrip />
       <CurrentStatus />
-      <AboutPreviewCombined />
       <FeaturedProjectsPreview />
       <NavTiles />
       <footer className="border-t border-zinc-200 py-8">
