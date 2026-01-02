@@ -310,10 +310,10 @@ function AboutPreviewCombined() {
         <div className="mt-6 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
         {/* ✅ Title inside the box */}
         <div className="flex items-center justify-between">
-            <p className="text-sm font-semibold text-zinc-900">About</p>
+            <p className="text-base font-semibold text-zinc-900">About</p>
             <a
             href="/about"
-            className="text-sm font-medium text-zinc-700 hover:underline"
+            className="text-base font-medium text-zinc-700 hover:underline"
             >
             Read more →
             </a>
@@ -556,7 +556,7 @@ function LogoStrip() {
     <section className="mx-auto w-full max-w-6xl px-5 py-10">
       {/* <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-6 shadow-sm"> */}
       {/* <div className="rounded-3xl border border-violet-100 bg-violet-50 p-6 shadow-sm"> */}
-      <div className="rounded-3xl border border-indigo-100 bg-indigo-50 p-6 shadow-sm">
+      <div className="rounded-3xl border border-indigo-100 bg-indigo-35 p-6 shadow-sm">
         <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
           Worked with
         </p>
