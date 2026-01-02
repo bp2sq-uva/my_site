@@ -549,8 +549,8 @@ function LogoStrip() {
           {WORK_LOGOS.map((logo) => {
             const img = (
               <div className="flex items-center justify-center rounded-2xl border border-zinc-200 bg-zinc-50 px-3 py-3">
-                <div className="opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0">
-                  <LogoMark src={logo.src} alt={logo.name} />
+                <div className="opacity-95 saturate-90 contrast-105 transition hover:opacity-100 hover:saturate-110 hover:contrast-110">
+                <LogoMark src={logo.src} alt={logo.name} />
                 </div>
               </div>
             );
