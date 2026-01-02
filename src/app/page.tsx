@@ -305,8 +305,22 @@ function AboutPreviewCombined() {
         </a>
       </div>
 
-      <div className="mt-6 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <div className="grid gap-6 lg:grid-cols-2">
+      {/* <div className="mt-6 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
+        <div className="grid gap-6 lg:grid-cols-2"> */}
+        <div className="mt-6 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
+        {/* ✅ Title inside the box */}
+        <div className="flex items-center justify-between">
+            <p className="text-sm font-semibold text-zinc-900">About</p>
+            <a
+            href="/about"
+            className="text-sm font-medium text-zinc-700 hover:underline"
+            >
+            Read more →
+            </a>
+        </div>
+
+        <div className="mt-5 grid gap-6 lg:grid-cols-2">
+
           {/* Professional */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
