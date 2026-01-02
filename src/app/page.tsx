@@ -75,37 +75,77 @@ function HeroSimple() {
   );
 }
 
+// function NavTiles() {
+//   const tiles = [
+//     { title: "About", desc: "Short bio + focus areas.", href: "/about" },
+//     { title: "Projects", desc: "Selected work with full detail pages.", href: "/projects" },
+//     { title: "Publications", desc: "Thesis, papers, notes, talks.", href: "/publications" },
+//     { title: "Experience", desc: "Timeline + key contributions.", href: "/experience" },
+//     // { title: "Contact", desc: "Email + links.", href: "/contact" },
+//   ];
+
+//   return (
+//     <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+//     <h2 className="text-xl font-semibold text-zinc-900">Explore</h2>
+
+//     <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+//         {tiles.map((t) => (
+//           <Link key={t.href} href={t.href}>
+//             <Card className="h-full hover:border-zinc-300 transition">
+//               <div className="flex items-start justify-between gap-4">
+//                 <div>
+//                   <h3 className="text-base font-semibold text-zinc-900">{t.title}</h3>
+//                   <p className="mt-1 text-sm text-zinc-600">{t.desc}</p>
+//                 </div>
+//                 <span className="text-sm text-zinc-500">→</span>
+//               </div>
+//             </Card>
+//           </Link>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// }
+
+
 function NavTiles() {
   const tiles = [
     { title: "About", desc: "Short bio + focus areas.", href: "/about" },
     { title: "Projects", desc: "Selected work with full detail pages.", href: "/projects" },
     { title: "Publications", desc: "Thesis, papers, notes, talks.", href: "/publications" },
     { title: "Experience", desc: "Timeline + key contributions.", href: "/experience" },
-    // { title: "Contact", desc: "Email + links.", href: "/contact" },
   ];
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-    <h2 className="text-xl font-semibold text-zinc-900">Explore</h2>
+    <section className="w-full bg-zinc-50">
+      <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+        <h2 className="text-xl font-semibold text-zinc-900">Explore</h2>
 
-    <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {tiles.map((t) => (
-          <Link key={t.href} href={t.href}>
-            <Card className="h-full hover:border-zinc-300 transition">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {tiles.map((t) => (
+            <Link
+              key={t.href}
+              href={t.href}
+              className="group rounded-3xl bg-white px-6 py-6 shadow-sm ring-1 ring-black/5 transition hover:shadow-md"
+            >
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h3 className="text-base font-semibold text-zinc-900">{t.title}</h3>
                   <p className="mt-1 text-sm text-zinc-600">{t.desc}</p>
                 </div>
-                <span className="text-sm text-zinc-500">→</span>
+                <span className="text-sm text-zinc-500 transition group-hover:translate-x-0.5">
+                  →
+                </span>
               </div>
-            </Card>
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
+
+
 
 function Thumb({ src, alt }: { src: string; alt: string }) {
   const isGif = src.toLowerCase().endsWith(".gif");
@@ -125,49 +165,103 @@ function Thumb({ src, alt }: { src: string; alt: string }) {
 }
 
 
+// function FeaturedProjectsPreview() {
+//   const picks = FEATURED_PROJECTS.slice(0, 3);
+//   return (
+//     <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+//     <div className="flex items-end justify-between gap-4">
+//         <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
+//         <Link href="/projects" className="text-sm font-medium text-zinc-700 hover:underline">
+//           See all →
+//         </Link>
+//       </div>
+
+//       <div className="mt-8 grid gap-6 md:grid-cols-3">
+//         {picks.map((p) => {
+//           const slug = slugify(p.title);
+//           return (
+//             <Link key={p.title} href={`/projects/${slug}`}>
+//             <Card className="h-full overflow-hidden hover:border-zinc-300 transition">
+//             {p.images?.[0] ? (
+//                 <div className="mb-4 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
+//                 <Thumb src={p.images[0].src} alt={p.images[0].alt} />
+//                 </div>
+//             ) : null}
+
+//             <h3 className="text-base font-semibold text-zinc-900">{p.title}</h3>
+//             <p className="mt-2 text-sm text-zinc-600">{p.tagline}</p>
+//                 <div className="mt-4 flex flex-wrap gap-2">
+//                   {p.tags.slice(0, 4).map((t) => (
+//                     <span
+//                       key={t}
+//                       className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700"
+//                     >
+//                       {t}
+//                     </span>
+//                   ))}
+//                 </div>
+//               </Card>
+//             </Link>
+//           );
+//         })}
+//       </div>
+//     </section>
+//   );
+// }
+
+
 function FeaturedProjectsPreview() {
   const picks = FEATURED_PROJECTS.slice(0, 3);
+
   return (
-    <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-    <div className="flex items-end justify-between gap-4">
-        <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
-        <Link href="/projects" className="text-sm font-medium text-zinc-700 hover:underline">
-          See all →
-        </Link>
-      </div>
+    <section className="w-full bg-white">
+      <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+        <div className="flex items-end justify-between gap-4">
+          <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
+          <Link href="/projects" className="text-sm font-medium text-zinc-700 hover:underline">
+            See all →
+          </Link>
+        </div>
 
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
-        {picks.map((p) => {
-          const slug = slugify(p.title);
-          return (
-            <Link key={p.title} href={`/projects/${slug}`}>
-            <Card className="h-full overflow-hidden hover:border-zinc-300 transition">
-            {p.images?.[0] ? (
-                <div className="mb-4 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
-                <Thumb src={p.images[0].src} alt={p.images[0].alt} />
-                </div>
-            ) : null}
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {picks.map((p) => {
+            const slug = slugify(p.title);
+            return (
+              <Link
+                key={p.title}
+                href={`/projects/${slug}`}
+                className="group rounded-3xl bg-zinc-50 p-5 ring-1 ring-black/5 transition hover:bg-zinc-100/60"
+              >
+                {p.images?.[0] ? (
+                  <div className="mb-4 overflow-hidden rounded-2xl bg-zinc-100">
+                    <Thumb src={p.images[0].src} alt={p.images[0].alt} />
+                  </div>
+                ) : null}
 
-            <h3 className="text-base font-semibold text-zinc-900">{p.title}</h3>
-            <p className="mt-2 text-sm text-zinc-600">{p.tagline}</p>
+                <h3 className="text-base font-semibold text-zinc-900">{p.title}</h3>
+                <p className="mt-2 text-sm text-zinc-600">{p.tagline}</p>
+
                 <div className="mt-4 flex flex-wrap gap-2">
                   {p.tags.slice(0, 4).map((t) => (
                     <span
                       key={t}
-                      className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700"
+                      className="rounded-full bg-white/80 px-3 py-1 text-xs font-medium text-zinc-700 ring-1 ring-black/5"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
-              </Card>
-            </Link>
-          );
-        })}
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
 }
+
+
+
 
 function AboutPreview() {
   return (
@@ -288,6 +382,7 @@ function AboutSplitPreview() {
 
 
 
+
 function AboutPreviewCombined() {
   const professional =
     "Cross-disciplinary engineer-scientist spanning mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and ML/data pipelines. I work best owning problems end-to-end: design → simulate → build → test → iterate in collaborative teams.";
@@ -296,22 +391,25 @@ function AboutPreviewCombined() {
     "Outside work, I enjoy building things, exploring new places, photography/video, and live music—especially projects that mix creativity with engineering.";
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-      <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
-        {/* Title row inside box */}
-        <div className="flex items-center justify-between gap-4">
-          <p className="text-sm font-semibold text-zinc-900">About</p>
+    <section className="w-full bg-white">
+      <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-semibold text-zinc-900">About</h2>
+            <p className="mt-1 text-sm text-zinc-600">Professional + personal (short).</p>
+          </div>
+
           <a href="/about" className="text-sm font-medium text-zinc-700 hover:underline">
             Read more →
           </a>
         </div>
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+        <div className="mt-8 grid gap-10 lg:grid-cols-2">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
               Professional
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
+            <p className="mt-3 text-sm leading-relaxed text-zinc-700">
               {professional}{" "}
               <a href="/about#professional" className="font-semibold text-indigo-700 hover:underline">
                 More…
@@ -319,26 +417,27 @@ function AboutPreviewCombined() {
             </p>
           </div>
 
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">
+          <div className="lg:border-l lg:border-zinc-900/10 lg:pl-10">
+            <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">
               Personal
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
+            <p className="mt-3 text-sm leading-relaxed text-zinc-700">
               {personal}{" "}
-              <a href="/about#personal" className="font-semibold text-blue-600 hover:underline">
+              <a href="/about#personal" className="font-semibold text-blue-700 hover:underline">
                 More…
               </a>
             </p>
           </div>
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-3 border-t border-zinc-200 pt-6">
+        <div className="mt-10 flex flex-wrap gap-3">
           <a
             href="/about#professional"
             className="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500 transition"
           >
             Professional details
           </a>
+
           <a
             href="/about#personal"
             className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500 transition"
@@ -350,6 +449,71 @@ function AboutPreviewCombined() {
     </section>
   );
 }
+
+
+
+// function AboutPreviewCombined() {
+//   const professional =
+//     "Cross-disciplinary engineer-scientist spanning mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and ML/data pipelines. I work best owning problems end-to-end: design → simulate → build → test → iterate in collaborative teams.";
+
+//   const personal =
+//     "Outside work, I enjoy building things, exploring new places, photography/video, and live music—especially projects that mix creativity with engineering.";
+
+//   return (
+//     <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+//       <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
+//         {/* Title row inside box */}
+//         <div className="flex items-center justify-between gap-4">
+//           <p className="text-sm font-semibold text-zinc-900">About</p>
+//           <a href="/about" className="text-sm font-medium text-zinc-700 hover:underline">
+//             Read more →
+//           </a>
+//         </div>
+
+//         <div className="mt-6 grid gap-6 lg:grid-cols-2">
+//           <div>
+//             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
+//               Professional
+//             </p>
+//             <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
+//               {professional}{" "}
+//               <a href="/about#professional" className="font-semibold text-indigo-700 hover:underline">
+//                 More…
+//               </a>
+//             </p>
+//           </div>
+
+//           <div>
+//             <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">
+//               Personal
+//             </p>
+//             <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
+//               {personal}{" "}
+//               <a href="/about#personal" className="font-semibold text-blue-600 hover:underline">
+//                 More…
+//               </a>
+//             </p>
+//           </div>
+//         </div>
+
+//         <div className="mt-8 flex flex-wrap gap-3 border-t border-zinc-200 pt-6">
+//           <a
+//             href="/about#professional"
+//             className="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500 transition"
+//           >
+//             Professional details
+//           </a>
+//           <a
+//             href="/about#personal"
+//             className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500 transition"
+//           >
+//             Personal
+//           </a>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
 
 
