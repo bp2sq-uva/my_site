@@ -1,3 +1,4 @@
+// app/projects/page.tsx
 import Image from "next/image";
 import Link from "next/link";
 import SiteNav from "@/app/components/SiteNav";
@@ -20,19 +21,22 @@ function PageBanner() {
           Projects
         </h1>
         <p className="mt-2 max-w-2xl text-sm text-white/85">
-          Selected work across mechanical design/build, instrumentation, software, and ML.
+          Selected work across mechanical design/build, instrumentation, software,
+          and ML.
         </p>
       </div>
     </section>
   );
 }
 
+// Light section backgrounds (cycle)
 const SECTION_BGS = [
   "bg-white",
   "bg-zinc-50",
   "bg-sky-50",
   "bg-amber-50",
   "bg-emerald-50",
+  "bg-rose-50",
 ] as const;
 
 function bgForIndex(i: number) {
@@ -45,7 +49,7 @@ export default function ProjectsPage() {
       <SiteNav />
       <PageBanner />
 
-      {/* Projects as full-width bands */}
+      {/* Full-width project bands */}
       <main className="w-full">
         {FEATURED_PROJECTS.map((p, i) => {
           const slug = slugify(p.title);
@@ -56,10 +60,10 @@ export default function ProjectsPage() {
             <section key={slug} className={`w-full ${bg}`}>
               <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-28 lg:py-32">
                 <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-                  {/* Image */}
+                  {/* Image (not boxed) */}
                   <div className="lg:col-span-5">
                     {cover ? (
-                      <div className="relative aspect-[16/10] overflow-hidden bg-white/70 ring-1 ring-black/5">
+                      <div className="relative aspect-[16/10] overflow-hidden">
                         <Image
                           src={cover.src}
                           alt={cover.alt}
@@ -68,7 +72,7 @@ export default function ProjectsPage() {
                         />
                       </div>
                     ) : (
-                      <div className="aspect-[16/10] bg-white/70 ring-1 ring-black/5" />
+                      <div className="aspect-[16/10] bg-zinc-200/40" />
                     )}
                   </div>
 
@@ -90,10 +94,13 @@ export default function ProjectsPage() {
                       {p.tagline}
                     </p>
 
-                    {/* Tags (soft, not pill-boxy) */}
+                    {/* Tags (not pill badges) */}
                     <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-600">
-                      {p.tags?.slice(0, 6).map((t) => (
-                        <span key={t} className="border-b border-zinc-300/70 pb-0.5">
+                      {p.tags?.slice(0, 8).map((t) => (
+                        <span
+                          key={t}
+                          className="border-b border-zinc-300/70 pb-0.5"
+                        >
                           {t}
                         </span>
                       ))}
@@ -106,7 +113,7 @@ export default function ProjectsPage() {
                       ))}
                     </ul>
 
-                    <div className="mt-8 flex flex-wrap gap-3">
+                    <div className="mt-8 flex flex-wrap gap-6">
                       <Link
                         href={`/projects/${slug}`}
                         className="inline-flex items-center gap-2 border-b-2 border-zinc-900 pb-1 text-sm font-semibold text-zinc-900 hover:border-zinc-600"
@@ -125,7 +132,7 @@ export default function ProjectsPage() {
                 </div>
               </div>
 
-              {/* subtle separator between bands */}
+              {/* Separator between bands */}
               <div className="h-px w-full bg-zinc-200/70" />
             </section>
           );

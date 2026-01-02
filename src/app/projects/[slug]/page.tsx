@@ -1,23 +1,32 @@
+// app/projects/[slug]/page.tsx
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteNav from "@/app/components/SiteNav";
 import { ProjectMedia } from "@/app/components/ui";
 import { FEATURED_PROJECTS, slugify } from "@/app/lib/site";
 
+// Must match the list page order so detail "accent" matches the band color
 const SECTION_BGS = [
   "bg-white",
   "bg-zinc-50",
   "bg-sky-50",
   "bg-amber-50",
   "bg-emerald-50",
+  "bg-rose-50",
 ] as const;
 
 function bgForIndex(i: number) {
   return SECTION_BGS[i % SECTION_BGS.length];
 }
 
-export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
-  const idx = FEATURED_PROJECTS.findIndex((p) => slugify(p.title) === params.slug);
+export default function ProjectDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const idx = FEATURED_PROJECTS.findIndex(
+    (p) => slugify(p.title) === params.slug
+  );
   if (idx < 0) return notFound();
 
   const project = FEATURED_PROJECTS[idx];
@@ -30,7 +39,10 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
       {/* Header band */}
       <section className={`w-full ${accentBg}`}>
         <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-          <Link href="/projects" className="text-sm font-medium text-zinc-700 hover:underline">
+          <Link
+            href="/projects"
+            className="text-sm font-medium text-zinc-700 hover:underline"
+          >
             ← Back to projects
           </Link>
 
@@ -53,7 +65,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         <div className="h-px w-full bg-zinc-200/70" />
       </section>
 
-      {/* Gallery band */}
+      {/* Gallery band (white) */}
       {project.images?.length ? (
         <section className="w-full bg-white">
           <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
@@ -61,8 +73,12 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {project.images.map((img) => (
-                <div key={img.src} className="overflow-hidden bg-zinc-50 ring-1 ring-black/5">
-                  <ProjectMedia src={img.src} alt={img.alt} className="h-72 w-full object-cover" />
+                <div key={img.src} className="overflow-hidden">
+                  <ProjectMedia
+                    src={img.src}
+                    alt={img.alt}
+                    className="h-72 w-full object-cover"
+                  />
                 </div>
               ))}
             </div>
@@ -107,7 +123,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                 )}
               </div>
 
-              <div className="mt-8">
+              <div className="mt-10">
                 <Link
                   href="/projects"
                   className="inline-flex items-center gap-2 border-b-2 border-zinc-900 pb-1 text-sm font-semibold text-zinc-900 hover:border-zinc-600"
