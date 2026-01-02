@@ -382,31 +382,34 @@ function AboutPreviewCombined() {
 
 function CurrentStatus() {
   return (
-    <section className="mx-auto w-full max-w-6xl px-5 pb-2">
-      <div className="rounded-3xl border border-zinc-200/70 bg-indigo-50 p-6 shadow-lg ring-1 ring-black/5">
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-          {/* Left panel */}
-          <div className="rounded-2xl bg-white/70 p-4 ring-1 ring-black/5">
+    <section className="w-full bg-indigo-50">
+      <div className="mx-auto w-full max-w-6xl px-5 py-14">
+        <div className="grid gap-10 md:grid-cols-2 md:items-start">
+          {/* Left */}
+          <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
               Current
             </p>
-            <h2 className="mt-2 text-lg font-semibold text-zinc-900">
+
+            <h2 className="mt-3 text-2xl font-semibold text-zinc-900">
               {CURRENT.title}
             </h2>
-            <p className="mt-1 text-sm text-zinc-700">{CURRENT.org}</p>
-            <p className="mt-1 text-sm text-zinc-600">{CURRENT.supervisor}</p>
-            <p className="mt-1 text-sm text-zinc-600">{CURRENT.location}</p>
+
+            <p className="mt-2 text-base text-zinc-800">{CURRENT.org}</p>
+            <p className="mt-1 text-sm text-zinc-700">{CURRENT.supervisor}</p>
+            <p className="mt-1 text-sm text-zinc-700">{CURRENT.location}</p>
           </div>
 
-          {/* Right panel */}
-          <div className="sm:max-w-md rounded-2xl bg-white/70 p-4 ring-1 ring-black/5">
+          {/* Right */}
+          <div className="md:border-l md:border-zinc-900/10 md:pl-10">
             <p className="text-sm font-semibold text-zinc-900">Focus right now</p>
-            <ul className="mt-2 space-y-1 text-sm text-zinc-700">
+            <ul className="mt-3 space-y-1 text-sm text-zinc-700">
               {CURRENT.focus.map((x) => (
                 <li key={x}>• {x}</li>
               ))}
             </ul>
-            <p className="mt-4 text-sm font-medium text-zinc-800">
+
+            <p className="mt-6 text-sm font-medium text-zinc-800">
               {CURRENT.availability}
             </p>
           </div>
@@ -419,7 +422,7 @@ function CurrentStatus() {
 
 export function HeroWix() {
   return (
-    <section className="relative overflow-hidden border-b border-zinc-200">
+    <section className="relative min-h-[100svh] overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
@@ -429,21 +432,23 @@ export function HeroWix() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-zinc-950/55" />
+        <div className="absolute inset-0 bg-zinc-950/60" />
+        {/* optional: a little depth so text pops */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/70" />
       </div>
 
-      {/* Content */}
-      <div className="relative mx-auto w-full max-w-6xl px-5 py-16">
-        <div className="grid gap-10 lg:grid-cols-5 lg:items-start">
+      {/* Content (centered vertically) */}
+      <div className="relative mx-auto flex min-h-[100svh] w-full max-w-6xl items-center px-5 pt-20 pb-16">
+        <div className="grid w-full gap-10 lg:grid-cols-5 lg:items-start">
           {/* Left */}
           <div className="lg:col-span-3">
             <p className="text-sm font-medium text-zinc-200">{SITE.location}</p>
 
-            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-5xl leading-[1.05]">
+            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-6xl leading-[1.02]">
               {SITE.name}
             </h1>
 
-            <p className="mt-4 max-w-2xl text-base text-zinc-200 sm:text-lg leading-relaxed">
+            <p className="mt-5 max-w-2xl text-base text-zinc-200 sm:text-xl leading-relaxed">
               {SITE.tagline}
             </p>
 
@@ -469,40 +474,21 @@ export function HeroWix() {
             </div>
           </div>
 
-          {/* Right: Current panel */}
-          <div className="lg:col-span-2 lg:justify-self-end lg:-mt-6">
-            <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-white/10 p-6 text-white backdrop-blur">
-              {/* Concave notches */}
-              {/* (Fill matches bg-zinc-950/55 overlay) */}
-              <svg
-                aria-hidden="true"
-                className="absolute left-0 top-0 h-8 w-8 -translate-x-[1px] -translate-y-[1px]"
-                viewBox="0 0 32 32"
-              >
-                <path d="M32 0H0v32C0 14.327 14.327 0 32 0Z" fill="rgb(9 9 11 / 0.55)" />
-              </svg>
-
-              <svg
-                aria-hidden="true"
-                className="absolute right-0 top-0 h-8 w-8 translate-x-[1px] -translate-y-[1px]"
-                viewBox="0 0 32 32"
-              >
-                <path d="M0 0h32v32C32 14.327 17.673 0 0 0Z" fill="rgb(9 9 11 / 0.55)" />
-              </svg>
-
-              <p className="text-xs font-semibold uppercase tracking-wide text-white/80">
+          {/* Right: Current (NO BOX) */}
+          <div className="lg:col-span-2 lg:justify-self-end">
+            <div className="lg:border-l lg:border-white/20 lg:pl-8">
+              <p className="text-xs font-semibold uppercase tracking-wide text-white/70">
                 Current
               </p>
 
-              <p className="mt-2 text-sm text-white/90">
+              <p className="mt-3 text-base font-semibold text-white">
                 {SITE.currentTitle}
-                <br />
-                <span className="text-white/70">{SITE.currentOrg}</span>
               </p>
+              <p className="mt-1 text-sm text-white/75">{SITE.currentOrg}</p>
 
-              <div className="mt-5 space-y-2 text-sm">
+              <div className="mt-6 space-y-2 text-sm text-white/85">
                 <p>
-                  <span className="text-white/70">Email: </span>
+                  <span className="text-white/60">Email: </span>
                   <a className="font-medium hover:underline" href={`mailto:${SITE.email}`}>
                     {SITE.email}
                   </a>
@@ -510,7 +496,7 @@ export function HeroWix() {
 
                 {SITE.phone ? (
                   <p>
-                    <span className="text-white/70">Phone: </span>
+                    <span className="text-white/60">Phone: </span>
                     <span className="font-medium">{SITE.phone}</span>
                   </p>
                 ) : null}
@@ -530,10 +516,19 @@ export function HeroWix() {
             </div>
           </div>
         </div>
+
+        {/* Optional scroll hint */}
+        <a
+          href="#worked-with"
+          className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold text-white/85 hover:bg-white/15 transition"
+        >
+          Scroll ↓
+        </a>
       </div>
     </section>
   );
 }
+
 
 
 function LogoMark({ src, alt }: { src: string; alt: string }) {
@@ -558,23 +553,18 @@ function LogoMark({ src, alt }: { src: string; alt: string }) {
 
 function LogoStrip() {
   return (
-    <section className="mx-auto w-full max-w-6xl px-5 py-10">
-      {/* <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-6 shadow-sm"> */}
-      {/* <div className="rounded-3xl border border-violet-100 bg-violet-50 p-6 shadow-sm"> */}
-      {/* <div className="rounded-3xl border border-indigo-100 bg-indigo-45 p-6 shadow-sm"> */}
-      <div className="rounded-3xl border border-zinc-200/70 bg-gradient-to-br from-violet-50 via-teal-50 to-emerald-50 p-6 shadow-lg ring-1 ring-black/5">
-
+    <section id="worked-with" className="w-full bg-zinc-50">
+      <div className="mx-auto w-full max-w-6xl px-5 py-12">
         <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
           Worked with
         </p>
 
-        <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
           {WORK_LOGOS.map((logo) => {
-            const img = (
-            //   <div className="flex items-center justify-center rounded-2xl border border-zinc-200 bg-white px-4 py-4">
-              <div className="flex items-center justify-center rounded-2xl border border-white/60 bg-white/80 px-4 py-4 shadow-md ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-lg">
-                <div className="opacity-95 saturate-90 contrast-105 transition hover:opacity-100 hover:saturate-110 hover:contrast-110">
-                <LogoMark src={logo.src} alt={logo.name} />
+            const item = (
+              <div className="flex items-center justify-center py-3">
+                <div className="opacity-80 grayscale-[20%] transition hover:opacity-100 hover:grayscale-0">
+                  <LogoMark src={logo.src} alt={logo.name} />
                 </div>
               </div>
             );
@@ -589,11 +579,11 @@ function LogoStrip() {
                 aria-label={logo.name}
                 title={logo.name}
               >
-                {img}
+                {item}
               </a>
             ) : (
               <div key={logo.name} title={logo.name}>
-                {img}
+                {item}
               </div>
             );
           })}
@@ -602,6 +592,7 @@ function LogoStrip() {
     </section>
   );
 }
+
 
 
 export default function Page() {
