@@ -250,9 +250,10 @@ function AboutSplitPreview() {
         {/* Personal */}
         <div className="relative overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50 p-6 shadow-sm">
           <div className="absolute inset-x-0 top-0 h-1 bg-zinc-400" />
-          <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
+            <p className="text-xs font-semibold uppercase tracking-wide text-emerald-700">
             Personal
-          </p>
+            </p>
+
 
           <div className="mt-4 space-y-3 text-sm leading-relaxed text-zinc-700">
             {personal.map((p, i) => (
@@ -335,7 +336,7 @@ function AboutPreviewCombined() {
           </a>
           <a
             href="/about#personal"
-            className="rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 transition"
+            className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-800 hover:bg-emerald-100 transition"
           >
             Personal
           </a>
