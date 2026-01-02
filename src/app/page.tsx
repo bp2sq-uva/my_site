@@ -75,75 +75,6 @@ function HeroSimple() {
   );
 }
 
-// function NavTiles() {
-//   const tiles = [
-//     { title: "About", desc: "Short bio + focus areas.", href: "/about" },
-//     { title: "Projects", desc: "Selected work with full detail pages.", href: "/projects" },
-//     { title: "Publications", desc: "Thesis, papers, notes, talks.", href: "/publications" },
-//     { title: "Experience", desc: "Timeline + key contributions.", href: "/experience" },
-//     // { title: "Contact", desc: "Email + links.", href: "/contact" },
-//   ];
-
-//   return (
-//     <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-//     <h2 className="text-xl font-semibold text-zinc-900">Explore</h2>
-
-//     <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-//         {tiles.map((t) => (
-//           <Link key={t.href} href={t.href}>
-//             <Card className="h-full hover:border-zinc-300 transition">
-//               <div className="flex items-start justify-between gap-4">
-//                 <div>
-//                   <h3 className="text-base font-semibold text-zinc-900">{t.title}</h3>
-//                   <p className="mt-1 text-sm text-zinc-600">{t.desc}</p>
-//                 </div>
-//                 <span className="text-sm text-zinc-500">→</span>
-//               </div>
-//             </Card>
-//           </Link>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
-
-
-// function NavTiles() {
-//   const tiles = [
-//     { title: "About", desc: "Short bio + focus areas.", href: "/about" },
-//     { title: "Projects", desc: "Selected work with full detail pages.", href: "/projects" },
-//     { title: "Publications", desc: "Thesis, papers, notes, talks.", href: "/publications" },
-//     { title: "Experience", desc: "Timeline + key contributions.", href: "/experience" },
-//   ];
-
-//   return (
-//     <section className="w-full bg-zinc-50">
-//       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-//         <h2 className="text-xl font-semibold text-zinc-900">Explore</h2>
-
-//         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-//           {tiles.map((t) => (
-//             <Link
-//               key={t.href}
-//               href={t.href}
-//               className="group rounded-3xl bg-white px-6 py-6 shadow-sm ring-1 ring-black/5 transition hover:shadow-md"
-//             >
-//               <div className="flex items-start justify-between gap-4">
-//                 <div>
-//                   <h3 className="text-base font-semibold text-zinc-900">{t.title}</h3>
-//                   <p className="mt-1 text-sm text-zinc-600">{t.desc}</p>
-//                 </div>
-//                 <span className="text-sm text-zinc-500 transition group-hover:translate-x-0.5">
-//                   →
-//                 </span>
-//               </div>
-//             </Link>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
 
 function NavTiles() {
   const tiles = [
@@ -195,23 +126,6 @@ function NavTiles() {
 }
 
 
-// function Thumb({ src, alt }: { src: string; alt: string }) {
-//   const isGif = src.toLowerCase().endsWith(".gif");
-//   if (isGif) {
-//     // eslint-disable-next-line @next/next/no-img-element
-//     return <img src={src} alt={alt} className="h-44 w-full object-cover" />;
-//   }
-//   return (
-//     <Image
-//       src={src}
-//       alt={alt}
-//       width={1200}
-//       height={800}
-//       className="h-44 w-full object-cover"
-//     />
-//   );
-// }
-
 
 
 function Thumb({ src, alt }: { src: string; alt: string }) {
@@ -226,95 +140,6 @@ function Thumb({ src, alt }: { src: string; alt: string }) {
 }
 
 
-// function FeaturedProjectsPreview() {
-//   const picks = FEATURED_PROJECTS.slice(0, 3);
-//   return (
-//     <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-//     <div className="flex items-end justify-between gap-4">
-//         <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
-//         <Link href="/projects" className="text-sm font-medium text-zinc-700 hover:underline">
-//           See all →
-//         </Link>
-//       </div>
-
-//       <div className="mt-8 grid gap-6 md:grid-cols-3">
-//         {picks.map((p) => {
-//           const slug = slugify(p.title);
-//           return (
-//             <Link key={p.title} href={`/projects/${slug}`}>
-//             <Card className="h-full overflow-hidden hover:border-zinc-300 transition">
-//             {p.images?.[0] ? (
-//                 <div className="mb-4 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
-//                 <Thumb src={p.images[0].src} alt={p.images[0].alt} />
-//                 </div>
-//             ) : null}
-
-//             <h3 className="text-base font-semibold text-zinc-900">{p.title}</h3>
-//             <p className="mt-2 text-sm text-zinc-600">{p.tagline}</p>
-//                 <div className="mt-4 flex flex-wrap gap-2">
-//                   {p.tags.slice(0, 4).map((t) => (
-//                     <span
-//                       key={t}
-//                       className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700"
-//                     >
-//                       {t}
-//                     </span>
-//                   ))}
-//                 </div>
-//               </Card>
-//             </Link>
-//           );
-//         })}
-//       </div>
-//     </section>
-//   );
-// }
-
-// function FeaturedProjectsPreview() {
-//   const picks = FEATURED_PROJECTS.slice(0, 3);
-
-//   return (
-//     <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-//       <div className="flex items-end justify-between gap-4">
-//         <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
-//         <Link href="/projects" className="text-sm font-medium text-zinc-700 hover:underline">
-//           See all →
-//         </Link>
-//       </div>
-
-//       <div className="mt-10 grid gap-10 md:grid-cols-3">
-//         {picks.map((p) => {
-//           const slug = slugify(p.title);
-//           return (
-//             <Link key={p.title} href={`/projects/${slug}`} className="group">
-//               {p.images?.[0] ? (
-//                 <div className="aspect-[16/10] overflow-hidden bg-zinc-100">
-//                   <Thumb src={p.images[0].src} alt={p.images[0].alt} />
-//                 </div>
-//               ) : (
-//                 <div className="aspect-[16/10] bg-zinc-100" />
-//               )}
-
-//               <h3 className="mt-5 text-lg font-semibold text-zinc-900 group-hover:underline underline-offset-8 decoration-zinc-300">
-//                 {p.title}
-//               </h3>
-
-//               <p className="mt-2 text-sm text-zinc-600">{p.tagline}</p>
-
-//               <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-500">
-//                 {p.tags.slice(0, 4).map((t) => (
-//                   <span key={t} className="border-b border-zinc-200 pb-0.5">
-//                     {t}
-//                   </span>
-//                 ))}
-//               </div>
-//             </Link>
-//           );
-//         })}
-//       </div>
-//     </section>
-//   );
-// }
 
 
 function FeaturedProjectsPreview() {
@@ -487,6 +312,8 @@ function AboutSplitPreview() {
 
 
 
+
+
 function AboutPreviewCombined() {
   const professional =
     "Cross-disciplinary engineer-scientist spanning mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and ML/data pipelines. I work best owning problems end-to-end: design → simulate → build → test → iterate in collaborative teams.";
@@ -496,7 +323,7 @@ function AboutPreviewCombined() {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto w-full max-w-6xl px-5py-20 sm:py-36 lg:py-48">
+      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-48">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-xl font-semibold text-zinc-900">About</h2>
@@ -508,8 +335,8 @@ function AboutPreviewCombined() {
           </a>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
-          <div>
+        <div className="mt-10 grid gap-12 lg:grid-cols-2 lg:items-start">
+          <div className="max-w-prose">
             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
               Professional
             </p>
@@ -521,7 +348,7 @@ function AboutPreviewCombined() {
             </p>
           </div>
 
-          <div className="lg:border-l lg:border-zinc-900/10 lg:pl-10">
+          <div className="max-w-prose lg:border-l lg:border-zinc-900/10 lg:pl-10">
             <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">
               Personal
             </p>
@@ -555,69 +382,6 @@ function AboutPreviewCombined() {
 }
 
 
-
-// function AboutPreviewCombined() {
-//   const professional =
-//     "Cross-disciplinary engineer-scientist spanning mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and ML/data pipelines. I work best owning problems end-to-end: design → simulate → build → test → iterate in collaborative teams.";
-
-//   const personal =
-//     "Outside work, I enjoy building things, exploring new places, photography/video, and live music—especially projects that mix creativity with engineering.";
-
-//   return (
-//     <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-//       <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
-//         {/* Title row inside box */}
-//         <div className="flex items-center justify-between gap-4">
-//           <p className="text-sm font-semibold text-zinc-900">About</p>
-//           <a href="/about" className="text-sm font-medium text-zinc-700 hover:underline">
-//             Read more →
-//           </a>
-//         </div>
-
-//         <div className="mt-6 grid gap-6 lg:grid-cols-2">
-//           <div>
-//             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
-//               Professional
-//             </p>
-//             <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
-//               {professional}{" "}
-//               <a href="/about#professional" className="font-semibold text-indigo-700 hover:underline">
-//                 More…
-//               </a>
-//             </p>
-//           </div>
-
-//           <div>
-//             <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">
-//               Personal
-//             </p>
-//             <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
-//               {personal}{" "}
-//               <a href="/about#personal" className="font-semibold text-blue-600 hover:underline">
-//                 More…
-//               </a>
-//             </p>
-//           </div>
-//         </div>
-
-//         <div className="mt-8 flex flex-wrap gap-3 border-t border-zinc-200 pt-6">
-//           <a
-//             href="/about#professional"
-//             className="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500 transition"
-//           >
-//             Professional details
-//           </a>
-//           <a
-//             href="/about#personal"
-//             className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500 transition"
-//           >
-//             Personal
-//           </a>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
 
 
 
@@ -661,15 +425,7 @@ function CurrentStatus() {
 }
 
 
-// function CurrentStatus() {
-//   return (
-//     <section className="w-full bg-indigo-50">
-//       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-//         {/* your current layout here */}
-//       </div>
-//     </section>
-//   );
-// }
+
 
 
 export function HeroWix() {
@@ -785,7 +541,8 @@ export function HeroWix() {
 function LogoMark({ src, alt }: { src: string; alt: string }) {
   const isSvg = src.toLowerCase().endsWith(".svg");
 
-  const cls = "h-12 sm:h-14 md:h-16 w-auto object-contain";
+  // Bigger, and respects the container height
+  const cls = "max-h-full w-auto object-contain";
 
   if (isSvg) {
     // eslint-disable-next-line @next/next/no-img-element
@@ -796,55 +553,14 @@ function LogoMark({ src, alt }: { src: string; alt: string }) {
     <Image
       src={src}
       alt={alt}
-      width={360}
-      height={160}
+      width={520}
+      height={240}
       className={cls}
     />
   );
 }
 
 
-// function LogoStrip() {
-//   return (
-//     <section id="worked-with" className="w-full bg-zinc-50">
-//       <div className="mx-auto w-full max-w-6xl px-5 py-12">
-//         <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
-//           Worked with
-//         </p>
-
-//         <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
-//           {WORK_LOGOS.map((logo) => {
-//             const item = (
-//               <div className="flex items-center justify-center py-3">
-//                 <div className="opacity-80 grayscale-[20%] transition hover:opacity-100 hover:grayscale-0">
-//                   <LogoMark src={logo.src} alt={logo.name} />
-//                 </div>
-//               </div>
-//             );
-
-//             return logo.href ? (
-//               <a
-//                 key={logo.name}
-//                 href={logo.href}
-//                 target="_blank"
-//                 rel="noreferrer"
-//                 className="block"
-//                 aria-label={logo.name}
-//                 title={logo.name}
-//               >
-//                 {item}
-//               </a>
-//             ) : (
-//               <div key={logo.name} title={logo.name}>
-//                 {item}
-//               </div>
-//             );
-//           })}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
 
 
 function LogoStrip() {
@@ -855,13 +571,11 @@ function LogoStrip() {
           Worked with
         </p>
 
-        <div className="mt-20 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-12 grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-3 lg:grid-cols-6">
           {WORK_LOGOS.map((logo) => {
             const item = (
-              <div className="flex items-center justify-center py-3">
-                <div className="flex items-center justify-center py-4 sm:py-5">
+              <div className="flex h-20 items-center justify-center sm:h-24 md:h-28 lg:h-32">
                 <LogoMark src={logo.src} alt={logo.name} />
-                </div>
               </div>
             );
 
@@ -910,18 +624,3 @@ export default function Page() {
 }
 
 
-// export default function Page() {
-//   return (
-//     <div className="min-h-screen bg-white text-zinc-900">
-//       <SiteNav />
-//       <HeroSimple />
-//       <NavTiles />
-//       <FeaturedProjectsPreview />
-//       <footer className="border-t border-zinc-200 py-8">
-//         <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
-//           © {new Date().getFullYear()} {SITE.name}
-//         </div>
-//       </footer>
-//     </div>
-//   );
-// }
