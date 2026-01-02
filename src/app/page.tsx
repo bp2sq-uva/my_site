@@ -522,7 +522,7 @@ function LogoMark({ src, alt }: { src: string; alt: string }) {
 
   if (isSvg) {
     // eslint-disable-next-line @next/next/no-img-element
-    return <img src={src} alt={alt} className="h-10 w-auto object-contain" />;
+    return <img src={src} alt={alt} className="h-28 w-auto object-contain" />;
   }
 
   return (
