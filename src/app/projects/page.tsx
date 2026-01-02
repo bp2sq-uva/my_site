@@ -6,7 +6,6 @@ import { FEATURED_PROJECTS, slugify } from "@/app/lib/site";
 function PageBanner() {
   return (
     <section className="relative h-[320px] w-full overflow-hidden border-b border-zinc-200">
-      {/* ✅ Make sure this file exists at /public/banners/projects.jpg */}
       <Image
         src="/banners/projects.jpg"
         alt="Projects banner"
@@ -28,84 +27,109 @@ function PageBanner() {
   );
 }
 
+const SECTION_BGS = [
+  "bg-white",
+  "bg-zinc-50",
+  "bg-sky-50",
+  "bg-amber-50",
+  "bg-emerald-50",
+] as const;
+
+function bgForIndex(i: number) {
+  return SECTION_BGS[i % SECTION_BGS.length];
+}
+
 export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-white text-zinc-900">
       <SiteNav />
       <PageBanner />
 
-      <main className="mx-auto w-full max-w-6xl px-5 py-12">
-        <div className="space-y-12">
-          {FEATURED_PROJECTS.map((p) => {
-            const slug = slugify(p.title);
-            const cover = p.images?.[0];
+      {/* Projects as full-width bands */}
+      <main className="w-full">
+        {FEATURED_PROJECTS.map((p, i) => {
+          const slug = slugify(p.title);
+          const cover = p.images?.[0];
+          const bg = bgForIndex(i);
 
-            return (
-              <section
-                key={slug}
-                className="grid gap-6 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm lg:grid-cols-5 lg:items-start"
-              >
-                {/* Image */}
-                <div className="lg:col-span-2">
-                  {cover ? (
-                    <div className="relative h-64 overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50">
-                      <Image
-                        src={cover.src}
-                        alt={cover.alt}
-                        fill
-                        className="object-cover"
-                      />
+          return (
+            <section key={slug} className={`w-full ${bg}`}>
+              <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-28 lg:py-32">
+                <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+                  {/* Image */}
+                  <div className="lg:col-span-5">
+                    {cover ? (
+                      <div className="relative aspect-[16/10] overflow-hidden bg-white/70 ring-1 ring-black/5">
+                        <Image
+                          src={cover.src}
+                          alt={cover.alt}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="aspect-[16/10] bg-white/70 ring-1 ring-black/5" />
+                    )}
+                  </div>
+
+                  {/* Text */}
+                  <div className="lg:col-span-7">
+                    <div className="flex items-start justify-between gap-6">
+                      <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">
+                        <Link
+                          href={`/projects/${slug}`}
+                          className="hover:underline underline-offset-8 decoration-zinc-300"
+                        >
+                          {p.title}
+                        </Link>
+                      </h2>
+                      <span className="text-sm text-zinc-500">→</span>
                     </div>
-                  ) : (
-                    <div className="h-64 rounded-2xl border border-zinc-200 bg-zinc-50" />
-                  )}
-                </div>
 
-                {/* Text */}
-                <div className="lg:col-span-3">
-                  <h2 className="text-xl font-semibold text-zinc-900">
-                    {p.title}
-                  </h2>
-                  <p className="mt-2 text-zinc-700">{p.tagline}</p>
+                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-700">
+                      {p.tagline}
+                    </p>
 
-                  {/* Tags */}
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {p.tags?.slice(0, 6).map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-800"
+                    {/* Tags (soft, not pill-boxy) */}
+                    <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-600">
+                      {p.tags?.slice(0, 6).map((t) => (
+                        <span key={t} className="border-b border-zinc-300/70 pb-0.5">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Highlights */}
+                    <ul className="mt-6 space-y-2 text-sm text-zinc-700/90">
+                      {p.highlights.slice(0, 3).map((h) => (
+                        <li key={h}>• {h}</li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-8 flex flex-wrap gap-3">
+                      <Link
+                        href={`/projects/${slug}`}
+                        className="inline-flex items-center gap-2 border-b-2 border-zinc-900 pb-1 text-sm font-semibold text-zinc-900 hover:border-zinc-600"
                       >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+                        See details <span aria-hidden>→</span>
+                      </Link>
 
-                  {/* Highlights */}
-                  <ul className="mt-5 space-y-2 text-sm text-zinc-600">
-                    {p.highlights.slice(0, 3).map((h) => (
-                      <li key={h}>• {h}</li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <Link
-                      href={`/projects/${slug}`}
-                      className="inline-flex rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500 transition"
-                    >
-                      See details
-                    </Link>
-                    <Link
-                      href="/"
-                      className="inline-flex rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 transition"
-                    >
-                      Back to Home
-                    </Link>
+                      <Link
+                        href="/"
+                        className="text-sm font-medium text-zinc-700 hover:underline underline-offset-4"
+                      >
+                        Back to Home
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </section>
-            );
-          })}
-        </div>
+              </div>
+
+              {/* subtle separator between bands */}
+              <div className="h-px w-full bg-zinc-200/70" />
+            </section>
+          );
+        })}
       </main>
     </div>
   );
