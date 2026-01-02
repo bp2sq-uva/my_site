@@ -540,7 +540,7 @@ function LogoMark({ src, alt }: { src: string; alt: string }) {
 function LogoStrip() {
   return (
     <section className="mx-auto w-full max-w-6xl px-5 py-10">
-      <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-6 shadow-sm">
         <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
           Worked with
         </p>
@@ -548,7 +548,7 @@ function LogoStrip() {
         <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {WORK_LOGOS.map((logo) => {
             const img = (
-              <div className="flex items-center justify-center rounded-2xl border border-zinc-200 bg-zinc-50 px-3 py-3">
+              <div className="flex items-center justify-center rounded-2xl border border-zinc-200 bg-white px-4 py-4">
                 <div className="opacity-95 saturate-90 contrast-105 transition hover:opacity-100 hover:saturate-110 hover:contrast-110">
                 <LogoMark src={logo.src} alt={logo.name} />
                 </div>
