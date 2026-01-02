@@ -286,6 +286,8 @@ function AboutSplitPreview() {
   );
 }
 
+
+
 function AboutPreviewCombined() {
   const professional =
     "Cross-disciplinary engineer-scientist spanning mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and ML/data pipelines. I work best owning problems end-to-end: design → simulate → build → test → iterate in collaborative teams.";
@@ -294,83 +296,52 @@ function AboutPreviewCombined() {
     "Outside work, I enjoy building things, exploring new places, photography/video, and live music—especially projects that mix creativity with engineering.";
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-5 py-12">
-      <div className="flex items-end justify-between gap-4">
-        <div>
-          <h2 className="text-xl font-semibold text-zinc-900">About</h2>
-          <p className="mt-1 text-sm text-zinc-600">Professional + personal (short).</p>
-        </div>
-
-        <a href="/about" className="text-sm font-medium text-zinc-700 hover:underline">
-          Read more →
-        </a>
-      </div>
-
-      {/* <div className="mt-6 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <div className="grid gap-6 lg:grid-cols-2"> */}
-        <div className="mt-12 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <div className="mt-12 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm"></div>
-        {/* <div className="relative overflow-hidden rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm"></div> */}
-        {/* ✅ Title inside the box */}
-        <div className="flex items-center justify-between">
-            <p className="text-sm font-semibold text-zinc-900">About</p>
-            <a
-            href="/about"
-            className="text-sm font-medium text-zinc-700 hover:underline"
-            >
+    <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+      <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
+        {/* Title row inside box */}
+        <div className="flex items-center justify-between gap-4">
+          <p className="text-sm font-semibold text-zinc-900">About</p>
+          <a href="/about" className="text-sm font-medium text-zinc-700 hover:underline">
             Read more →
-            </a>
+          </a>
         </div>
 
-        <div className="mt-5 grid gap-6 lg:grid-cols-2">
-
-          {/* Professional */}
+        <div className="mt-6 grid gap-6 lg:grid-cols-2">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
               Professional
             </p>
-
             <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
               {professional}{" "}
-              <a
-                href="/about#professional"
-                className="font-semibold text-indigo-700 hover:underline"
-              >
+              <a href="/about#professional" className="font-semibold text-indigo-700 hover:underline">
                 More…
               </a>
             </p>
           </div>
 
-          {/* Personal */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">
               Personal
             </p>
-
             <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
               {personal}{" "}
-              <a
-                href="/about#personal"
-                className="font-semibold text-blue-600 hover:underline"
-              >
+              <a href="/about#personal" className="font-semibold text-blue-600 hover:underline">
                 More…
               </a>
             </p>
           </div>
         </div>
 
-        {/* Buttons (same box, below both columns) */}
-        <div className="mt-6 flex flex-wrap gap-3 border-t border-zinc-200 pt-6">
+        <div className="mt-8 flex flex-wrap gap-3 border-t border-zinc-200 pt-6">
           <a
             href="/about#professional"
             className="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500 transition"
           >
             Professional details
           </a>
-
           <a
             href="/about#personal"
-            className="rounded-xl border border-blue-600 bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500 hover:border-blue-500 transition"
+            className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500 transition"
           >
             Personal
           </a>
@@ -381,55 +352,56 @@ function AboutPreviewCombined() {
 }
 
 
-// function CurrentStatus() {
-//   return (
-//     <section className="w-full bg-indigo-50">
-//       <div className="mx-auto w-full max-w-6xl px-5 py-14">
-//         <div className="grid gap-10 md:grid-cols-2 md:items-start">
-//           {/* Left */}
-//           <div>
-//             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
-//               Current
-//             </p>
-
-//             <h2 className="mt-3 text-2xl font-semibold text-zinc-900">
-//               {CURRENT.title}
-//             </h2>
-
-//             <p className="mt-2 text-base text-zinc-800">{CURRENT.org}</p>
-//             <p className="mt-1 text-sm text-zinc-700">{CURRENT.supervisor}</p>
-//             <p className="mt-1 text-sm text-zinc-700">{CURRENT.location}</p>
-//           </div>
-
-//           {/* Right */}
-//           <div className="md:border-l md:border-zinc-900/10 md:pl-10">
-//             <p className="text-sm font-semibold text-zinc-900">Focus right now</p>
-//             <ul className="mt-3 space-y-1 text-sm text-zinc-700">
-//               {CURRENT.focus.map((x) => (
-//                 <li key={x}>• {x}</li>
-//               ))}
-//             </ul>
-
-//             <p className="mt-6 text-sm font-medium text-zinc-800">
-//               {CURRENT.availability}
-//             </p>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
 
 function CurrentStatus() {
   return (
     <section className="w-full bg-indigo-50">
       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-        {/* your current layout here */}
+        <div className="grid gap-10 md:grid-cols-2 md:items-start">
+          {/* Left */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
+              Current
+            </p>
+
+            <h2 className="mt-3 text-2xl font-semibold text-zinc-900">
+              {CURRENT.title}
+            </h2>
+
+            <p className="mt-2 text-base text-zinc-800">{CURRENT.org}</p>
+            <p className="mt-1 text-sm text-zinc-700">{CURRENT.supervisor}</p>
+            <p className="mt-1 text-sm text-zinc-700">{CURRENT.location}</p>
+          </div>
+
+          {/* Right */}
+          <div className="md:border-l md:border-zinc-900/10 md:pl-10">
+            <p className="text-sm font-semibold text-zinc-900">Focus right now</p>
+            <ul className="mt-3 space-y-1 text-sm text-zinc-700">
+              {CURRENT.focus.map((x) => (
+                <li key={x}>• {x}</li>
+              ))}
+            </ul>
+
+            <p className="mt-6 text-sm font-medium text-zinc-800">
+              {CURRENT.availability}
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
+
+
+// function CurrentStatus() {
+//   return (
+//     <section className="w-full bg-indigo-50">
+//       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+//         {/* your current layout here */}
+//       </div>
+//     </section>
+//   );
+// }
 
 
 export function HeroWix() {
@@ -615,13 +587,38 @@ function LogoStrip() {
         </p>
 
         <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
-          {/* logos */}
+          {WORK_LOGOS.map((logo) => {
+            const item = (
+              <div className="flex items-center justify-center py-3">
+                <div className="opacity-80 grayscale-[20%] transition hover:opacity-100 hover:grayscale-0">
+                  <LogoMark src={logo.src} alt={logo.name} />
+                </div>
+              </div>
+            );
+
+            return logo.href ? (
+              <a
+                key={logo.name}
+                href={logo.href}
+                target="_blank"
+                rel="noreferrer"
+                className="block"
+                aria-label={logo.name}
+                title={logo.name}
+              >
+                {item}
+              </a>
+            ) : (
+              <div key={logo.name} title={logo.name}>
+                {item}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
-
 
 
 export default function Page() {
