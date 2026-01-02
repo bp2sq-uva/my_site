@@ -277,7 +277,6 @@ function AboutSplitPreview() {
   );
 }
 
-
 function AboutPreviewCombined() {
   const professional =
     "Cross-disciplinary engineer-scientist spanning mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and ML/data pipelines. I work best owning problems end-to-end: design → simulate → build → test → iterate in collaborative teams.";
@@ -290,9 +289,7 @@ function AboutPreviewCombined() {
       <div className="flex items-end justify-between gap-4">
         <div>
           <h2 className="text-xl font-semibold text-zinc-900">About</h2>
-          <p className="mt-1 text-sm text-zinc-600">
-            Professional + personal (short).
-          </p>
+          <p className="mt-1 text-sm text-zinc-600">Professional + personal (short).</p>
         </div>
 
         <a href="/about" className="text-sm font-medium text-zinc-700 hover:underline">
@@ -302,55 +299,56 @@ function AboutPreviewCombined() {
 
       <div className="mt-6 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
         <div className="grid gap-6 lg:grid-cols-2">
-        {/* Professional */}
-        <div>
-        <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
-            Professional
-        </p>
+          {/* Professional */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
+              Professional
+            </p>
 
-        <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
-            {professional}{" "}
-            <a
-            href="/about#professional"
-            className="font-semibold text-indigo-700 hover:underline"
-            >
-            More…
-            </a>
-        </p>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
+              {professional}{" "}
+              <a
+                href="/about#professional"
+                className="font-semibold text-indigo-700 hover:underline"
+              >
+                More…
+              </a>
+            </p>
+          </div>
+
+          {/* Personal */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">
+              Personal
+            </p>
+
+            <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
+              {personal}{" "}
+              <a
+                href="/about#personal"
+                className="font-semibold text-blue-600 hover:underline"
+              >
+                More…
+              </a>
+            </p>
+          </div>
         </div>
 
-
-        {/* Personal */}
-        <div>
-        <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">
-            Personal
-        </p>
-
-        <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
-            {personal}{" "}
-            <a
-            href="/about#personal"
-            className="font-semibold text-blue-600 hover:underline"
-            >
-            More…
-            </a>
-        </p>
-        </div>
-
-
-        <div className="mt-6 flex flex-wrap gap-3">
+        {/* Buttons (same box, below both columns) */}
+        <div className="mt-6 flex flex-wrap gap-3 border-t border-zinc-200 pt-6">
           <a
             href="/about#professional"
             className="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500 transition"
           >
             Professional details
           </a>
-            <a
+
+          <a
             href="/about#personal"
-            className="rounded-xl border border-blue-400 bg-blue-400 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-400 hover:border-blue-400 transition"
-            >
+            className="rounded-xl border border-blue-600 bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500 hover:border-blue-500 transition"
+          >
             Personal
-            </a>
+          </a>
         </div>
       </div>
     </section>
