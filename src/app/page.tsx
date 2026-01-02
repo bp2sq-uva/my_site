@@ -357,7 +357,7 @@ function CurrentStatus() {
   return (
     <section className="w-full bg-indigo-50">
       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-        <div className="grid gap-10 md:grid-cols-2 md:items-start">
+        <div className="grid gap-20 md:grid-cols-2 md:items-start">
           {/* Left */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
