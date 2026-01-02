@@ -44,3 +44,44 @@ export default function ExperiencePage() {
   );
 }
 
+function ExperienceLogos({
+  logos,
+}: {
+  logos?: { name: string; src: string; href?: string }[];
+}) {
+  if (!logos?.length) return null;
+
+  return (
+    <div className="mt-4 flex flex-wrap gap-3">
+      {logos.map((l) => {
+        const img = (
+          <div className="flex h-12 w-28 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 px-3">
+            <Image
+              src={l.src}
+              alt={l.name}
+              width={220}
+              height={90}
+              className="h-8 w-auto object-contain opacity-80 grayscale hover:opacity-100 hover:grayscale-0 transition"
+            />
+          </div>
+        );
+
+        return l.href ? (
+          <a
+            key={l.name}
+            href={l.href}
+            target="_blank"
+            rel="noreferrer"
+            title={l.name}
+          >
+            {img}
+          </a>
+        ) : (
+          <div key={l.name} title={l.name}>
+            {img}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
