@@ -85,9 +85,10 @@ function NavTiles() {
   ];
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-5 py-12">
-      <h2 className="text-xl font-semibold text-zinc-900">Explore</h2>
-      <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+    <h2 className="text-xl font-semibold text-zinc-900">Explore</h2>
+
+    <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {tiles.map((t) => (
           <Link key={t.href} href={t.href}>
             <Card className="h-full hover:border-zinc-300 transition">
@@ -127,15 +128,15 @@ function Thumb({ src, alt }: { src: string; alt: string }) {
 function FeaturedProjectsPreview() {
   const picks = FEATURED_PROJECTS.slice(0, 3);
   return (
-    <section className="mx-auto w-full max-w-6xl px-5 pb-16">
-      <div className="flex items-end justify-between gap-4">
+    <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+    <div className="flex items-end justify-between gap-4">
         <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
         <Link href="/projects" className="text-sm font-medium text-zinc-700 hover:underline">
           See all →
         </Link>
       </div>
 
-      <div className="mt-5 grid gap-4 md:grid-cols-3">
+      <div className="mt-8 grid gap-6 md:grid-cols-3">
         {picks.map((p) => {
           const slug = slugify(p.title);
           return (
@@ -380,40 +381,51 @@ function AboutPreviewCombined() {
 }
 
 
+// function CurrentStatus() {
+//   return (
+//     <section className="w-full bg-indigo-50">
+//       <div className="mx-auto w-full max-w-6xl px-5 py-14">
+//         <div className="grid gap-10 md:grid-cols-2 md:items-start">
+//           {/* Left */}
+//           <div>
+//             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
+//               Current
+//             </p>
+
+//             <h2 className="mt-3 text-2xl font-semibold text-zinc-900">
+//               {CURRENT.title}
+//             </h2>
+
+//             <p className="mt-2 text-base text-zinc-800">{CURRENT.org}</p>
+//             <p className="mt-1 text-sm text-zinc-700">{CURRENT.supervisor}</p>
+//             <p className="mt-1 text-sm text-zinc-700">{CURRENT.location}</p>
+//           </div>
+
+//           {/* Right */}
+//           <div className="md:border-l md:border-zinc-900/10 md:pl-10">
+//             <p className="text-sm font-semibold text-zinc-900">Focus right now</p>
+//             <ul className="mt-3 space-y-1 text-sm text-zinc-700">
+//               {CURRENT.focus.map((x) => (
+//                 <li key={x}>• {x}</li>
+//               ))}
+//             </ul>
+
+//             <p className="mt-6 text-sm font-medium text-zinc-800">
+//               {CURRENT.availability}
+//             </p>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
 function CurrentStatus() {
   return (
     <section className="w-full bg-indigo-50">
-      <div className="mx-auto w-full max-w-6xl px-5 py-14">
-        <div className="grid gap-10 md:grid-cols-2 md:items-start">
-          {/* Left */}
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
-              Current
-            </p>
-
-            <h2 className="mt-3 text-2xl font-semibold text-zinc-900">
-              {CURRENT.title}
-            </h2>
-
-            <p className="mt-2 text-base text-zinc-800">{CURRENT.org}</p>
-            <p className="mt-1 text-sm text-zinc-700">{CURRENT.supervisor}</p>
-            <p className="mt-1 text-sm text-zinc-700">{CURRENT.location}</p>
-          </div>
-
-          {/* Right */}
-          <div className="md:border-l md:border-zinc-900/10 md:pl-10">
-            <p className="text-sm font-semibold text-zinc-900">Focus right now</p>
-            <ul className="mt-3 space-y-1 text-sm text-zinc-700">
-              {CURRENT.focus.map((x) => (
-                <li key={x}>• {x}</li>
-              ))}
-            </ul>
-
-            <p className="mt-6 text-sm font-medium text-zinc-800">
-              {CURRENT.availability}
-            </p>
-          </div>
-        </div>
+      <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+        {/* your current layout here */}
       </div>
     </section>
   );
@@ -551,42 +563,59 @@ function LogoMark({ src, alt }: { src: string; alt: string }) {
 }
 
 
+// function LogoStrip() {
+//   return (
+//     <section id="worked-with" className="w-full bg-zinc-50">
+//       <div className="mx-auto w-full max-w-6xl px-5 py-12">
+//         <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
+//           Worked with
+//         </p>
+
+//         <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
+//           {WORK_LOGOS.map((logo) => {
+//             const item = (
+//               <div className="flex items-center justify-center py-3">
+//                 <div className="opacity-80 grayscale-[20%] transition hover:opacity-100 hover:grayscale-0">
+//                   <LogoMark src={logo.src} alt={logo.name} />
+//                 </div>
+//               </div>
+//             );
+
+//             return logo.href ? (
+//               <a
+//                 key={logo.name}
+//                 href={logo.href}
+//                 target="_blank"
+//                 rel="noreferrer"
+//                 className="block"
+//                 aria-label={logo.name}
+//                 title={logo.name}
+//               >
+//                 {item}
+//               </a>
+//             ) : (
+//               <div key={logo.name} title={logo.name}>
+//                 {item}
+//               </div>
+//             );
+//           })}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
 function LogoStrip() {
   return (
     <section id="worked-with" className="w-full bg-zinc-50">
-      <div className="mx-auto w-full max-w-6xl px-5 py-12">
+      <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
         <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
           Worked with
         </p>
 
-        <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
-          {WORK_LOGOS.map((logo) => {
-            const item = (
-              <div className="flex items-center justify-center py-3">
-                <div className="opacity-80 grayscale-[20%] transition hover:opacity-100 hover:grayscale-0">
-                  <LogoMark src={logo.src} alt={logo.name} />
-                </div>
-              </div>
-            );
-
-            return logo.href ? (
-              <a
-                key={logo.name}
-                href={logo.href}
-                target="_blank"
-                rel="noreferrer"
-                className="block"
-                aria-label={logo.name}
-                title={logo.name}
-              >
-                {item}
-              </a>
-            ) : (
-              <div key={logo.name} title={logo.name}>
-                {item}
-              </div>
-            );
-          })}
+        <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
+          {/* logos */}
         </div>
       </div>
     </section>
