@@ -508,7 +508,7 @@ function AboutPreviewCombined() {
           </a>
         </div>
 
-        <div className="mt-8 grid gap-10 lg:grid-cols-2">
+        <div className="mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
               Professional
@@ -782,22 +782,23 @@ export function HeroWix() {
 }
 
 
-
 function LogoMark({ src, alt }: { src: string; alt: string }) {
   const isSvg = src.toLowerCase().endsWith(".svg");
 
+  const cls = "h-12 sm:h-14 md:h-16 w-auto object-contain";
+
   if (isSvg) {
     // eslint-disable-next-line @next/next/no-img-element
-    return <img src={src} alt={alt} className="h-19 w-auto object-contain" />;
+    return <img src={src} alt={alt} className={cls} />;
   }
 
   return (
     <Image
       src={src}
       alt={alt}
-      width={220}
-      height={90}
-      className="h-10 w-auto object-contain"
+      width={360}
+      height={160}
+      className={cls}
     />
   );
 }
@@ -858,8 +859,8 @@ function LogoStrip() {
           {WORK_LOGOS.map((logo) => {
             const item = (
               <div className="flex items-center justify-center py-3">
-                <div className="opacity-80 grayscale-[20%] transition hover:opacity-100 hover:grayscale-0">
-                  <LogoMark src={logo.src} alt={logo.name} />
+                <div className="flex items-center justify-center py-4 sm:py-5">
+                <LogoMark src={logo.src} alt={logo.name} />
                 </div>
               </div>
             );
