@@ -381,7 +381,7 @@ function AboutPreviewCombined() {
 function CurrentStatus() {
   return (
     <section className="mx-auto w-full max-w-6xl px-5 pb-2">
-      <div className="rounded-3xl border border-zinc-200 bg-indigo-45 p-6 shadow-base">
+      <div className="rounded-3xl border border-zinc-200 bg-indigo-45 p-6 shadow-sm">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
@@ -556,7 +556,7 @@ function LogoStrip() {
     <section className="mx-auto w-full max-w-6xl px-5 py-10">
       {/* <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-6 shadow-sm"> */}
       {/* <div className="rounded-3xl border border-violet-100 bg-violet-50 p-6 shadow-sm"> */}
-      <div className="rounded-3xl border border-indigo-100 bg-indigo-45 p-6 shadow-base">
+      <div className="rounded-3xl border border-indigo-100 bg-indigo-45 p-6 shadow-sm">
         <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
           Worked with
         </p>
