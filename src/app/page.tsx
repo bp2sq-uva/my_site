@@ -538,27 +538,21 @@ export function HeroWix() {
 }
 
 
+
+
 function LogoMark({ src, alt }: { src: string; alt: string }) {
   const isSvg = src.toLowerCase().endsWith(".svg");
 
-  // Opacity + smooth hover, and always fit inside whatever height the parent gives it
+  // Fills the slot height, with subtle opacity + hover pop
   const cls =
-    "max-h-full w-auto object-contain opacity-70 transition-opacity duration-200 hover:opacity-100";
+    "h-full w-auto object-contain opacity-65 transition-opacity duration-200 group-hover:opacity-100";
 
   if (isSvg) {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={src} alt={alt} className={cls} />;
   }
 
-  return (
-    <Image
-      src={src}
-      alt={alt}
-      width={700}
-      height={300}
-      className={cls}
-    />
-  );
+  return <Image src={src} alt={alt} width={900} height={360} className={cls} />;
 }
 
 
@@ -567,17 +561,17 @@ function LogoMark({ src, alt }: { src: string; alt: string }) {
 function LogoStrip() {
   return (
     <section id="worked-with" className="w-full bg-zinc-50">
-      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-56">
+      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-48">
         <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
           Worked with
         </p>
 
-        <div className="mt-12 grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-12 grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
           {WORK_LOGOS.map((logo) => {
             const item = (
-            <div className="flex h-36 items-center justify-center sm:h-36 md:h-44 lg:h-56 xl:h-40">
+              <div className="group flex h-28 items-center justify-center sm:h-32 md:h-36 lg:h-40 xl:h-44">
                 <LogoMark src={logo.src} alt={logo.name} />
-            </div>
+              </div>
             );
 
             return logo.href ? (
@@ -603,6 +597,7 @@ function LogoStrip() {
     </section>
   );
 }
+
 
 
 export default function Page() {
