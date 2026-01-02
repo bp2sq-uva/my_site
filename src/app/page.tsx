@@ -221,13 +221,7 @@ function Thumb({ src, alt }: { src: string; alt: string }) {
     return <img src={src} alt={alt} className="h-full w-full object-cover" />;
   }
   return (
-    <Image
-      src={src}
-      alt={alt}
-      width={1200}
-      height={800}
-      className="h-full w-full object-cover"
-    />
+    <Image src={src} alt={alt} width={1200} height={800} className="h-full w-full object-cover" />
   );
 }
 
@@ -327,7 +321,7 @@ function FeaturedProjectsPreview() {
   const picks = FEATURED_PROJECTS.slice(0, 3);
 
   return (
-    <section className="w-full bg-zinc-50">
+    <section className="w-full bg-sky-50">
       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
@@ -340,12 +334,7 @@ function FeaturedProjectsPreview() {
           {picks.map((p) => {
             const slug = slugify(p.title);
             return (
-              <Link
-                key={p.title}
-                href={`/projects/${slug}`}
-                className="group"
-              >
-                {/* image block (no rounding) */}
+              <Link key={p.title} href={`/projects/${slug}`} className="group">
                 {p.images?.[0] ? (
                   <div className="aspect-[16/10] overflow-hidden bg-white ring-1 ring-black/5">
                     <Thumb src={p.images[0].src} alt={p.images[0].alt} />
@@ -358,9 +347,7 @@ function FeaturedProjectsPreview() {
                   {p.title}
                 </h3>
 
-                <p className="mt-2 text-sm text-zinc-600">
-                  {p.tagline}
-                </p>
+                <p className="mt-2 text-sm text-zinc-600">{p.tagline}</p>
 
                 <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-500">
                   {p.tags.slice(0, 4).map((t) => (
@@ -377,7 +364,6 @@ function FeaturedProjectsPreview() {
     </section>
   );
 }
-
 
 
 
