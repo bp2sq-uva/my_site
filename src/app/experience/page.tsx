@@ -1,6 +1,7 @@
 import SiteNav from "@/app/components/SiteNav";
 import { Card } from "@/app/components/ui";
 import { EXPERIENCE, SITE } from "@/app/lib/site";
+import Image from "next/image";
 
 export default function ExperiencePage() {
   return (
