@@ -4,7 +4,6 @@ import Link from "next/link";
 import SiteNav from "@/app/components/SiteNav";
 import { FEATURED_PROJECTS, slugify } from "@/app/lib/site";
 
-// testing 
 
 function PageBanner() {
   return (
@@ -36,8 +35,8 @@ const TILE_BGS = [
   "bg-white",
   "bg-zinc-50",
   "bg-indigo-50/60",
-  "bg-sky-50",
-  "bg-amber-50",
+  "bg-zinc-50",
+  "bg-indigo-50/60",
   "bg-emerald-50",
   "bg-rose-50",
 ] as const;
