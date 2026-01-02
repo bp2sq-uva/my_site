@@ -172,6 +172,9 @@ export const EXPERIENCE: Experience[] = [
       "Developed analysis methods for polarization-transfer observables and QA.",
       "Prototyped testing/assembly apparatuses for detector hardware.",
     ],
+    logos: [
+      { name: "University of Virginia", src: "/logos/uva.svg", href: "https://www.virginia.edu" },
+    ],
   },
   {
     title: "Machine Learning Engineer Intern",
@@ -184,9 +187,7 @@ export const EXPERIENCE: Experience[] = [
     ],
 
     logos: [
-      { name: "University of Virginia", src: "/logos/uva.svg", href: "https://www.virginia.edu" },
       { name: "Dedrone by Axon", src: "/logos/dedrone.svg", href: "https://www.dedrone.com" },
-      { name: "Jefferson Lab", src: "/logos/jlab.svg", href: "https://www.jlab.org" },
     ],
 
   
@@ -199,6 +200,9 @@ export const EXPERIENCE: Experience[] = [
       "Front-end electronics installation, testing and real-time data acquisition system development.",
       "Applied ML techniques to enhance data analysis and interpretation.",
       "Built tools with interdisciplinary teams to solve reconstruction problems.",
+    ],
+    logos: [
+      { name: "Jefferson Lab", src: "/logos/jlab.svg", href: "https://www.jlab.org" },
     ],
   },
   {
