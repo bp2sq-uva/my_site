@@ -214,6 +214,10 @@ export const EXPERIENCE: Experience[] = [
       "Analyzed simulation data to inform design improvements and enhance performance.",
       "Ran wind tunnel experiments to validate aerodynamic performance.",
     ],
+    logos: [
+      { name: "Dedrone by Axon", src: "/logos/kmou.svg", href: "https://www.dedrone.com" },
+    ],
+
   },
 ];
 

@@ -20,7 +20,7 @@ function ExperienceLogosCorner({
               src={l.src}
               alt={l.name}
             //   className="h-16 w-auto object-contain opacity-80 grayscale hover:opacity-100 hover:grayscale-0 transition"
-              className="opacity-95 saturate-75 transition hover:opacity-100 hover:saturate-100"
+              className="opacity-86 saturate-50 transition hover:opacity-100 hover:saturate-100"
             />
           </div>
         );
