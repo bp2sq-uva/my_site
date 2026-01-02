@@ -840,9 +840,9 @@ export default function Page() {
       <HeroWix />
       <LogoStrip />
       <CurrentStatus />
+      <FeaturedProjectsPreview />
       <AboutPreviewCombined />
       <NavTiles />
-      <FeaturedProjectsPreview />
       <footer className="border-t border-zinc-200 py-8">
         <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
           © {new Date().getFullYear()} {SITE.name}
