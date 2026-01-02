@@ -45,8 +45,8 @@ const TILE_ACCENTS = [
   "bg-zinc-900/20",
   "bg-indigo-600",
   "bg-sky-600",
-  "bg-zinc-900/20",
-  "bg-indigo-600",
+  "bg-amber-500",
+  "bg-emerald-600",
   "bg-rose-600",
 ] as const;
 

@@ -6,7 +6,7 @@ import { FEATURED_PROJECTS, slugify } from "@/app/lib/site";
 
 function PageBanner() {
   return (
-    <section className="relative h-[320px] w-full overflow-hidden border-b border-zinc-200">
+    <section className="relative h-[620px] w-full overflow-hidden border-b border-zinc-200">
       <Image
         src="/banners/projects.jpg"
         alt="Projects banner"
