@@ -108,6 +108,43 @@ function HeroSimple() {
 // }
 
 
+// function NavTiles() {
+//   const tiles = [
+//     { title: "About", desc: "Short bio + focus areas.", href: "/about" },
+//     { title: "Projects", desc: "Selected work with full detail pages.", href: "/projects" },
+//     { title: "Publications", desc: "Thesis, papers, notes, talks.", href: "/publications" },
+//     { title: "Experience", desc: "Timeline + key contributions.", href: "/experience" },
+//   ];
+
+//   return (
+//     <section className="w-full bg-zinc-50">
+//       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+//         <h2 className="text-xl font-semibold text-zinc-900">Explore</h2>
+
+//         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+//           {tiles.map((t) => (
+//             <Link
+//               key={t.href}
+//               href={t.href}
+//               className="group rounded-3xl bg-white px-6 py-6 shadow-sm ring-1 ring-black/5 transition hover:shadow-md"
+//             >
+//               <div className="flex items-start justify-between gap-4">
+//                 <div>
+//                   <h3 className="text-base font-semibold text-zinc-900">{t.title}</h3>
+//                   <p className="mt-1 text-sm text-zinc-600">{t.desc}</p>
+//                 </div>
+//                 <span className="text-sm text-zinc-500 transition group-hover:translate-x-0.5">
+//                   →
+//                 </span>
+//               </div>
+//             </Link>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 function NavTiles() {
   const tiles = [
     { title: "About", desc: "Short bio + focus areas.", href: "/about" },
@@ -117,34 +154,45 @@ function NavTiles() {
   ];
 
   return (
-    <section className="w-full bg-zinc-50">
-      <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-        <h2 className="text-xl font-semibold text-zinc-900">Explore</h2>
-
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {tiles.map((t) => (
-            <Link
-              key={t.href}
-              href={t.href}
-              className="group rounded-3xl bg-white px-6 py-6 shadow-sm ring-1 ring-black/5 transition hover:shadow-md"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-base font-semibold text-zinc-900">{t.title}</h3>
-                  <p className="mt-1 text-sm text-zinc-600">{t.desc}</p>
-                </div>
-                <span className="text-sm text-zinc-500 transition group-hover:translate-x-0.5">
-                  →
-                </span>
-              </div>
-            </Link>
-          ))}
+    <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+      <div className="flex items-end justify-between gap-4">
+        <div>
+          <h2 className="text-xl font-semibold text-zinc-900">Explore</h2>
+          <p className="mt-1 text-sm text-zinc-600">Quick links into the site.</p>
         </div>
+      </div>
+
+      <div className="mt-10 divide-y divide-zinc-200">
+        {tiles.map((t) => (
+          <Link
+            key={t.href}
+            href={t.href}
+            className="group block py-7"
+          >
+            <div className="flex items-start justify-between gap-6">
+              <div>
+                <div className="flex items-baseline gap-3">
+                  <h3 className="text-2xl font-semibold tracking-tight text-zinc-900 group-hover:underline underline-offset-8 decoration-zinc-300">
+                    {t.title}
+                  </h3>
+                  <span className="text-sm text-zinc-500">→</span>
+                </div>
+
+                <p className="mt-2 max-w-2xl text-sm text-zinc-600">
+                  {t.desc}
+                </p>
+              </div>
+
+              <div className="hidden sm:block text-xs font-medium text-zinc-500 group-hover:text-zinc-700 transition">
+                Open
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   );
 }
-
 
 
 function Thumb({ src, alt }: { src: string; alt: string }) {
