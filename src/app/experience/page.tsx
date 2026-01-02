@@ -14,7 +14,7 @@ function ExperienceLogosCorner({
     <div className="absolute right-5 top-5 flex items-center gap-2">
       {logos.slice(0, 3).map((l) => {
         const badge = (
-          <div className="flex h-9 w-14 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 px-2">
+          <div className="flex h-24 w-40 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 px-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={l.src}
