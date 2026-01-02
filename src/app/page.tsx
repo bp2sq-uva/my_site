@@ -383,8 +383,10 @@ function AboutPreviewCombined() {
 function CurrentStatus() {
   return (
     <section className="mx-auto w-full max-w-6xl px-5 pb-2">
-      <div className="rounded-3xl border border-zinc-200 bg-indigo-45 p-6 shadow-sm">
+      {/* <div className="rounded-3xl border border-zinc-200 bg-indigo-45 p-6 shadow-sm"> */}
+      <div className="rounded-3xl border border-zinc-200/70 bg-indigo-50 p-6 shadow-lg ring-1 ring-black/5">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+        <div className="rounded-2xl bg-white/70 p-4 ring-1 ring-black/5">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
               Current
@@ -397,7 +399,7 @@ function CurrentStatus() {
             <p className="mt-1 text-sm text-zinc-600">{CURRENT.location}</p>
           </div>
 
-          <div className="sm:max-w-md">
+            <div className="sm:max-w-md rounded-2xl bg-white/70 p-4 ring-1 ring-black/5">
             <p className="text-sm font-semibold text-zinc-900">Focus right now</p>
             <ul className="mt-2 space-y-1 text-sm text-zinc-700">
               {CURRENT.focus.map((x) => (
@@ -558,7 +560,9 @@ function LogoStrip() {
     <section className="mx-auto w-full max-w-6xl px-5 py-10">
       {/* <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-6 shadow-sm"> */}
       {/* <div className="rounded-3xl border border-violet-100 bg-violet-50 p-6 shadow-sm"> */}
-      <div className="rounded-3xl border border-indigo-100 bg-indigo-45 p-6 shadow-sm">
+      {/* <div className="rounded-3xl border border-indigo-100 bg-indigo-45 p-6 shadow-sm"> */}
+      <div className="rounded-3xl border border-zinc-200/70 bg-gradient-to-br from-violet-50 via-teal-50 to-emerald-50 p-6 shadow-lg ring-1 ring-black/5">
+
         <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
           Worked with
         </p>
@@ -566,7 +570,8 @@ function LogoStrip() {
         <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {WORK_LOGOS.map((logo) => {
             const img = (
-              <div className="flex items-center justify-center rounded-2xl border border-zinc-200 bg-white px-4 py-4">
+            //   <div className="flex items-center justify-center rounded-2xl border border-zinc-200 bg-white px-4 py-4">
+              <div className="flex items-center justify-center rounded-2xl border border-white/60 bg-white/80 px-4 py-4 shadow-md ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-lg">
                 <div className="opacity-95 saturate-90 contrast-105 transition hover:opacity-100 hover:saturate-110 hover:contrast-110">
                 <LogoMark src={logo.src} alt={logo.name} />
                 </div>
