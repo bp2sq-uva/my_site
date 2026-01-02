@@ -302,30 +302,41 @@ function AboutPreviewCombined() {
 
       <div className="mt-6 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
         <div className="grid gap-6 lg:grid-cols-2">
-          {/* Professional */}
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
-              Professional
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
-              {professional}
-            </p>
-          </div>
+        {/* Professional */}
+        <div>
+        <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
+            Professional
+        </p>
 
-          {/* Divider (vertical on desktop, horizontal on mobile) */}
-          <div className="lg:hidden h-px w-full bg-zinc-200" />
-          <div className="hidden lg:block w-px bg-zinc-200" />
-
-          {/* Personal */}
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-blue-400">
-            Personal
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
-              {personal}
-            </p>
-          </div>
+        <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
+            {professional}{" "}
+            <a
+            href="/about#professional"
+            className="font-semibold text-indigo-700 hover:underline"
+            >
+            More…
+            </a>
+        </p>
         </div>
+
+
+        {/* Personal */}
+        <div>
+        <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">
+            Personal
+        </p>
+
+        <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
+            {personal}{" "}
+            <a
+            href="/about#personal"
+            className="font-semibold text-blue-600 hover:underline"
+            >
+            More…
+            </a>
+        </p>
+        </div>
+
 
         <div className="mt-6 flex flex-wrap gap-3">
           <a
