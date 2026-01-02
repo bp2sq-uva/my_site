@@ -308,6 +308,8 @@ function AboutPreviewCombined() {
       {/* <div className="mt-6 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
         <div className="grid gap-6 lg:grid-cols-2"> */}
         <div className="mt-12 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
+        <div className="mt-12 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm"></div>
+        {/* <div className="relative overflow-hidden rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm"></div> */}
         {/* ✅ Title inside the box */}
         <div className="flex items-center justify-between">
             <p className="text-sm font-semibold text-zinc-900">About</p>
