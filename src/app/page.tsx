@@ -5,6 +5,7 @@ import { Card, Pill } from "@/app/components/ui";
 import { FEATURED_PROJECTS, SITE, slugify } from "@/app/lib/site";
 import { CURRENT } from "@/app/lib/site";
 import Image from "next/image";
+import { WORK_LOGOS } from "@/app/lib/site";
 
 function HeroSimple() {
   const pills = [
@@ -509,12 +510,59 @@ export function HeroWix() {
 }
 
 
+function LogoStrip() {
+  return (
+    <section className="mx-auto w-full max-w-6xl px-5 py-10">
+      <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
+        <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
+          Worked with
+        </p>
+
+        <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          {WORK_LOGOS.map((logo) => {
+            const img = (
+              <div className="flex items-center justify-center rounded-2xl border border-zinc-200 bg-zinc-50 px-3 py-3">
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  width={220}
+                  height={90}
+                  className="h-10 w-auto object-contain opacity-80 grayscale hover:opacity-100 hover:grayscale-0 transition"
+                />
+              </div>
+            );
+
+            return logo.href ? (
+              <a
+                key={logo.name}
+                href={logo.href}
+                target="_blank"
+                rel="noreferrer"
+                className="block"
+                aria-label={logo.name}
+                title={logo.name}
+              >
+                {img}
+              </a>
+            ) : (
+              <div key={logo.name} title={logo.name}>
+                {img}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-white text-zinc-900">
       <SiteNav />
       <HeroWix />
+      <LogoStrip />
       <CurrentStatus />
       <AboutPreviewCombined />
       <NavTiles />
