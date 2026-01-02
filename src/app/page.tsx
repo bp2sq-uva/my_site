@@ -318,8 +318,8 @@ function AboutPreviewCombined() {
 
           {/* Personal */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
-              Personal
+            <p className="text-xs font-semibold uppercase tracking-wide text-emerald-700">
+            Personal
             </p>
             <p className="mt-3 text-sm leading-relaxed text-zinc-700 line-clamp-4">
               {personal}
@@ -334,12 +334,12 @@ function AboutPreviewCombined() {
           >
             Professional details
           </a>
-          <a
+            <a
             href="/about#personal"
-            className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-800 hover:bg-emerald-100 transition"
-          >
+            className="rounded-xl border border-emerald-600 bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-500 hover:border-emerald-500 transition"
+            >
             Personal
-          </a>
+            </a>
         </div>
       </div>
     </section>
