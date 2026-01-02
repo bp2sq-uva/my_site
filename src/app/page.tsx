@@ -575,7 +575,7 @@ function LogoStrip() {
         <div className="mt-12 grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-3 lg:grid-cols-6">
           {WORK_LOGOS.map((logo) => {
             const item = (
-            <div className="flex h-24 items-center justify-center sm:h-28 md:h-32 lg:h-36 xl:h-40">
+            <div className="flex h-36 items-center justify-center sm:h-36 md:h-44 lg:h-56 xl:h-40">
                 <LogoMark src={logo.src} alt={logo.name} />
             </div>
             );
