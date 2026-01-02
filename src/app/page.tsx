@@ -322,7 +322,7 @@ function FeaturedProjectsPreview() {
 
   return (
     <section className="w-full bg-stone-50">
-      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-28 lg:py-32">
+      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-48">
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
           <Link href="/projects" className="text-sm font-medium text-zinc-700 hover:underline">
