@@ -104,7 +104,7 @@ export const FEATURED_PROJECTS: Project[] = [
       "Optimized blade geometry to enhance efficiency and power output based on simulation results.",
     ],
     images: [
-      { src: "/projects/wind-1.png", alt: "wind turbine blade" },
+      { src: "/projects/wind-11.png", alt: "wind turbine blade" },
       { src: "/projects/wind-2.png", alt: "wind turbine blade" },
       { src: "/projects/wind-3.png", alt: "wind blade" },
     ],
