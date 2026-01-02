@@ -540,7 +540,8 @@ function LogoMark({ src, alt }: { src: string; alt: string }) {
 function LogoStrip() {
   return (
     <section className="mx-auto w-full max-w-6xl px-5 py-10">
-      <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-6 shadow-sm">
+      {/* <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-6 shadow-sm"> */}
+      <div className="rounded-3xl border border-indigo-100 bg-indigo-50 p-6 shadow-sm">
         <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
           Worked with
         </p>
