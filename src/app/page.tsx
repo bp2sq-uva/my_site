@@ -849,7 +849,7 @@ function LogoMark({ src, alt }: { src: string; alt: string }) {
 function LogoStrip() {
   return (
     <section id="worked-with" className="w-full bg-zinc-50">
-      <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-48">
         <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600">
           Worked with
         </p>
