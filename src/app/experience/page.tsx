@@ -3,6 +3,48 @@ import { Card } from "@/app/components/ui";
 import { EXPERIENCE, SITE } from "@/app/lib/site";
 import Image from "next/image";
 
+function ExperienceLogosCorner({
+  logos,
+}: {
+  logos?: { name: string; src: string; href?: string }[];
+}) {
+  if (!logos?.length) return null;
+
+  return (
+    <div className="absolute right-5 top-5 flex items-center gap-2">
+      {logos.slice(0, 3).map((l) => {
+        const badge = (
+          <div className="flex h-9 w-14 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 px-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={l.src}
+              alt={l.name}
+              className="h-6 w-auto object-contain opacity-80 grayscale hover:opacity-100 hover:grayscale-0 transition"
+            />
+          </div>
+        );
+
+        return l.href ? (
+          <a
+            key={l.name}
+            href={l.href}
+            target="_blank"
+            rel="noreferrer"
+            title={l.name}
+          >
+            {badge}
+          </a>
+        ) : (
+          <div key={l.name} title={l.name}>
+            {badge}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+
 export default function ExperiencePage() {
   return (
     <div className="min-h-screen bg-white text-zinc-900">
@@ -15,20 +57,20 @@ export default function ExperiencePage() {
         <div className="mt-8 space-y-6">
           {EXPERIENCE.map((e) => (
             <section
-              key={`${e.org}-${e.title}`}
-              className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm"
+            key={`${e.org}-${e.title}`}
+            className="relative rounded-3xl border border-zinc-200 bg-white p-6 pr-28 shadow-sm"
             >
-              <h2 className="text-lg font-semibold text-zinc-900">{e.title}</h2>
-              <p className="text-sm text-zinc-700">{e.org}</p>
-              <p className="text-sm text-zinc-500">{e.dates}</p>
+            <ExperienceLogosCorner logos={e.logos} />
 
-              <ExperienceLogos logos={(e as any).logos} />
+            <h2 className="text-lg font-semibold text-zinc-900">{e.title}</h2>
+            <p className="text-sm text-zinc-700">{e.org}</p>
+            <p className="text-sm text-zinc-500">{e.dates}</p>
 
-              <ul className="mt-4 space-y-2 text-sm text-zinc-700">
+            <ul className="mt-4 space-y-2 text-sm text-zinc-700">
                 {e.bullets.map((b, i) => (
-                  <li key={i}>• {b}</li>
+                <li key={i}>• {b}</li>
                 ))}
-              </ul>
+            </ul>
             </section>
           ))}
         </div>
