@@ -2,11 +2,12 @@
 export type Link = { label: string; href: string };
 
 export type Project = {
+  slug?: string; // ✅ add this
   title: string;
   tagline: string;
   tags: string[];
   highlights: string[];
-  links?: Link[];  // <- optional
+  links?: Link[];
   images?: { src: string; alt: string }[];
 };
 
