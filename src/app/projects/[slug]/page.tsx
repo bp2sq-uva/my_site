@@ -152,7 +152,7 @@ if (idx < 0) return notFound();
             <h2 className="text-sm font-semibold text-zinc-900">Media</h2>
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
-              {project.images.map((img: any) => (
+              {project.images.map((img: any) => 
                 <div key={img.src} className="overflow-hidden">
                   <ProjectMedia
                     src={img.src}
@@ -160,7 +160,7 @@ if (idx < 0) return notFound();
                     className="h-72 w-full object-cover"
                   />
                 </div>
-              ))}
+              )}
             </div>
           </div>
           <div className="h-px w-full bg-zinc-200/70" />
@@ -191,9 +191,9 @@ if (idx < 0) return notFound();
             <div className="lg:col-span-8">
               <h2 className="text-sm font-semibold text-zinc-900">Highlights</h2>
               <ul className="mt-4 space-y-2 text-sm text-zinc-700">
-                {(project.highlights ?? []).map((h: string, i: number) => (
+                {(project.highlights ?? []).map((h: string, i: number) => 
                   <li key={i}>• {h}</li>
-                ))}
+                )}
               </ul>
             </div>
 
@@ -203,7 +203,7 @@ if (idx < 0) return notFound();
 
               <div className="mt-4 flex flex-col gap-2">
                 {(project.links ?? []).length ? (
-                  project.links.map((l: any) => (
+                  project.links.map((l: any) => 
                     <a
                       key={l.href}
                       href={l.href}
@@ -213,7 +213,7 @@ if (idx < 0) return notFound();
                     >
                       {l.label} →
                     </a>
-                  ))
+                  )
                 ) : (
                   <p className="text-sm text-zinc-700">
                     Add links (write-up, repo, slides) if you want.
