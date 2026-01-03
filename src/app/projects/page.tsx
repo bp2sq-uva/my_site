@@ -98,7 +98,11 @@ export default function ProjectsPage() {
 
         {/* Tiles grid (square, no rounded corners) */}
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURED_PROJECTS.map((p: any, i) => {
+          {FEATURED_PROJECTS.slice(0, 3).map((project) => (
+            <Link key={project.slug} href={`/projects/${project.slug}`} className="block">
+                {/* card UI */}
+            </Link>
+            ))}
             // const slug = p.slug ?? slugify(p.title); // ✅ stable if you have p.slug
             const slug = slugify(p.title);
             const cover = p.images?.[0];

@@ -151,9 +151,9 @@ function FeaturedProjectsPreview() {
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-xl font-semibold text-zinc-900">Featured projects</h2>
           {/* <Link href="/projects" className="text-sm font-medium text-zinc-700 hover:underline"> */}
-          <Link href={`/projects/${project.slug}`} className="block">
+            <Link href="/projects" className="text-sm font-medium text-zinc-700 hover:underline">
             See all →
-          </Link>
+            </Link>
         </div>
 
         <div className="mt-10 grid gap-10 md:grid-cols-3">
