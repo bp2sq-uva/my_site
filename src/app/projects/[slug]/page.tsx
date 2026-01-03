@@ -37,12 +37,13 @@ export default function ProjectDetailPage({
   params: { slug: string };
 }) {
   // ✅ Find by explicit slug if present, otherwise fallback to slugify(title)
-const incoming = decodeURIComponent(params.slug);
+const incoming = params.slug;
 
 const idx = FEATURED_PROJECTS.findIndex((p: any) => {
   const s = (p.slug ?? slugify(p.title)).trim();
   return s === incoming;
 });
+
 
 if (idx < 0) return notFound();
 
