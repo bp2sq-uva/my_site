@@ -7,60 +7,6 @@ import { FEATURED_PROJECTS, slugify } from "@/app/lib/site";
 import Image from "next/image";
 
 
-// export default function ProjectDetailPage({
-//   params,
-// }: {
-//   params: { slug: string };
-// }) {
-//   const project = FEATURED_PROJECTS.find((p) => (p.slug ?? slugify(p.title)).trim() === params.slug.trim());
-
-//   if (!project) notFound();
-
-//   return (
-//     <main className="min-h-screen bg-white">
-//       <SiteNav />
-
-//       <section className="mx-auto w-full max-w-6xl px-5 py-10">
-//         <h1 className="text-3xl font-semibold text-zinc-900 sm:text-4xl">
-//           {project.title}
-//         </h1>
-
-//         {project.tagline ? (
-//           <p className="mt-3 text-base text-zinc-600">{project.tagline}</p>
-//         ) : null}
-
-//         {project.images?.length ? (
-//           <div className="mt-8 grid gap-4 sm:grid-cols-2">
-//             {project.images.map((img, i) => (
-//               <div
-//                 key={i}
-//                 className="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50"
-//               >
-//                 <Image
-//                   src={img.src}
-//                   alt={img.alt ?? project.title}
-//                   width={1600}
-//                   height={900}
-//                   className="h-64 w-full object-cover"
-//                 />
-//               </div>
-//             ))}
-//           </div>
-//         ) : null}
-
-//         {project.description ? (
-//           <div className="prose prose-zinc mt-8 max-w-none">
-//             {project.description}
-//           </div>
-//         ) : null}
-//       </section>
-//     </main>
-//   );
-// }
-
-
-
-
 // Match the index page cycling so accents feel consistent
 const TILE_BGS = [
   "bg-white",
