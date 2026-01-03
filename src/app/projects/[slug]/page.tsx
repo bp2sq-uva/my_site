@@ -5,46 +5,40 @@ import SiteNav from "@/app/components/SiteNav";
 import { ProjectMedia } from "@/app/components/ui";
 import { FEATURED_PROJECTS, slugify } from "@/app/lib/site";
 
-// Match the index page cycling so accents feel consistent
-const TILE_BGS = [
-  "bg-white",
-  "bg-zinc-50",
-  "bg-sky-50",
-  "bg-white",
-  "bg-zinc-50",
-  "bg-sky-50",
-] as const;
-
+// Accent helpers (keep or adjust to match your project tiles)
+const TILE_BGS = ["bg-white", "bg-zinc-50", "bg-sky-50"] as const;
 const TILE_ACCENTS = [
-  "bg-zinc-900/20",
   "bg-indigo-600",
   "bg-sky-600",
-  "bg-amber-500",
   "bg-emerald-600",
+  "bg-amber-500",
   "bg-rose-600",
+  "bg-zinc-900/30",
 ] as const;
 
 function bgForIndex(i: number) {
   return TILE_BGS[i % TILE_BGS.length];
 }
-
 function accentForIndex(i: number) {
   return TILE_ACCENTS[i % TILE_ACCENTS.length];
+}
+
+// ✅ Safe slug getter: NEVER calls slugify unless title is a real string
+function getProjectSlug(p: any): string | null {
+  if (typeof p?.slug === "string" && p.slug.trim().length > 0) return p.slug.trim();
+  if (typeof p?.title === "string" && p.title.trim().length > 0) return slugify(p.title);
+  return null;
 }
 
 export default function ProjectDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: { slug?: string };
 }) {
-  const incoming = params.slug.trim();
+  const incoming = (params?.slug ?? "").trim();
+  if (!incoming) notFound();
 
-  // Find by explicit slug if present, otherwise fallback to slugify(title)
-  const idx = FEATURED_PROJECTS.findIndex((p: any) => {
-    const s = String(p.slug ?? slugify(p.title)).trim();
-    return s === incoming;
-  });
-
+  const idx = FEATURED_PROJECTS.findIndex((p: any) => getProjectSlug(p) === incoming);
   if (idx < 0) notFound();
 
   const project: any = FEATURED_PROJECTS[idx];
@@ -55,7 +49,7 @@ export default function ProjectDetailPage({
     <div className="min-h-screen bg-white text-zinc-900">
       <SiteNav />
 
-      {/* Header band */}
+      {/* Header */}
       <section className={`w-full ${accentBg}`}>
         <div className={`h-1 w-full ${accentStrip}`} />
 
@@ -68,13 +62,11 @@ export default function ProjectDetailPage({
           </Link>
 
           <h1 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
-            {project.title}
+            {project.title ?? "Project"}
           </h1>
 
           {project.tagline ? (
-            <p className="mt-3 max-w-3xl text-base text-zinc-700">
-              {project.tagline}
-            </p>
+            <p className="mt-3 max-w-3xl text-base text-zinc-700">{project.tagline}</p>
           ) : null}
 
           {(project.tags ?? []).length ? (
@@ -102,7 +94,7 @@ export default function ProjectDetailPage({
                 <div key={img.src} className="overflow-hidden">
                   <ProjectMedia
                     src={img.src}
-                    alt={img.alt ?? project.title}
+                    alt={img.alt ?? project.title ?? "Project image"}
                     className="h-72 w-full object-cover"
                   />
                 </div>
@@ -132,7 +124,7 @@ export default function ProjectDetailPage({
                 </ul>
               ) : (
                 <p className="mt-4 text-sm text-zinc-700">
-                  Add highlights in <code>FEATURED_PROJECTS</code> if you want.
+                  Add <code>highlights</code> in <code>FEATURED_PROJECTS</code> if you want.
                 </p>
               )}
             </div>
@@ -156,7 +148,7 @@ export default function ProjectDetailPage({
                   ))
                 ) : (
                   <p className="text-sm text-zinc-700">
-                    Add links (write-up, repo, slides) if you want.
+                    Add <code>links</code> (repo, write-up, etc.) in your project data if you want.
                   </p>
                 )}
               </div>
@@ -177,8 +169,9 @@ export default function ProjectDetailPage({
   );
 }
 
+// ✅ Also make static params safe
 export function generateStaticParams() {
-  return FEATURED_PROJECTS.map((p: any) => ({
-    slug: String(p.slug ?? slugify(p.title)).trim(),
-  }));
+  return FEATURED_PROJECTS.map((p: any) => getProjectSlug(p))
+    .filter((slug): slug is string => typeof slug === "string" && slug.length > 0)
+    .map((slug) => ({ slug }));
 }
