@@ -35,10 +35,8 @@ export default function ProjectDetailPage({
 }: {
   params: { slug?: string };
 }) {
-    const incoming = params.slug.trim();
-    const project = FEATURED_PROJECTS.find((p) => p.slug === incoming);
-    if (!project) notFound();
-
+  const incoming = params.slug?.trim();
+  if (!incoming) notFound();
 
   const idx = FEATURED_PROJECTS.findIndex((p: any) => getProjectSlug(p) === incoming);
   if (idx < 0) notFound();
