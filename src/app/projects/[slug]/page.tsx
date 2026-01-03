@@ -25,7 +25,7 @@ function accentForIndex(i: number) {
 
 // ✅ Safe slug getter: NEVER calls slugify unless title is a real string
 function getProjectSlug(p: any): string | null {
-  if (typeof p?.slug === "string" && p.slug.trim().length > 0) return p.slug.trim();
+  if (typeof p?.slug === "string" && p.slug.trim().length > 0) return slugify(p.slug.trim());
   if (typeof p?.title === "string" && p.title.trim().length > 0) return slugify(p.title);
   return null;
 }
@@ -35,7 +35,7 @@ export default function ProjectDetailPage({
 }: {
   params: { slug?: string };
 }) {
-  const incoming = (params?.slug ?? "").trim();
+  const incoming = slugify((params?.slug ?? "").trim());
   if (!incoming) notFound();
 
   const idx = FEATURED_PROJECTS.findIndex((p: any) => getProjectSlug(p) === incoming);

@@ -58,7 +58,7 @@ function accentForIndex(i: number) {
 
 function getSlug(p: any): string {
   // Prefer explicit slug; fallback to slugify(title)
-  if (typeof p?.slug === "string" && p.slug.trim().length > 0) return p.slug.trim();
+  if (typeof p?.slug === "string" && p.slug.trim().length > 0) return slugify(p.slug.trim());
   if (typeof p?.title === "string" && p.title.trim().length > 0) return slugify(p.title);
   // last-resort (shouldn’t happen if your data is clean)
   return "project";

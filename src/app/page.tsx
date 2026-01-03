@@ -141,6 +141,13 @@ function Thumb({ src, alt }: { src: string; alt: string }) {
 
 
 
+function getProjectSlug(p: any): string {
+  if (typeof p?.slug === "string" && p.slug.trim().length > 0) return p.slug.trim();
+  if (typeof p?.title === "string" && p.title.trim().length > 0) return slugify(p.title);
+  return "project";
+}
+
+
 
 function FeaturedProjectsPreview() {
   const picks = FEATURED_PROJECTS.slice(0, 3);
@@ -158,9 +165,9 @@ function FeaturedProjectsPreview() {
 
         <div className="mt-10 grid gap-10 md:grid-cols-3">
           {picks.map((p) => {
-            const slug = slugify(p.title);
+            const slug = getProjectSlug(p);
             return (
-              <Link key={p.title} href={`/projects/${slug}`} className="group">
+            <Link key={slug} href={`/projects/${slug}`} className="group">
                 {p.images?.[0] ? (
                   <div className="aspect-[16/10] overflow-hidden bg-white ring-1 ring-black/5">
                     <Thumb src={p.images[0].src} alt={p.images[0].alt ?? p.title} />
