@@ -92,7 +92,7 @@ export default function ProjectsPage() {
           </div>
 
           <Link
-            href="/"
+            href={`/projects/${p.slug}`}
             className="text-sm font-medium text-zinc-700 hover:underline underline-offset-4"
           >
             Back to Home
