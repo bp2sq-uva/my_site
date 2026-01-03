@@ -81,11 +81,11 @@ if (idx < 0) return notFound();
           </p>
 
           <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-600">
-            {(project.tags ?? []).map((t: string) => (
+            {(project.tags ?? []).map((t: string) => 
               <span key={t} className="border-b border-zinc-300/70 pb-0.5">
                 {t}
               </span>
-            ))}
+            )}
           </div>
         </div>
         <div className="h-px w-full bg-zinc-200/70" />
