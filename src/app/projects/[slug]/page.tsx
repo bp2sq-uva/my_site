@@ -35,8 +35,10 @@ export default function ProjectDetailPage({
 }: {
   params: { slug?: string };
 }) {
-  const incoming = (params?.slug ?? "").trim();
-  if (!incoming) notFound();
+    const incoming = params.slug.trim();
+    const project = FEATURED_PROJECTS.find((p) => p.slug === incoming);
+    if (!project) notFound();
+
 
   const idx = FEATURED_PROJECTS.findIndex((p: any) => getProjectSlug(p) === incoming);
   if (idx < 0) notFound();
@@ -171,7 +173,6 @@ export default function ProjectDetailPage({
 
 // ✅ Also make static params safe
 export function generateStaticParams() {
-  return FEATURED_PROJECTS.map((p: any) => getProjectSlug(p))
-    .filter((slug): slug is string => typeof slug === "string" && slug.length > 0)
-    .map((slug) => ({ slug }));
+  return FEATURED_PROJECTS.map((p) => ({ slug: p.slug }));
 }
+
