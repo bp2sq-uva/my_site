@@ -37,12 +37,15 @@ export default function ProjectDetailPage({
   params: { slug: string };
 }) {
   // ✅ Find by explicit slug if present, otherwise fallback to slugify(title)
-  const idx = FEATURED_PROJECTS.findIndex((p: any) => {
-    const s = p.slug ?? slugify(p.title);
-    return s === params.slug;
-  });
+const incoming = decodeURIComponent(params.slug);
 
-  if (idx < 0) return notFound();
+const idx = FEATURED_PROJECTS.findIndex((p: any) => {
+  const s = (p.slug ?? slugify(p.title)).trim();
+  return s === incoming;
+});
+
+if (idx < 0) return notFound();
+
 
   const project: any = FEATURED_PROJECTS[idx];
   const accentBg = bgForIndex(idx);

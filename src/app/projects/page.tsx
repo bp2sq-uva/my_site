@@ -99,7 +99,8 @@ export default function ProjectsPage() {
         {/* Tiles grid (square, no rounded corners) */}
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURED_PROJECTS.map((p: any, i) => {
-            const slug = p.slug ?? slugify(p.title); // ✅ stable if you have p.slug
+            // const slug = p.slug ?? slugify(p.title); // ✅ stable if you have p.slug
+            const slug = encodeURIComponent((p.slug ?? slugify(p.title)).trim());
             const cover = p.images?.[0];
             const bg = bgForIndex(i);
             const accent = accentForIndex(i);
