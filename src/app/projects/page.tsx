@@ -29,21 +29,48 @@ function PageBanner() {
   );
 }
 
-// Light section backgrounds (cycle)
-const SECTION_BGS = [
+// Tile backgrounds (cycle)
+const TILE_BGS = [
   "bg-white",
   "bg-zinc-50",
   "bg-sky-50",
   "bg-white",
   "bg-zinc-50",
   "bg-sky-50",
-//   "bg-amber-50",
-//   "bg-emerald-50",
-//   "bg-rose-50",
+] as const;
+
+const TILE_ACCENTS = [
+  "bg-zinc-900/20",
+  "bg-indigo-600",
+  "bg-sky-600",
+  "bg-amber-500",
+  "bg-emerald-600",
+  "bg-rose-600",
 ] as const;
 
 function bgForIndex(i: number) {
-  return SECTION_BGS[i % SECTION_BGS.length];
+  return TILE_BGS[i % TILE_BGS.length];
+}
+function accentForIndex(i: number) {
+  return TILE_ACCENTS[i % TILE_ACCENTS.length];
+}
+
+function Thumb({ src, alt }: { src: string; alt: string }) {
+  const isGif = src.toLowerCase().endsWith(".gif");
+  if (isGif) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={src} alt={alt} className="h-full w-full object-cover" />;
+  }
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={1400}
+      height={900}
+      className="h-full w-full object-cover"
+      priority={false}
+    />
+  );
 }
 
 export default function ProjectsPage() {
@@ -52,94 +79,96 @@ export default function ProjectsPage() {
       <SiteNav />
       <PageBanner />
 
-      {/* Full-width project bands */}
-      <main className="w-full">
-        {FEATURED_PROJECTS.map((p, i) => {
-          const slug = slugify(p.title);
-          const cover = p.images?.[0];
-          const bg = bgForIndex(i);
+      <main className="mx-auto w-full max-w-6xl px-5 py-14 sm:py-16">
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <h2 className="text-xl font-semibold text-zinc-900">All projects</h2>
+            <p className="mt-1 text-sm text-zinc-600">
+              Click a tile for the full write-up and media.
+            </p>
+          </div>
 
-          return (
-            <section key={slug} className={`w-full ${bg}`}>
-              <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-28 lg:py-32">
-                <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-                  {/* Image (not boxed) */}
-                  <div className="lg:col-span-5">
-                    {cover ? (
-                      <div className="relative aspect-[16/10] overflow-hidden">
-                        <Image
-                          src={cover.src}
-                          alt={cover.alt}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    ) : (
-                      <div className="aspect-[16/10] bg-zinc-200/40" />
-                    )}
+          <Link
+            href="/"
+            className="text-sm font-medium text-zinc-700 hover:underline underline-offset-4"
+          >
+            Back to Home
+          </Link>
+        </div>
+
+        {/* Tiles grid (square, no rounded corners) */}
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {FEATURED_PROJECTS.map((p: any, i) => {
+            const slug = p.slug ?? slugify(p.title); // ✅ stable if you have p.slug
+            const cover = p.images?.[0];
+            const bg = bgForIndex(i);
+            const accent = accentForIndex(i);
+
+            return (
+              <Link
+                key={slug}
+                href={`/projects/${slug}`}
+                className={[
+                  "group block",
+                  "border border-zinc-200/70",
+                  "transition",
+                  "hover:-translate-y-0.5 hover:shadow-md",
+                  "focus:outline-none focus:ring-2 focus:ring-zinc-900/20",
+                  bg,
+                ].join(" ")}
+              >
+                {/* Top accent strip */}
+                <div className={`h-1 w-full ${accent}`} />
+
+                {/* Image */}
+                {cover ? (
+                  <div className="aspect-[16/10] overflow-hidden bg-white/60 ring-1 ring-black/5">
+                    <Thumb src={cover.src} alt={cover.alt} />
+                  </div>
+                ) : (
+                  <div className="aspect-[16/10] bg-white/60 ring-1 ring-black/5" />
+                )}
+
+                {/* Body */}
+                <div className="p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-lg font-semibold text-zinc-900 group-hover:underline underline-offset-8 decoration-zinc-300">
+                      {p.title}
+                    </h3>
+                    <span className="text-sm text-zinc-500">→</span>
                   </div>
 
-                  {/* Text */}
-                  <div className="lg:col-span-7">
-                    <div className="flex items-start justify-between gap-6">
-                      <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">
-                        <Link
-                          href={`/projects/${slug}`}
-                          className="hover:underline underline-offset-8 decoration-zinc-300"
-                        >
-                          {p.title}
-                        </Link>
-                      </h2>
-                      <span className="text-sm text-zinc-500">→</span>
-                    </div>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-700">
+                    {p.tagline}
+                  </p>
 
-                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-700">
-                      {p.tagline}
-                    </p>
-
-                    {/* Tags (not pill badges) */}
-                    <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-600">
-                      {p.tags?.slice(0, 8).map((t) => (
-                        <span
-                          key={t}
-                          className="border-b border-zinc-300/70 pb-0.5"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Highlights */}
-                    <ul className="mt-6 space-y-2 text-sm text-zinc-700/90">
-                      {p.highlights.slice(0, 3).map((h) => (
-                        <li key={h}>• {h}</li>
-                      ))}
-                    </ul>
-
-                    <div className="mt-8 flex flex-wrap gap-6">
-                      <Link
-                        href={`/projects/${slug}`}
-                        className="inline-flex items-center gap-2 border-b-2 border-zinc-900 pb-1 text-sm font-semibold text-zinc-900 hover:border-zinc-600"
+                  {/* Tags (simple, not pill badges) */}
+                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-600">
+                    {p.tags?.slice(0, 6).map((t: string) => (
+                      <span
+                        key={t}
+                        className="border-b border-zinc-300/70 pb-0.5"
                       >
-                        See details <span aria-hidden>→</span>
-                      </Link>
+                        {t}
+                      </span>
+                    ))}
+                  </div>
 
-                      <Link
-                        href="/"
-                        className="text-sm font-medium text-zinc-700 hover:underline underline-offset-4"
-                      >
-                        Back to Home
-                      </Link>
-                    </div>
+                  {/* Mini highlights */}
+                  <ul className="mt-5 space-y-1.5 text-sm text-zinc-700/90">
+                    {(p.highlights ?? []).slice(0, 2).map((h: string) => (
+                      <li key={h}>• {h}</li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-6 inline-flex items-center gap-2 border-b-2 border-zinc-900 pb-1 text-sm font-semibold text-zinc-900 group-hover:border-zinc-600">
+                    See details <span aria-hidden>→</span>
                   </div>
                 </div>
-              </div>
-
-              {/* Separator between bands */}
-              <div className="h-px w-full bg-zinc-200/70" />
-            </section>
-          );
-        })}
+              </Link>
+            );
+          })}
+        </div>
       </main>
     </div>
   );
