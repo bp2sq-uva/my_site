@@ -123,7 +123,7 @@ export default function ProjectsPage() {
 
                 {cover ? (
                   <div className="aspect-[16/10] overflow-hidden bg-white/60 ring-1 ring-black/5">
-                    <Thumb src={cover.src} alt={cover.alt} />
+                    <Thumb src={cover.src} alt={cover.alt ?? p.title} /> 
                   </div>
                 ) : (
                   <div className="aspect-[16/10] bg-white/60 ring-1 ring-black/5" />

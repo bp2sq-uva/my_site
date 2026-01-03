@@ -163,7 +163,7 @@ function FeaturedProjectsPreview() {
               <Link key={p.title} href={`/projects/${slug}`} className="group">
                 {p.images?.[0] ? (
                   <div className="aspect-[16/10] overflow-hidden bg-white ring-1 ring-black/5">
-                    <Thumb src={p.images[0].src} alt={p.images[0].alt} />
+                    <Thumb src={p.images[0].src} alt={p.images[0].alt ?? p.title} />
                   </div>
                 ) : (
                   <div className="aspect-[16/10] bg-white ring-1 ring-black/5" />
