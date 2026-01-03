@@ -150,7 +150,8 @@ export default function ProjectsPage() {
                   </div>
 
                   <ul className="mt-5 space-y-1.5 text-sm text-zinc-700/90">
-                    {(p.highlights ?? []).slice(0, 2).map((h: string) => (
+                    {/* {(p.highlights ?? []).slice(0, 2).map((h: string) => ( */}
+                    {(p.highlights ?? []).slice(0, 2).map((h) => (
                       <li key={h}>• {h}</li>
                     ))}
                   </ul>

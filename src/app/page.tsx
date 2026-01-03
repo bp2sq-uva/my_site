@@ -176,7 +176,7 @@ function FeaturedProjectsPreview() {
                 <p className="mt-2 text-sm text-zinc-600">{p.tagline}</p>
 
                 <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-500">
-                  {p.tags.slice(0, 4).map((t) => (
+                  {(p.tags ?? []).slice(0, 4).map((t) => (
                     <span key={t} className="border-b border-zinc-200 pb-0.5">
                       {t}
                     </span>
