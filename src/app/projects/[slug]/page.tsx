@@ -4,6 +4,62 @@ import { notFound } from "next/navigation";
 import SiteNav from "@/app/components/SiteNav";
 import { ProjectMedia } from "@/app/components/ui";
 import { FEATURED_PROJECTS, slugify } from "@/app/lib/site";
+import Image from "next/image";
+
+
+export default function ProjectDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const project = FEATURED_PROJECTS.find((p) => p.slug === params.slug);
+
+  if (!project) notFound();
+
+  return (
+    <main className="min-h-screen bg-white">
+      <SiteNav />
+
+      <section className="mx-auto w-full max-w-6xl px-5 py-10">
+        <h1 className="text-3xl font-semibold text-zinc-900 sm:text-4xl">
+          {project.title}
+        </h1>
+
+        {project.tagline ? (
+          <p className="mt-3 text-base text-zinc-600">{project.tagline}</p>
+        ) : null}
+
+        {project.images?.length ? (
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {project.images.map((img, i) => (
+              <div
+                key={i}
+                className="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt ?? project.title}
+                  width={1600}
+                  height={900}
+                  className="h-64 w-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        ) : null}
+
+        {project.description ? (
+          <div className="prose prose-zinc mt-8 max-w-none">
+            {project.description}
+          </div>
+        ) : null}
+      </section>
+    </main>
+  );
+}
+
+
+
 
 // Match the index page cycling so accents feel consistent
 const TILE_BGS = [
@@ -31,152 +87,155 @@ function accentForIndex(i: number) {
   return TILE_ACCENTS[i % TILE_ACCENTS.length];
 }
 
-export default function ProjectDetailPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  // ✅ Find by explicit slug if present, otherwise fallback to slugify(title)
-const incoming = params.slug;
-
-const idx = FEATURED_PROJECTS.findIndex((p: any) => {
-  const s = (p.slug ?? slugify(p.title)).trim();
-  return s === incoming;
-});
 
 
-if (idx < 0) return notFound();
+
+// export default function ProjectDetailPage({
+//   params,
+// }: {
+//   params: { slug: string };
+// }) {
+//   // ✅ Find by explicit slug if present, otherwise fallback to slugify(title)
+// const incoming = params.slug;
+
+// const idx = FEATURED_PROJECTS.findIndex((p: any) => {
+//   const s = (p.slug ?? slugify(p.title)).trim();
+//   return s === incoming;
+// });
 
 
-  const project: any = FEATURED_PROJECTS[idx];
-  const accentBg = bgForIndex(idx);
-  const accentStrip = accentForIndex(idx);
+// if (idx < 0) return notFound();
 
-  return (
-    <div className="min-h-screen bg-white text-zinc-900">
-      <SiteNav />
 
-      {/* Header band */}
-      <section className={`w-full ${accentBg}`}>
-        <div className={`h-1 w-full ${accentStrip}`} />
-        <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-          <Link
-            href="/projects"
-            className="text-sm font-medium text-zinc-700 hover:underline underline-offset-4"
-          >
-            ← Back to projects
-          </Link>
+//   const project: any = FEATURED_PROJECTS[idx];
+//   const accentBg = bgForIndex(idx);
+//   const accentStrip = accentForIndex(idx);
 
-          <h1 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
-            {project.title}
-          </h1>
+//   return (
+//     <div className="min-h-screen bg-white text-zinc-900">
+//       <SiteNav />
 
-          <p className="mt-3 max-w-3xl text-base text-zinc-700">
-            {project.tagline}
-          </p>
+//       {/* Header band */}
+//       <section className={`w-full ${accentBg}`}>
+//         <div className={`h-1 w-full ${accentStrip}`} />
+//         <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+//           <Link
+//             href="/projects"
+//             className="text-sm font-medium text-zinc-700 hover:underline underline-offset-4"
+//           >
+//             ← Back to projects
+//           </Link>
 
-          <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-600">
-            {(project.tags ?? []).map((t: string) => (
-              <span key={t} className="border-b border-zinc-300/70 pb-0.5">
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="h-px w-full bg-zinc-200/70" />
-      </section>
+//           <h1 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
+//             {project.title}
+//           </h1>
 
-      {/* Media (more photos) */}
-      {project.images?.length ? (
-        <section className="w-full bg-white">
-          <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-            <h2 className="text-sm font-semibold text-zinc-900">Media</h2>
+//           <p className="mt-3 max-w-3xl text-base text-zinc-700">
+//             {project.tagline}
+//           </p>
 
-            <div className="mt-6 grid gap-4 md:grid-cols-2">
-              {project.images.map((img: any) => (
-                <div key={img.src} className="overflow-hidden">
-                  <ProjectMedia
-                    src={img.src}
-                    alt={img.alt}
-                    className="h-72 w-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="h-px w-full bg-zinc-200/70" />
-        </section>
-      ) : null}
+//           <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-600">
+//             {(project.tags ?? []).map((t: string) => (
+//               <span key={t} className="border-b border-zinc-300/70 pb-0.5">
+//                 {t}
+//               </span>
+//             ))}
+//           </div>
+//         </div>
+//         <div className="h-px w-full bg-zinc-200/70" />
+//       </section>
 
-      {/* More details / overview (shows only if you add project.details in FEATURED_PROJECTS) */}
-      {project.details?.length ? (
-        <section className="w-full bg-white">
-          <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-            <h2 className="text-sm font-semibold text-zinc-900">Overview</h2>
-            <div className="mt-4 space-y-4 text-sm leading-relaxed text-zinc-700">
-              {project.details.map((para: string, i: number) => (
-                <p key={i}>{para}</p>
-              ))}
-            </div>
-          </div>
-          <div className="h-px w-full bg-zinc-200/70" />
-        </section>
-      ) : null}
+//       {/* Media (more photos) */}
+//       {project.images?.length ? (
+//         <section className="w-full bg-white">
+//           <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+//             <h2 className="text-sm font-semibold text-zinc-900">Media</h2>
 
-      {/* Highlights + Links */}
-      <section className={`w-full ${accentBg}`}>
-        <div className={`h-1 w-full ${accentStrip}`} />
-        <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
-            {/* Highlights */}
-            <div className="lg:col-span-8">
-              <h2 className="text-sm font-semibold text-zinc-900">Highlights</h2>
-              <ul className="mt-4 space-y-2 text-sm text-zinc-700">
-                {(project.highlights ?? []).map((h: string, i: number) => (
-                  <li key={i}>• {h}</li>
-                ))}
-              </ul>
-            </div>
+//             <div className="mt-6 grid gap-4 md:grid-cols-2">
+//               {project.images.map((img: any) => (
+//                 <div key={img.src} className="overflow-hidden">
+//                   <ProjectMedia
+//                     src={img.src}
+//                     alt={img.alt}
+//                     className="h-72 w-full object-cover"
+//                   />
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+//           <div className="h-px w-full bg-zinc-200/70" />
+//         </section>
+//       ) : null}
 
-            {/* Links */}
-            <div className="lg:col-span-4 lg:border-l lg:border-zinc-900/10 lg:pl-10">
-              <h2 className="text-sm font-semibold text-zinc-900">Links</h2>
+//       {/* More details / overview (shows only if you add project.details in FEATURED_PROJECTS) */}
+//       {project.details?.length ? (
+//         <section className="w-full bg-white">
+//           <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+//             <h2 className="text-sm font-semibold text-zinc-900">Overview</h2>
+//             <div className="mt-4 space-y-4 text-sm leading-relaxed text-zinc-700">
+//               {project.details.map((para: string, i: number) => (
+//                 <p key={i}>{para}</p>
+//               ))}
+//             </div>
+//           </div>
+//           <div className="h-px w-full bg-zinc-200/70" />
+//         </section>
+//       ) : null}
 
-              <div className="mt-4 flex flex-col gap-2">
-                {(project.links ?? []).length ? (
-                  project.links.map((l: any) => (
-                    <a
-                      key={l.href}
-                      href={l.href}
-                      className="text-sm font-semibold text-zinc-900 hover:underline underline-offset-4"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {l.label} →
-                    </a>
-                  ))
-                ) : (
-                  <p className="text-sm text-zinc-700">
-                    Add links (write-up, repo, slides) if you want.
-                  </p>
-                )}
-              </div>
+//       {/* Highlights + Links */}
+//       <section className={`w-full ${accentBg}`}>
+//         <div className={`h-1 w-full ${accentStrip}`} />
+//         <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
+//           <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+//             {/* Highlights */}
+//             <div className="lg:col-span-8">
+//               <h2 className="text-sm font-semibold text-zinc-900">Highlights</h2>
+//               <ul className="mt-4 space-y-2 text-sm text-zinc-700">
+//                 {(project.highlights ?? []).map((h: string, i: number) => (
+//                   <li key={i}>• {h}</li>
+//                 ))}
+//               </ul>
+//             </div>
 
-              <div className="mt-10">
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center gap-2 border-b-2 border-zinc-900 pb-1 text-sm font-semibold text-zinc-900 hover:border-zinc-600"
-                >
-                  Back to projects <span aria-hidden>→</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
+//             {/* Links */}
+//             <div className="lg:col-span-4 lg:border-l lg:border-zinc-900/10 lg:pl-10">
+//               <h2 className="text-sm font-semibold text-zinc-900">Links</h2>
+
+//               <div className="mt-4 flex flex-col gap-2">
+//                 {(project.links ?? []).length ? (
+//                   project.links.map((l: any) => (
+//                     <a
+//                       key={l.href}
+//                       href={l.href}
+//                       className="text-sm font-semibold text-zinc-900 hover:underline underline-offset-4"
+//                       target="_blank"
+//                       rel="noreferrer"
+//                     >
+//                       {l.label} →
+//                     </a>
+//                   ))
+//                 ) : (
+//                   <p className="text-sm text-zinc-700">
+//                     Add links (write-up, repo, slides) if you want.
+//                   </p>
+//                 )}
+//               </div>
+
+//               <div className="mt-10">
+//                 <Link
+//                   href="/projects"
+//                   className="inline-flex items-center gap-2 border-b-2 border-zinc-900 pb-1 text-sm font-semibold text-zinc-900 hover:border-zinc-600"
+//                 >
+//                   Back to projects <span aria-hidden>→</span>
+//                 </Link>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+//     </div>
+//   );
+// }
 
 export function generateStaticParams() {
   return FEATURED_PROJECTS.map((p: any) => ({
