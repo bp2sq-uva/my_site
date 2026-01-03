@@ -116,8 +116,8 @@ if (idx < 0) return notFound();
       <SiteNav />
 
       {/* Header band */}
-      <section className={`w-full ${accentBg}`}>
-        <div className={`h-1 w-full ${accentStrip}`} />
+      <section className={"w-full " + accentBg}>
+        <div className={"h-1 w-full " + accentStrip} />
         <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
           <Link
             href="/projects"
@@ -183,8 +183,8 @@ if (idx < 0) return notFound();
 //       ) : null}
 
       {/* Highlights + Links */}
-      <section className={`w-full ${accentBg}`}>
-        <div className={`h-1 w-full ${accentStrip}`} />
+      <section className={"w-full " + accentBg}>
+        <div className={"h-1 w-full " + accentStrip} />
         <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
             {/* Highlights */}
