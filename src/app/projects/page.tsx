@@ -73,6 +73,9 @@ function Thumb({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+
+
+
 export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-white text-zinc-900">
@@ -96,15 +99,9 @@ export default function ProjectsPage() {
           </Link>
         </div>
 
-        {/* Tiles grid (square, no rounded corners) */}
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURED_PROJECTS.slice(0, 3).map((project) => (
-            <Link key={project.slug} href={`/projects/${project.slug}`} className="block">
-                {/* card UI */}
-            </Link>
-            ))}
-            // const slug = p.slug ?? slugify(p.title); // ✅ stable if you have p.slug
-            const slug = slugify(p.title);
+          {FEATURED_PROJECTS.map((p, i) => {
+            const slug = p.slug ?? slugify(p.title);
             const cover = p.images?.[0];
             const bg = bgForIndex(i);
             const accent = accentForIndex(i);
@@ -122,10 +119,8 @@ export default function ProjectsPage() {
                   bg,
                 ].join(" ")}
               >
-                {/* Top accent strip */}
                 <div className={`h-1 w-full ${accent}`} />
 
-                {/* Image */}
                 {cover ? (
                   <div className="aspect-[16/10] overflow-hidden bg-white/60 ring-1 ring-black/5">
                     <Thumb src={cover.src} alt={cover.alt} />
@@ -134,7 +129,6 @@ export default function ProjectsPage() {
                   <div className="aspect-[16/10] bg-white/60 ring-1 ring-black/5" />
                 )}
 
-                {/* Body */}
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-4">
                     <h3 className="text-lg font-semibold text-zinc-900 group-hover:underline underline-offset-8 decoration-zinc-300">
@@ -147,19 +141,14 @@ export default function ProjectsPage() {
                     {p.tagline}
                   </p>
 
-                  {/* Tags (simple, not pill badges) */}
                   <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-600">
                     {p.tags?.slice(0, 6).map((t: string) => (
-                      <span
-                        key={t}
-                        className="border-b border-zinc-300/70 pb-0.5"
-                      >
+                      <span key={t} className="border-b border-zinc-300/70 pb-0.5">
                         {t}
                       </span>
                     ))}
                   </div>
 
-                  {/* Mini highlights */}
                   <ul className="mt-5 space-y-1.5 text-sm text-zinc-700/90">
                     {(p.highlights ?? []).slice(0, 2).map((h: string) => (
                       <li key={h}>• {h}</li>
@@ -178,3 +167,108 @@ export default function ProjectsPage() {
     </div>
   );
 }
+
+
+
+
+// export default function ProjectsPage() {
+//   return (
+//     <div className="min-h-screen bg-white text-zinc-900">
+//       <SiteNav />
+//       <PageBanner />
+
+//       <main className="mx-auto w-full max-w-6xl px-5 py-14 sm:py-16">
+//         <div className="flex items-end justify-between gap-6">
+//           <div>
+//             <h2 className="text-xl font-semibold text-zinc-900">All projects</h2>
+//             <p className="mt-1 text-sm text-zinc-600">
+//               Click a tile for the full write-up and media.
+//             </p>
+//           </div>
+
+//           <Link
+//             href="/"
+//             className="text-sm font-medium text-zinc-700 hover:underline underline-offset-4"
+//           >
+//             Back to Home
+//           </Link>
+//         </div>
+
+//         {/* Tiles grid (square, no rounded corners) */}
+//         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+//           {FEATURED_PROJECTS.map((p: any, i) => {
+//             // const slug = p.slug ?? slugify(p.title); // ✅ stable if you have p.slug
+//             const slug = slugify(p.title);
+//             const cover = p.images?.[0];
+//             const bg = bgForIndex(i);
+//             const accent = accentForIndex(i);
+
+//             return (
+//               <Link
+//                 key={slug}
+//                 href={`/projects/${slug}`}
+//                 className={[
+//                   "group block",
+//                   "border border-zinc-200/70",
+//                   "transition",
+//                   "hover:-translate-y-0.5 hover:shadow-md",
+//                   "focus:outline-none focus:ring-2 focus:ring-zinc-900/20",
+//                   bg,
+//                 ].join(" ")}
+//               >
+//                 {/* Top accent strip */}
+//                 <div className={`h-1 w-full ${accent}`} />
+
+//                 {/* Image */}
+//                 {cover ? (
+//                   <div className="aspect-[16/10] overflow-hidden bg-white/60 ring-1 ring-black/5">
+//                     <Thumb src={cover.src} alt={cover.alt} />
+//                   </div>
+//                 ) : (
+//                   <div className="aspect-[16/10] bg-white/60 ring-1 ring-black/5" />
+//                 )}
+
+//                 {/* Body */}
+//                 <div className="p-6">
+//                   <div className="flex items-start justify-between gap-4">
+//                     <h3 className="text-lg font-semibold text-zinc-900 group-hover:underline underline-offset-8 decoration-zinc-300">
+//                       {p.title}
+//                     </h3>
+//                     <span className="text-sm text-zinc-500">→</span>
+//                   </div>
+
+//                   <p className="mt-2 text-sm leading-relaxed text-zinc-700">
+//                     {p.tagline}
+//                   </p>
+
+//                   {/* Tags (simple, not pill badges) */}
+//                   <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-600">
+//                     {p.tags?.slice(0, 6).map((t: string) => (
+//                       <span
+//                         key={t}
+//                         className="border-b border-zinc-300/70 pb-0.5"
+//                       >
+//                         {t}
+//                       </span>
+//                     ))}
+//                   </div>
+
+//                   {/* Mini highlights */}
+//                   <ul className="mt-5 space-y-1.5 text-sm text-zinc-700/90">
+//                     {(p.highlights ?? []).slice(0, 2).map((h: string) => (
+//                       <li key={h}>• {h}</li>
+//                     ))}
+//                   </ul>
+
+//                   <div className="mt-6 inline-flex items-center gap-2 border-b-2 border-zinc-900 pb-1 text-sm font-semibold text-zinc-900 group-hover:border-zinc-600">
+//                     See details <span aria-hidden>→</span>
+//                   </div>
+//                 </div>
+//               </Link>
+//             );
+//           })}
+//         </div>
+//       </main>
+//     </div>
+//   );
+// }
