@@ -18,7 +18,7 @@ export type Project = {
   tags?: string[];
   images?: { src: string; alt?: string }[];
   highlights?: string[];
-  description?: string | JSX.Element; // ✅ add this
+  description?: string;
 };
 
 
