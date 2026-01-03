@@ -54,12 +54,13 @@ export default function ProjectDetailPage({
         <div className={`h-1 w-full ${accentStrip}`} />
 
         <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:py-20">
-          <Link
-            href="/projects"
+            <Link
+            href="/"
             className="text-sm font-medium text-zinc-700 hover:underline underline-offset-4"
-          >
-            ← Back to projects
-          </Link>
+            >
+            Back to Home
+            </Link>
+
 
           <h1 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
             {project.title ?? "Project"}
