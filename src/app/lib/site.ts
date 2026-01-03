@@ -109,6 +109,7 @@ export type Experience = {
 export const FEATURED_PROJECTS: Project[] = [
   {
     title: "Wind Turbine Blade Design Optimization using CFD Simulations",
+    slug: "wind-turbine-blade-design-optimization-using-cfd-simulations",
     tagline: "CFD-based blade design iteration for improved efficiency and power output.",
     tags: ["CFD", "Wind Turbine Design", "ANSYS Fluent", "Ansys CFX"],
     highlights: [
