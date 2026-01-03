@@ -12,7 +12,7 @@ export default function ProjectDetailPage({
 }: {
   params: { slug: string };
 }) {
-  const project = FEATURED_PROJECTS.find((p) => p.slug === params.slug);
+  const project = FEATURED_PROJECTS.find((p) => (p.slug ?? slugify(p.title)) === params.slug);
 
   if (!project) notFound();
 
