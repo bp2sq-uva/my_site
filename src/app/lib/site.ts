@@ -1,15 +1,26 @@
 // app/lib/site.ts
 export type Link = { label: string; href: string };
 
+// export type Project = {
+//   slug?: string; // ✅ add this
+//   title: string;
+//   tagline: string;
+//   tags: string[];
+//   highlights: string[];
+//   links?: Link[];
+//   images?: { src: string; alt: string }[];
+// };
+
 export type Project = {
-  slug?: string; // ✅ add this
   title: string;
-  tagline: string;
-  tags: string[];
-  highlights: string[];
-  links?: Link[];
-  images?: { src: string; alt: string }[];
+  slug?: string; // optional if you sometimes use slugify(title)
+  tagline?: string;
+  tags?: string[];
+  images?: { src: string; alt?: string }[];
+  highlights?: string[];
+  description?: string | JSX.Element; // ✅ add this
 };
+
 
 export type Publication = {
   title: string;
@@ -109,6 +120,7 @@ export const FEATURED_PROJECTS: Project[] = [
       { src: "/projects/wind-2.png", alt: "wind turbine blade" },
       { src: "/projects/wind-3.png", alt: "wind blade" },
     ],
+    description: `Longer paragraph(s) about the project...`,
   },
   {
     title: "Nuclear Particle Detectors Assembly and Testing Fixtures",
@@ -124,6 +136,7 @@ export const FEATURED_PROJECTS: Project[] = [
       { src: "/projects/HV_2.jpg", alt: "HV testing setup" },
       { src: "/projects/stretcher.jpg", alt: "GEM stretcher apparatus" },
     ],
+    description: `Longer paragraph(s) about the project...`,
   },
   {
     title: "Computational Fluid Dynamics Simulations(CFD) and Static Structural Simulations",
@@ -145,6 +158,7 @@ export const FEATURED_PROJECTS: Project[] = [
       "Trained deep learning models to detect and classify drone RF signals amid background noise.",
     ],
     images: [{ src: "/projects/Dedrone.png", alt: "RF signal detection" }],
+    description: `Longer paragraph(s) about the project...`,
   },
   {
     title: "Graph Neural Networks(GNNs) for Nuclear Particle Tracking",
@@ -155,6 +169,7 @@ export const FEATURED_PROJECTS: Project[] = [
       "Improved tracking efficiency and resolution compared to traditional methods.",
     ],
     images: [{ src: "/projects/GNN-2.png", alt: "GNNs" }],
+    description: `Longer paragraph(s) about the project...`,
   },
 ];
 
