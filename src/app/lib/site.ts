@@ -50,14 +50,13 @@ export type Site = {
 };
 
 
-export function projectSlug(p: Project) {
-  const base =
-    typeof p?.slug === "string" && p.slug.trim().length > 0
-      ? p.slug.trim()
-      : p.title;
+// src/app/lib/site.ts
 
-  return slugify(base);
+export function projectSlug(p: Project) {
+  // Always return a URL-safe slug, whether you provided p.slug or not
+  return slugify((p.slug ?? p.title ?? "").trim());
 }
+
 
 export const SITE: Site = {
   name: "Bhasitha Dharmasena",
@@ -119,7 +118,7 @@ export type Experience = {
 export const FEATURED_PROJECTS: Project[] = [
   {
     title: "Wind Turbine Blade Design Optimization using CFD Simulations",
-    // slug: "wind-turbine-blade-design-optimization-using-cfd-simulations",
+    slug: "wind-turbine-blade-design-optimization-using-cfd-simulations",
     tagline: "CFD-based blade design iteration for improved efficiency and power output.",
     tags: ["CFD", "Wind Turbine Design", "ANSYS Fluent", "Ansys CFX"],
     highlights: [
@@ -135,7 +134,7 @@ export const FEATURED_PROJECTS: Project[] = [
   },
   {
     title: "Nuclear Particle Detectors Assembly and Testing Fixtures",
-    // slug: "wind-turbine-blade-design-optimization-using-cfd-simulations",
+    slug: "nuclear-detector-fixtures",
     tagline: "Designed and built fixtures for assembly, alignment, and high-voltage testing.",
     tags: ["Mechanical Design", "Fabrication", "Instrumentation"],
     highlights: [
@@ -152,7 +151,7 @@ export const FEATURED_PROJECTS: Project[] = [
   },
   {
     title: "Computational Fluid Dynamics Simulations(CFD) and Static Structural Simulations",
-    // slug: "wind-turbine-blade-design-optimization-using-cfd-simulations",
+    slug: "cfd-and-structural-simulations",
     tagline: "ANSYS-based flow + structural simulations for engineering systems and detectors.",
     tags: ["CFD", "ANSYS", "Structural Analysis", "Simulation"],
     highlights: [
@@ -164,7 +163,7 @@ export const FEATURED_PROJECTS: Project[] = [
   },
   {
     title: "Deep Learning based RF Signal Detection and Classification for Drone Surveillance",
-    // slug: "wind-turbine-blade-design-optimization-using-cfd-simulations",
+    slug: "deep-learning-based-rf-signal-detection-and-classification-for-drone-surveillance",
     tagline: "Frequency-domain RF analysis + deep learning models for drone detection.",
     tags: ["Deep Learning", "RF Signal Processing", "Signal Analysis"],
     highlights: [
@@ -176,7 +175,7 @@ export const FEATURED_PROJECTS: Project[] = [
   },
   {
     title: "Graph Neural Networks(GNNs) for Nuclear Particle Tracking",
-    // slug: "wind-turbine-blade-design-optimization-using-cfd-simulations",
+    slug: "wind-turbine-blade-design-optimization-using-cfd-simulations",
     tagline: "GNN architectures to improve tracking accuracy in high-rate detector data.",
     tags: ["Graph Neural Networks", "Detector ML", "Reconstruction"],
     highlights: [
