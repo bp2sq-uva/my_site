@@ -83,15 +83,11 @@ export default function ProjectsPage() {
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURED_PROJECTS.map((p: any, i: number) => {
+            {FEATURED_PROJECTS.map((p, i) => {
             const slug = projectSlug(p);
-            const cover = p.images?.[0];
-            const bg = bgForIndex(i);
-            const accent = accentForIndex(i);
-
             return (
-              <Link
-                key={slug}
+                <Link 
+                key={slug} 
                 href={`/projects/${slug}`}
                 className={[
                   "group block",
