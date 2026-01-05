@@ -7,7 +7,8 @@ import { CURRENT } from "@/app/lib/site";
 import Image from "next/image";
 import { WORK_LOGOS } from "@/app/lib/site";
 import { EXPERIENCE } from "@/app/lib/site";
-
+import { projectSlug } from "@/app/lib/site";
+import { SITE } from "@/app/lib/site";
 
 
 //bhasitha
@@ -142,11 +143,6 @@ function Thumb({ src, alt }: { src: string; alt: string }) {
 
 
 
-function getProjectSlug(p: any): string {
-  if (typeof p?.slug === "string" && p.slug.trim().length > 0) return p.slug.trim();
-  if (typeof p?.title === "string" && p.title.trim().length > 0) return slugify(p.title);
-  return "project";
-}
 
 
 
@@ -166,7 +162,7 @@ function FeaturedProjectsPreview() {
 
         <div className="mt-10 grid gap-10 md:grid-cols-3">
           {picks.map((p) => {
-            const slug = getProjectSlug(p);
+            const slug = projectSlug(p);
             return (
             <Link key={slug} href={`/projects/${slug}`} className="group">
                 {p.images?.[0] ? (

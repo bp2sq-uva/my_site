@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SiteNav from "@/app/components/SiteNav";
-import { FEATURED_PROJECTS, slugify } from "@/app/lib/site";
+import { FEATURED_PROJECTS, projectSlug } from "@/app/lib/site";
 
 function PageBanner() {
   return (
@@ -56,13 +56,7 @@ function accentForIndex(i: number) {
   return TILE_ACCENTS[i % TILE_ACCENTS.length];
 }
 
-function getSlug(p: any): string {
-  // Prefer explicit slug; fallback to slugify(title)
-  if (typeof p?.slug === "string" && p.slug.trim().length > 0) return slugify(p.slug.trim());
-  if (typeof p?.title === "string" && p.title.trim().length > 0) return slugify(p.title);
-  // last-resort (shouldn’t happen if your data is clean)
-  return "project";
-}
+
 
 export default function ProjectsPage() {
   return (
@@ -90,7 +84,7 @@ export default function ProjectsPage() {
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURED_PROJECTS.map((p: any, i: number) => {
-            const slug = getSlug(p);
+            const slug = projectSlug(p);
             const cover = p.images?.[0];
             const bg = bgForIndex(i);
             const accent = accentForIndex(i);
