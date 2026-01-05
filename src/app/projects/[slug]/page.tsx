@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { FEATURED_PROJECTS, slugify } from '@/app/lib/site';
 import SiteNav from '@/app/components/SiteNav';
 
+// Define the type for page props
 interface PageProps {
   params: { slug: string };
 }
