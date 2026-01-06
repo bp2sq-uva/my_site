@@ -64,9 +64,9 @@ export const SITE: Site = {
   // location: "Virginia, USA",
   email: "bhasitha.d@gmail.com",
   links: [
-    { label: "GitHub", href: "https://github.com/..." },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/..." },
-    { label: "Google Scholar", href: "https://scholar.google.com/..." },
+    { label: "GitHub", href: "https://github.com/bp2sq-uva" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/bhasitha-dharmasena-877287177/" },
+    { label: "Google Scholar", href: "https://scholar.google.com/citations?user=le3tNbYAAAAJ&hl=en" },
     { label: "CV (PDF)", href: "/cv.pdf" },
   ],
   about: [
@@ -204,7 +204,7 @@ export const EXPERIENCE: Experience[] = [
       "Prototyped testing/assembly apparatuses for detector hardware.",
     ],
     logos: [
-      { name: "University of Virginia", src: "/logos/uva.svg", href: "https://www.virginia.edu" },
+      { name: "University of Virginia", src: "/logos/uva.svg", href: "https://www.phys.virginia.edu" },
     ],
   },
   {
@@ -246,10 +246,26 @@ export const EXPERIENCE: Experience[] = [
       "Ran wind tunnel experiments to validate aerodynamic performance.",
     ],
     logos: [
-      { name: "Dedrone by Axon", src: "/logos/kmou_2.svg", href: "https://www.kmou.ac.kr" },
+      { name: "Dedrone by Axon", src: "/logos/kmou_2.svg", href: "https://www.kmou.ac.kr/english/cm/cntnts/cntntsView.do?mi=477&cntntsId=6906" },
     ],
 
   },
+
+
+  {
+    title: " Mechanical Engineer Intern",
+    org: "Sri Lanka Air Force Base, Sri Lanka",
+    dates: "2016",
+    bullets: [
+      "Got involved in maintenance of aircraft mechanical systems",
+      "NDT inspection and quality assurance of aircraft components",
+    ],
+    logos: [
+      { name: "Sri Lanka Air Force Base", src: "/logos/air_force.svg", href: "https://www.airforce.lk/index.php" },
+    ],
+
+  },
+
 ];
 
 
