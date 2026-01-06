@@ -13,7 +13,6 @@ import { projectSlug } from "@/app/lib/site";
 
 
 
-
 function HeroSimple() {
   const pills = [
     "Detector instrumentation",

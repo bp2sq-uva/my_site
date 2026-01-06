@@ -39,6 +39,15 @@ function Thumb({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+type Project = {
+  title: string;
+  tagline?: string;
+  slug?: string;
+  tags?: string[];
+  highlights?: string[];
+  images?: Array<{ src: string; alt?: string }>;
+};
+
 const TILE_BGS = ["bg-white", "bg-zinc-50", "bg-sky-50"] as const;
 const TILE_ACCENTS = [
   "bg-indigo-600",
@@ -56,8 +65,6 @@ function accentForIndex(i: number) {
   return TILE_ACCENTS[i % TILE_ACCENTS.length];
 }
 
-
-
 export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-white text-zinc-900">
@@ -73,7 +80,6 @@ export default function ProjectsPage() {
             </p>
           </div>
 
-          {/* ✅ IMPORTANT: no "p" here */}
           <Link
             href="/"
             className="text-sm font-medium text-zinc-700 hover:underline underline-offset-4"
@@ -83,7 +89,7 @@ export default function ProjectsPage() {
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURED_PROJECTS.map((p: any, i: number) => {
+          {(FEATURED_PROJECTS as Project[]).map((p, i) => {
             const slug = projectSlug(p);
             const cover = p.images?.[0];
             const bg = bgForIndex(i);
@@ -126,7 +132,7 @@ export default function ProjectsPage() {
 
                   {(p.tags ?? []).length ? (
                     <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-600">
-                      {(p.tags ?? []).slice(0, 6).map((t: string) => (
+                      {(p.tags ?? []).slice(0, 6).map((t) => (
                         <span key={t} className="border-b border-zinc-300/70 pb-0.5">
                           {t}
                         </span>
@@ -136,7 +142,7 @@ export default function ProjectsPage() {
 
                   {(p.highlights ?? []).length ? (
                     <ul className="mt-5 space-y-1.5 text-sm text-zinc-700/90">
-                      {(p.highlights ?? []).slice(0, 2).map((h: string) => (
+                      {(p.highlights ?? []).slice(0, 2).map((h) => (
                         <li key={h}>• {h}</li>
                       ))}
                     </ul>

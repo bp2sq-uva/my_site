@@ -94,7 +94,8 @@ export const CURRENT = {
 } as const;
 
 
-export function slugify(s: string) {
+export function slugify(input: unknown) {
+  const s = (typeof input === "string" ? input : "").trim();
   return s
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
@@ -174,8 +175,8 @@ export const FEATURED_PROJECTS: Project[] = [
     description: `Longer paragraph(s) about the project...`,
   },
   {
-    title: "Graph Neural Networks(GNNs) for Nuclear Particle Tracking",
-    slug: "wind-turbine-blade-design-optimization-using-cfd-simulations",
+    title: "Graph Neural Networks (GNNs) for Nuclear Particle Tracking",
+    slug: "graph-neural-networks-gnns-for-nuclear-particle-tracking",
     tagline: "GNN architectures to improve tracking accuracy in high-rate detector data.",
     tags: ["Graph Neural Networks", "Detector ML", "Reconstruction"],
     highlights: [
