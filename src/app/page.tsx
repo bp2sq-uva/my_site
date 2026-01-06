@@ -573,7 +573,7 @@ function LogoMark({ src, alt }: { src: string; alt: string }) {
   return <Image src={src} alt={alt} width={256} height={256} className={cls} />;
 }
 
-export default function LogoStrip({
+function LogoStrip({
   logos,
 }: {
   logos: Array<{ name: string; src: string }>;
