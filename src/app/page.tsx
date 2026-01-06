@@ -30,6 +30,47 @@ import { projectSlug } from "@/app/lib/site";
 
 
 
+function LogoMark({ src, alt }: { src: string; alt: string }) {
+  const isSvg = src.toLowerCase().endsWith(".svg");
+  const cls =
+    "h-full w-full object-contain p-2 opacity-70 transition group-hover:opacity-100";
+
+  if (isSvg) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={src} alt={alt} className={cls} />;
+  }
+
+  return <Image src={src} alt={alt} width={256} height={256} className={cls} />;
+}
+
+function LogoStrip({
+  logos,
+}: {
+  logos: Array<{ name: string; src: string }>;
+}) {
+  return (
+    <section className="mx-auto w-full max-w-6xl px-5 py-10">
+      <div className="rounded-3xl border border-zinc-200/70 bg-white p-6 shadow-sm ring-1 ring-black/5">
+        <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
+          Places I’ve worked
+        </p>
+
+        <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
+          {logos.map((logo) => (
+            <div key={logo.name} className="group flex items-center justify-center">
+              {/* Fixed-size box = consistent visual size */}
+              <div className="h-16 w-16 overflow-hidden rounded-2xl bg-white ring-1 ring-black/5 sm:h-20 sm:w-20 md:h-24 md:w-24">
+                <LogoMark src={logo.src} alt={logo.name} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function HeroSimple() {
   const pills = [
     "Detector instrumentation",
@@ -560,45 +601,6 @@ export function HeroWix() {
 
 
 
-function LogoMark({ src, alt }: { src: string; alt: string }) {
-  const isSvg = src.toLowerCase().endsWith(".svg");
-  const cls =
-    "h-full w-full object-contain p-2 opacity-70 transition group-hover:opacity-100";
-
-  if (isSvg) {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img src={src} alt={alt} className={cls} />;
-  }
-
-  return <Image src={src} alt={alt} width={256} height={256} className={cls} />;
-}
-
-function LogoStrip({
-  logos,
-}: {
-  logos: Array<{ name: string; src: string }>;
-}) {
-  return (
-    <section className="mx-auto w-full max-w-6xl px-5 py-10">
-      <div className="rounded-3xl border border-zinc-200/70 bg-white p-6 shadow-sm ring-1 ring-black/5">
-        <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
-          Places I’ve worked
-        </p>
-
-        <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
-          {logos.map((logo) => (
-            <div key={logo.name} className="group flex items-center justify-center">
-              {/* Fixed-size box = consistent visual size */}
-              <div className="h-16 w-16 overflow-hidden rounded-2xl bg-white ring-1 ring-black/5 sm:h-20 sm:w-20 md:h-24 md:w-24">
-                <LogoMark src={logo.src} alt={logo.name} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 
 
