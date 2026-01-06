@@ -611,7 +611,7 @@ export default function Page() {
       <SiteNav />
       <HeroWix />
       <AboutPreviewCombined />
-      <LogoStrip />
+      <LogoStrip logos={WORK_LOGOS} />
       <CurrentStatus />
       <FeaturedProjectsPreview />
       <NavTiles />
