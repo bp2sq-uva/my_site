@@ -204,7 +204,7 @@ export const EXPERIENCE: Experience[] = [
       "Prototyped testing/assembly apparatuses for detector hardware.",
     ],
     logos: [
-      { name: "University of Virginia", src: "/logos/uva.svg", href: "https://www.phys.virginia.edu" },
+      { name: "University of Virginia", src: "/logos/uva.svg", className: "scale-110", href: "https://www.phys.virginia.edu" },
     ],
   },
   {
@@ -218,7 +218,7 @@ export const EXPERIENCE: Experience[] = [
     ],
 
     logos: [
-      { name: "Dedrone by Axon", src: "/logos/dedrone.svg", href: "https://www.dedrone.com" },
+      { name: "Dedrone by Axon", src: "/logos/dedrone.svg", className: "scale-110", href: "https://www.dedrone.com" },
     ],
 
   
@@ -233,7 +233,7 @@ export const EXPERIENCE: Experience[] = [
       "Built tools with interdisciplinary teams to solve reconstruction problems.",
     ],
     logos: [
-      { name: "Jefferson Lab", src: "/logos/jlab.svg", href: "https://www.jlab.org" },
+      { name: "Jefferson Lab", src: "/logos/jlab.svg", className: "scale-110", href: "https://www.jlab.org" },
     ],
   },
   {
@@ -246,7 +246,7 @@ export const EXPERIENCE: Experience[] = [
       "Ran wind tunnel experiments to validate aerodynamic performance.",
     ],
     logos: [
-      { name: "Dedrone by Axon", src: "/logos/kmou_2.svg", href: "https://www.kmou.ac.kr/english/cm/cntnts/cntntsView.do?mi=477&cntntsId=6906" },
+      { name: "Dedrone by Axon", src: "/logos/kmou_2.svg", className: "scale-110", href: "https://www.kmou.ac.kr/english/cm/cntnts/cntntsView.do?mi=477&cntntsId=6906" },
     ],
 
   },
@@ -261,7 +261,7 @@ export const EXPERIENCE: Experience[] = [
       "NDT inspection and quality assurance of aircraft components",
     ],
     logos: [
-      { name: "Sri Lanka Air Force Base", src: "/logos/air_force.svg", href: "https://www.airforce.lk/index.php" },
+      { name: "Sri Lanka Air Force Base", src: "/logos/air_force.svg", className: "scale-110", href: "https://www.airforce.lk/index.php" },
     ],
 
   },

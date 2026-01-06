@@ -44,20 +44,12 @@ import { projectSlug } from "@/app/lib/site";
 // }
 
 
-function LogoMark({ src, alt }: { src: string; alt: string }) {
+function LogoMark({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
   const isSvg = src.toLowerCase().endsWith(".svg");
+  const base = "max-h-full max-w-full object-contain opacity-70 transition group-hover:opacity-100";
+  const cls = `${base} ${className}`;
 
-  // Key changes vs your current one:
-  // - no padding (SVG whitespace already acts like padding)
-  // - use max-h/max-w so logos center nicely
-  const cls = "max-h-full max-w-full object-contain opacity-70 transition group-hover:opacity-100";
-
-  if (isSvg) {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img src={src} alt={alt} className={cls} />;
-  }
-
-  return <Image src={src} alt={alt} width={400} height={200} className={cls} />;
+  return isSvg ? <img src={src} alt={alt} className={cls} /> : <Image src={src} alt={alt} width={400} height={200} className={cls} />;
 }
 
 
