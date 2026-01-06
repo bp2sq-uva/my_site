@@ -14,19 +14,19 @@ import { projectSlug } from "@/app/lib/site";
 
 
 
-function LogoMark({ src, alt }: { src: string; alt: string }) {
-  const isSvg = src.toLowerCase().endsWith(".svg");
+// function LogoMark({ src, alt }: { src: string; alt: string }) {
+//   const isSvg = src.toLowerCase().endsWith(".svg");
 
-  // Fills a fixed square box uniformly
-  const cls = "h-full w-full object-contain p-2 opacity-70 transition group-hover:opacity-100";
+//   // Fills a fixed square box uniformly
+//   const cls = "h-full w-full object-contain p-2 opacity-70 transition group-hover:opacity-100";
 
-  if (isSvg) {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img src={src} alt={alt} className={cls} />;
-  }
+//   if (isSvg) {
+//     // eslint-disable-next-line @next/next/no-img-element
+//     return <img src={src} alt={alt} className={cls} />;
+//   }
 
-  return <Image src={src} alt={alt} width={256} height={256} className={cls} />;
-}
+//   return <Image src={src} alt={alt} width={256} height={256} className={cls} />;
+// }
 
 
 
