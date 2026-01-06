@@ -227,6 +227,71 @@ function LogoStrip({ logos }: { logos: Array<{ name: string; src: string }> }) {
 
 
 
+function SkillsSection() {
+  const SKILLS = [
+    {
+      title: "Mechanical Engineering",
+      items: [
+        "Numerical simulations, CFD, FEA",
+        "SolidWorks, ANSYS",
+        "Microcontroller programming, NDT testing",
+      ],
+    },
+    {
+      title: "Programming",
+      items: ["Python, C++, MATLAB", "Git", "UNIX/Linux, shell scripting"],
+    },
+    {
+      title: "Machine Learning",
+      items: [
+        "PyTorch, scikit-learn, NumPy, Pandas",
+        "GNNs, Transformers, CNNs, LSTMs",
+        "Classification, regression, clustering",
+      ],
+    },
+    {
+      title: "Electrical Engineering",
+      items: ["DSP", "FPGA", "ASIC design", "Verilog"],
+    },
+    {
+      title: "Data Visualization",
+      items: ["Matplotlib, Plotly, Seaborn", "ROOT"],
+    },
+  ];
+
+  return (
+    <section className="border-t border-zinc-200/70 bg-white">
+      <div className="mx-auto w-full max-w-6xl px-5 py-36">
+        <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
+          Skills
+        </p>
+        <h2 className="mt-2 text-xl font-semibold text-zinc-900">
+          Cross-disciplinary toolkit
+        </h2>
+
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {SKILLS.map((s) => (
+            <div
+              key={s.title}
+              className="rounded-3xl border border-zinc-200/70 bg-white p-6 shadow-sm ring-1 ring-black/5"
+            >
+              <h3 className="text-sm font-semibold text-zinc-900">{s.title}</h3>
+              <ul className="mt-3 space-y-2 text-sm text-zinc-700">
+                {s.items.map((it) => (
+                  <li key={it}>• {it}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+
 function HeroSimple() {
   const pills = [
     "Detector instrumentation",
@@ -769,8 +834,9 @@ export default function Page() {
       <AboutPreviewCombined />
       <LogoStrip logos={WORK_LOGOS} />
       <CurrentStatus />
-      <NavTiles />
+      <SkillsSection />
       <ProjectsTilesHome />
+      <NavTiles />
       <footer className="border-t border-zinc-200 py-8">
         <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
           © {new Date().getFullYear()} {SITE.name}

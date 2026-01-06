@@ -81,6 +81,49 @@ export default async function ProjectPage({ params }: PageProps) {
 }
 
 
+
+
+
+function MediaItem({
+  src,
+  alt,
+  title,
+}: {
+  src: string;
+  alt?: string;
+  title: string;
+}) {
+  const lower = src.toLowerCase();
+  const isVideo =
+    lower.endsWith(".mp4") || lower.endsWith(".mov") || lower.endsWith(".webm");
+
+  if (isVideo) {
+    return (
+      <div className="overflow-hidden rounded-lg ring-1 ring-black/5">
+        <video className="w-full" controls playsInline preload="metadata">
+          <source
+            src={src}
+            type={lower.endsWith(".webm") ? "video/webm" : "video/mp4"}
+          />
+          Sorry, your browser doesn’t support this video.
+        </video>
+      </div>
+    );
+  }
+
+  return (
+    <Image
+      src={src}
+      alt={alt || title}
+      width={1200}
+      height={800}
+      className="w-full rounded-lg"
+    />
+  );
+}
+
+
+
 // import { notFound } from "next/navigation";
 // import Link from "next/link";
 // import Image from "next/image";

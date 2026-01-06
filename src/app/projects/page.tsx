@@ -74,9 +74,9 @@ export default function ProjectsPage() {
       <main className="mx-auto w-full max-w-6xl px-5 py-14 sm:py-16">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <h2 className="text-xl font-semibold text-zinc-900">All projects</h2>
+            <h2 className="text-xl font-semibold text-zinc-900">Selected projects</h2>
             <p className="mt-1 text-sm text-zinc-600">
-              Click a tile for the full write-up and media.
+              Click a tile for more info.
             </p>
           </div>
 

@@ -58,53 +58,13 @@ export function projectSlug(p: Project) {
 }
 
 
-function MediaItem({
-  src,
-  alt,
-  title,
-}: {
-  src: string;
-  alt?: string;
-  title: string;
-}) {
-  const lower = src.toLowerCase();
-  const isVideo =
-    lower.endsWith(".mp4") || lower.endsWith(".mov") || lower.endsWith(".webm");
 
-  if (isVideo) {
-    return (
-      <div className="overflow-hidden rounded-lg ring-1 ring-black/5">
-        <video className="w-full" controls playsInline preload="metadata">
-          <source
-            src={src}
-            type={
-              lower.endsWith(".webm")
-                ? "video/webm"
-                : "video/mp4" // works for .mp4, and usually ok for .mov too
-            }
-          />
-          Sorry, your browser doesn’t support this video.
-        </video>
-      </div>
-    );
-  }
-
-  return (
-    <Image
-      src={src}
-      alt={alt || title}
-      width={1200}
-      height={800}
-      className="w-full rounded-lg"
-    />
-  );
-}
 
 
 
 export const SITE: Site = {
   name: "Bhasitha Dharmasena",
-  tagline: "Experimental nuclear physics • detector instrumentation • ML for reconstruction",
+  tagline: "Mechanical Engineering • Experimental nuclear physics • detector instrumentation • ML for reconstruction & other",
   // location: "Virginia, USA",
   email: "bhasitha.d@gmail.com",
   links: [
@@ -180,7 +140,7 @@ export const FEATURED_PROJECTS: Project[] = [
     enabling the detection of unauthorized drone activity.`,
   },
   {
-    title: "Computational Fluid Dynamics Simulations(CFD) and Static Structural Simulations",
+    title: "Computational Fluid Dynamics Simulation(CFD) and Static Structural Simulation Projects",
     slug: "cfd-and-structural-simulations",
     tagline: "ANSYS-based flow + structural simulations for engineering systems and detectors.",
     tags: ["CFD", "ANSYS", "Structural Analysis", "Simulation"],
@@ -196,7 +156,26 @@ export const FEATURED_PROJECTS: Project[] = [
   ],
     description: ``,
   },
-    {
+  {
+    title: "Measurement of Neutron's Electromagnetic Form Factor at High Momentum Transfer",
+    slug: "measurement-of-neutrons-electromagnetic-form-factor-at-high-momentum-transfer",
+    tagline: "Experiment execution, data acquisition and data analysis for Neutron form factor measurement.",
+    tags: ["Experimental Nuclear Physics", "Data Analysis", "DAQ Systems"],
+    highlights: [
+      "Performed frontend electronic readout system installation",
+      "Performed real-time data acquisition system development and testing",
+      "C++ and Python based data analysis and reconstruction",
+    ],
+    images: [
+      { src: "/projects/jlab-4.HEIC", alt: "HV testing fixture" },
+      { src: "/projects/SBS.png", alt: "HV testing fixture" },
+      { src: "/projects/jlab-2.png", alt: "HV testing fixture" },
+      { src: "/projects/jlab-3.png", alt: "HV testing fixture" },
+      { src: "/projects/jlab-4.png", alt: "HV testing fixture" },
+    ],
+    description: `Longer paragraph(s) about the project...`,
+  },
+  {
     title: "Graph Neural Networks (GNNs) for Nuclear Particle Tracking",
     slug: "graph-neural-networks-gnns-for-nuclear-particle-tracking",
     tagline: "GNN architectures to improve tracking accuracy in high-rate detector data.",
@@ -207,9 +186,8 @@ export const FEATURED_PROJECTS: Project[] = [
     ],
     images: [
       { src: "/projects/GNN-2.png", alt: "GNNs" },
-      { src: "/projects/GNN-vid.mp4", alt: "GNNs" },
+      { src: "/projects/GNN_vid.gif", alt: "GNNs_vid" },
   ],
-    video: { src: "/projects/GNN-vid.mp4", poster: "/projects/GNN-2.png" },
     description: `Longer paragraph(s) about the project...`,
   },
   {
@@ -242,25 +220,6 @@ export const FEATURED_PROJECTS: Project[] = [
       { src: "/projects/HV_1.jpg", alt: "HV testing fixture" },
       { src: "/projects/HV_2.jpg", alt: "HV testing setup" },
       { src: "/projects/stretcher.jpg", alt: "GEM stretcher apparatus" },
-    ],
-    description: `Longer paragraph(s) about the project...`,
-  },
-  {
-    title: "Measurement of Neutron's Electromagnetic Form Factor at High Momentum Transfer",
-    slug: "measurement-of-neutrons-electromagnetic-form-factor-at-high-momentum-transfer",
-    tagline: "Experiment execution, data acquisition and data analysis for Neutron form factor measurement.",
-    tags: ["Experimental Nuclear Physics", "Data Analysis", "DAQ Systems"],
-    highlights: [
-      "Performed frontend electronic readout system installation",
-      "Performed real-time data acquisition system development and testing",
-      "C++ and Python based data analysis and reconstruction",
-    ],
-    images: [
-      { src: "/projects/jlab-4.HEIC", alt: "HV testing fixture" },
-      { src: "/projects/SBS.png", alt: "HV testing fixture" },
-      { src: "/projects/jlab-2.png", alt: "HV testing fixture" },
-      { src: "/projects/jlab-3.png", alt: "HV testing fixture" },
-      { src: "/projects/jlab-4.png", alt: "HV testing fixture" },
     ],
     description: `Longer paragraph(s) about the project...`,
   },
