@@ -64,7 +64,7 @@ export function projectSlug(p: Project) {
 
 export const SITE: Site = {
   name: "Bhasitha Dharmasena",
-  tagline: "Mechanical Engineering • Experimental nuclear physics • detector instrumentation • ML for reconstruction & other",
+  tagline: "Mechanical Engineering • ML for reconstruction & other • Experimental nuclear physics • detector instrumentation",
   // location: "Virginia, USA",
   email: "bhasitha.d@gmail.com",
   links: [

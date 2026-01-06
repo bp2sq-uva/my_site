@@ -7,10 +7,11 @@ import { Pill } from "@/app/components/ui";
 const PERSONAL = {
   title: "Personal",
   paragraphs: [
-    "Outside of work, I enjoy exploring new places, photography/video, and learning new tools—especially when it leads to building something tangible.",
-    "I like collaborative environments, live music, and projects that blend creativity with engineering.",
+   "When I’m not building or analyzing something, I’m usually out exploring—checking out new places, finding a good trail, or grabbing a beach day whenever I can. I like to stay active and keep some team energy in my week, whether that’s time at the gym or playing sports like soccer, rugby, volleyball, and field hockey. I’ve always enjoyed learning outside of work too. Lately that’s meant improving my guitar skills and picking up new tools, both technical and creative, just for the satisfaction of getting better at something.",
+    "I’m equally happy in the mountains or by the ocean, and I’m a huge fan of animals and pets of all kinds. If there’s a dog nearby, I’ll probably be the person saying hi. When I’m recharging indoors, I’m usually watching a movie or a great TV show when time allows, especially anything with good storytelling.",
+    "I’m drawn to collaborative environments with kind, motivated people. I love live music, and I’m most excited by projects where creativity and engineering meet, where you can prototype, iterate, and build something real as a team."
   ],
-  chips: ["Photography / video", "Travel", "Live music", "Building things", "Learning new tools"],
+  chips: ["Travel", "Live music", "Team Sports", "Learning new tools"],
 };
 
 const PROFESSIONAL = {
@@ -18,7 +19,7 @@ const PROFESSIONAL = {
   paragraphs: [
     "I’m a cross-disciplinary engineer-scientist with hands-on experience across mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and data/ML pipelines. I’m most effective when I can own problems end-to-end: design, simulate, build, test, and iterate.",
     "In my current role, I work in experimental nuclear/particle physics at the University of Virginia / Jefferson Lab, developing reliable reconstruction and calibration workflows for detector systems and building software tools to make analysis repeatable and measurable.",
-    "I thrive in collaborative project environments where mechanical, electrical, and software decisions interact. I enjoy bridging disciplines—communicating clearly across teams, keeping interfaces clean, and validating decisions with data and testing.",
+    "I thrive in collaborative project environments where mechanical, electrical, and software decisions interact. I enjoy bridging disciplines that communicate clearly across teams, keep interfaces clean, and validate decisions with data and testing.",
   ],
   chips: [
     "Mechanical design & fixtures",

@@ -85,7 +85,7 @@ function ProjectsTilesHome() {
               Selected work
             </h2>
             <p className="mt-1 text-sm text-zinc-600">
-              A few highlights—see the full list for everything.
+              A few highlights—see the full list for more.
             </p>
           </div>
 
@@ -269,21 +269,20 @@ function SkillsSection() {
           Cross-disciplinary toolkit
         </h2>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {SKILLS.map((s) => (
-            <div
-              key={s.title}
-              className="rounded-3xl border border-zinc-200/70 bg-white p-6 shadow-sm ring-1 ring-black/5"
-            >
-              <h3 className="text-sm font-semibold text-zinc-900">{s.title}</h3>
-              <ul className="mt-3 space-y-2 text-sm text-zinc-700">
+        <div className="mt-20 grid gap-x-18 gap-y-20 sm:grid-cols-2 lg:grid-cols-3">
+        {SKILLS.map((s) => (
+            <div key={s.title}>
+            <h3 className="text-sm font-semibold text-zinc-900">{s.title}</h3>
+            <div className="mt-3 h-px w-10 bg-zinc-200" />
+            <ul className="mt-3 space-y-2 text-sm text-zinc-700">
                 {s.items.map((it) => (
-                  <li key={it}>• {it}</li>
+                <li key={it}>• {it}</li>
                 ))}
-              </ul>
+            </ul>
             </div>
-          ))}
+        ))}
         </div>
+
       </div>
     </section>
   );
@@ -367,7 +366,7 @@ function NavTiles() {
       <div className="flex items-end justify-between gap-4">
         <div>
           <h2 className="text-xl font-semibold text-zinc-900">Explore</h2>
-          <p className="mt-1 text-sm text-zinc-600">Quick links into the site.</p>
+          <p className="mt-1 text-sm text-zinc-600">Quick links into more info.</p>
         </div>
       </div>
 
