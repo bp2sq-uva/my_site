@@ -6,7 +6,7 @@ import { FEATURED_PROJECTS, projectSlug } from "@/app/lib/site";
 
 function PageBanner() {
   return (
-    <section className="relative h-[320px] w-full overflow-hidden border-b border-zinc-200">
+    <section className="relative h-[560px] w-full overflow-hidden border-b border-zinc-200">
       <Image
         src="/banners/projects-1.png"
         alt="Projects banner"
