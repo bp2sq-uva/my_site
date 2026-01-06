@@ -44,30 +44,179 @@ import { projectSlug } from "@/app/lib/site";
 // }
 
 
-function LogoMark({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
-  const isSvg = src.toLowerCase().endsWith(".svg");
-  const base = "max-h-full max-w-full object-contain opacity-70 transition group-hover:opacity-100";
-  const cls = `${base} ${className}`;
 
-  return isSvg ? <img src={src} alt={alt} className={cls} /> : <Image src={src} alt={alt} width={400} height={200} className={cls} />;
+
+const HOME_PROJECT_SLUGS = new Set([
+  "nuclear-detector-fixtures",
+  "cfd-and-structural-simulations",
+  "graph-neural-networks-gnns-for-nuclear-particle-tracking",
+]);
+
+
+const TILE_BGS = ["bg-white", "bg-zinc-50", "bg-sky-50"] as const;
+const TILE_ACCENTS = [
+  "bg-indigo-600",
+  "bg-sky-600",
+  "bg-emerald-600",
+  "bg-amber-500",
+  "bg-rose-600",
+  "bg-zinc-900/30",
+] as const;
+
+function bgForIndex(i: number) {
+  return TILE_BGS[i % TILE_BGS.length];
+}
+function accentForIndex(i: number) {
+  return TILE_ACCENTS[i % TILE_ACCENTS.length];
+}
+
+function ProjectsTilesHome() {
+  const projects = FEATURED_PROJECTS.filter((p) => HOME_PROJECT_SLUGS.has(projectSlug(p)));
+
+  return (
+    <section className="border-t border-zinc-200/70 bg-white">
+      <div className="mx-auto w-full max-w-6xl px-5 py-16">
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
+              Projects
+            </p>
+            <h2 className="mt-2 text-xl font-semibold text-zinc-900">
+              Selected work
+            </h2>
+            <p className="mt-1 text-sm text-zinc-600">
+              A few highlights—see the full list for everything.
+            </p>
+          </div>
+
+          <Link
+            href="/projects"
+            className="text-sm font-medium text-zinc-700 hover:underline underline-offset-4"
+          >
+            View all →
+          </Link>
+        </div>
+
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((p, i) => {
+            const slug = projectSlug(p);
+            const cover = p.images?.[0];
+            const bg = bgForIndex(i);
+            const accent = accentForIndex(i);
+
+            return (
+              <Link
+                key={slug}
+                href={`/projects/${slug}`}
+                className={[
+                  "group block",
+                  "border border-zinc-200/70",
+                  "transition",
+                  "hover:-translate-y-0.5 hover:shadow-md",
+                  "focus:outline-none focus:ring-2 focus:ring-zinc-900/20",
+                  bg,
+                ].join(" ")}
+              >
+                <div className={`h-1 w-full ${accent}`} />
+
+                {cover?.src ? (
+                  <div className="aspect-[16/10] overflow-hidden bg-white/60 ring-1 ring-black/5">
+                    <Image
+                      src={cover.src}
+                      alt={cover.alt ?? p.title}
+                      width={1600}
+                      height={900}
+                      className="h-full w-full object-cover"
+                      priority={false}
+                    />
+                  </div>
+                ) : (
+                  <div className="aspect-[16/10] bg-white/60 ring-1 ring-black/5" />
+                )}
+
+                <div className="p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-lg font-semibold text-zinc-900 group-hover:underline underline-offset-8 decoration-zinc-300">
+                      {p.title}
+                    </h3>
+                    <span className="text-sm text-zinc-500">→</span>
+                  </div>
+
+                  {p.tagline ? (
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-700">
+                      {p.tagline}
+                    </p>
+                  ) : null}
+
+                  {(p.tags ?? []).length ? (
+                    <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-600">
+                      {(p.tags ?? []).slice(0, 6).map((t: string) => (
+                        <span key={t} className="border-b border-zinc-300/70 pb-0.5">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  {(p.highlights ?? []).length ? (
+                    <ul className="mt-5 space-y-1.5 text-sm text-zinc-700/90">
+                      {(p.highlights ?? []).slice(0, 2).map((h: string, idx: number) => (
+                        <li key={idx}>• {h}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+
+                  <div className="mt-6 inline-flex items-center gap-2 border-b-2 border-zinc-900 pb-1 text-sm font-semibold text-zinc-900 group-hover:border-zinc-600">
+                    See details <span aria-hidden>→</span>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 
+
+
+function LogoMark({ src, alt }: { src: string; alt: string }) {
+  const isSvg = src.toLowerCase().endsWith(".svg");
+
+  // consistent visual height, boxless
+    const cls =
+    "h-20 sm:h-24 md:h-26 w-auto max-w-[460px] object-contain opacity-70 transition group-hover:opacity-100";
+
+
+  if (isSvg) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={src} alt={alt} className={cls} />;
+  }
+
+  return <Image src={src} alt={alt} width={700} height={350} className={cls} />;
+}
+
 function LogoStrip({ logos }: { logos: Array<{ name: string; src: string }> }) {
   return (
-    <section className="mx-auto w-full max-w-6xl px-5 py-10">
-      <div className="rounded-3xl border border-zinc-200/70 bg-white p-6 shadow-sm ring-1 ring-black/5">
-        <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
-          Places I’ve worked
-        </p>
+    <section className="border-t border-zinc-200/70 bg-white">
+      <div className="mx-auto w-full max-w-6xl px-5 py-78">
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
+              Places I’ve worked
+            </p>
+            <h2 className="mt-2 text-xl font-semibold text-zinc-900">
+              Teams & organizations
+            </h2>
+          </div>
+        </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
+        <div className="mt-30 grid grid-cols-2 items-center gap-x-10 gap-y-8 sm:grid-cols-3 md:grid-cols-5">
           {logos.map((logo) => (
             <div key={logo.name} className="group flex items-center justify-center">
-              {/* Fixed HEIGHT + wider box = more consistent visual weight */}
-              <div className="flex h-12 w-36 items-center justify-center overflow-hidden rounded-2xl bg-white ring-1 ring-black/5 sm:h-14 sm:w-40">
-                <LogoMark src={logo.src} alt={logo.name} />
-              </div>
+              <LogoMark src={logo.src} alt={logo.name} />
             </div>
           ))}
         </div>
@@ -75,6 +224,8 @@ function LogoStrip({ logos }: { logos: Array<{ name: string; src: string }> }) {
     </section>
   );
 }
+
+
 
 function HeroSimple() {
   const pills = [
@@ -388,11 +539,11 @@ function AboutPreviewCombined() {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-56">
+      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-60">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-xl font-semibold text-zinc-900">About</h2>
-            <p className="mt-1 text-sm text-zinc-600">Professional + personal (short).</p>
+            <p className="mt-30 text-sm text-zinc-600"></p>
           </div>
 
           <a href="/about" className="text-sm font-medium text-zinc-700 hover:underline">
@@ -618,8 +769,8 @@ export default function Page() {
       <AboutPreviewCombined />
       <LogoStrip logos={WORK_LOGOS} />
       <CurrentStatus />
-      <FeaturedProjectsPreview />
       <NavTiles />
+      <ProjectsTilesHome />
       <footer className="border-t border-zinc-200 py-8">
         <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
           © {new Date().getFullYear()} {SITE.name}

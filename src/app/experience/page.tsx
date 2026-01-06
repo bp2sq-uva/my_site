@@ -3,6 +3,13 @@ import { Card } from "@/app/components/ui";
 import { EXPERIENCE, SITE } from "@/app/lib/site";
 import Image from "next/image";
 
+
+function primaryOrgHref(e: { logos?: { href?: string }[] }) {
+  return e.logos?.find((l) => !!l.href)?.href;
+}
+
+
+
 function ExperienceLogosCorner({
   logos,
 }: {
@@ -11,19 +18,19 @@ function ExperienceLogosCorner({
   if (!logos?.length) return null;
 
   return (
-    <div className="absolute right-5 top-5 flex items-center gap-2">
+    <div className="absolute right-5 top-1/2 -translate-y-1/2 flex items-center gap-3">
       {logos.slice(0, 3).map((l) => {
         const badge = (
-          <div className="flex h-24 w-40 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 px-2">
+        <div className="flex h-18 items-center justify-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={l.src}
-              alt={l.name}
-            //   className="h-16 w-auto object-contain opacity-80 grayscale hover:opacity-100 hover:grayscale-0 transition"
-              className="opacity-86 saturate-50 transition hover:opacity-100 hover:saturate-100"
+            src={l.src}
+            alt={l.name}
+            className="h-full w-auto max-w-[200px] object-contain opacity-80 saturate-50 transition hover:opacity-100 hover:saturate-100"
             />
-          </div>
+        </div>
         );
+
 
         return l.href ? (
           <a
@@ -59,12 +66,23 @@ export default function ExperiencePage() {
           {EXPERIENCE.map((e) => (
             <section
             key={`${e.org}-${e.title}`}
-            className="relative rounded-3xl border border-zinc-200 bg-white p-6 pr-28 shadow-sm"
+            className="relative rounded-3xl border border-zinc-200 bg-white p-6 pr-60 shadow-sm"
             >
             <ExperienceLogosCorner logos={e.logos} />
 
             <h2 className="text-lg font-semibold text-zinc-900">{e.title}</h2>
+            {primaryOrgHref(e) ? (
+            <a
+                href={primaryOrgHref(e)}
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm text-zinc-700 hover:underline underline-offset-4"
+            >
+                {e.org}
+            </a>
+            ) : (
             <p className="text-sm text-zinc-700">{e.org}</p>
+            )}
             <p className="text-sm text-zinc-500">{e.dates}</p>
 
             <ul className="mt-4 space-y-2 text-sm text-zinc-700">

@@ -58,6 +58,50 @@ export function projectSlug(p: Project) {
 }
 
 
+function MediaItem({
+  src,
+  alt,
+  title,
+}: {
+  src: string;
+  alt?: string;
+  title: string;
+}) {
+  const lower = src.toLowerCase();
+  const isVideo =
+    lower.endsWith(".mp4") || lower.endsWith(".mov") || lower.endsWith(".webm");
+
+  if (isVideo) {
+    return (
+      <div className="overflow-hidden rounded-lg ring-1 ring-black/5">
+        <video className="w-full" controls playsInline preload="metadata">
+          <source
+            src={src}
+            type={
+              lower.endsWith(".webm")
+                ? "video/webm"
+                : "video/mp4" // works for .mp4, and usually ok for .mov too
+            }
+          />
+          Sorry, your browser doesn’t support this video.
+        </video>
+      </div>
+    );
+  }
+
+  return (
+    <Image
+      src={src}
+      alt={alt || title}
+      width={1200}
+      height={800}
+      className="w-full rounded-lg"
+    />
+  );
+}
+
+
+
 export const SITE: Site = {
   name: "Bhasitha Dharmasena",
   tagline: "Experimental nuclear physics • detector instrumentation • ML for reconstruction",
@@ -74,7 +118,7 @@ export const SITE: Site = {
     "I thrive in collaborative environments where mechanical, electrical, and software decisions interact—and I like owning problems end-to-end: design, simulate, build, test, and iterate.",
   ],
   currentTitle: "PhD Researcher (Experimental Nuclear & Particle Physics)",
-  currentOrg: "University of Virginia / Jefferson Lab (Hall A)",
+  currentOrg: "University of Virginia / Jefferson Lab",
   // phone: "+1 ...", // optional
 };
 
@@ -82,7 +126,7 @@ export const SITE: Site = {
 
 export const CURRENT = {
   title: "PhD Researcher (Experimental Nuclear & Particle Physics)",
-  org: "University of Virginia / Jefferson Lab (Hall A)",
+  org: "University of Virginia / Jefferson Lab",
   supervisor: "Supervisor: Prof. Nilanga Liyanage",
   location: "Virginia, USA", // ✅ add this
   focus: [
@@ -117,6 +161,57 @@ export type Experience = {
 
 
 export const FEATURED_PROJECTS: Project[] = [
+
+  {
+    title: "Deep Learning based RF Signal Detection and Classification for Drone Surveillance",
+    slug: "deep-learning-based-rf-signal-detection-and-classification-for-drone-surveillance",
+    tagline: "Frequency-domain RF analysis + deep learning models for drone detection.",
+    tags: ["Deep Learning", "RF Signal Processing", "Signal Analysis"],
+    highlights: [
+      "Analyzed RF signals in the frequency domain to identify characteristic emission patterns.",
+      "Trained deep learning models to detect and classify drone RF signals amid background noise.",
+    ],
+    images: [{ src: "/projects/Dedrone.png", alt: "RF signal detection" }],
+    description: `Drones use radio frequency (RF) signals for communication and control, which can be 
+    detected and analyzed for surveillance purposes. In this project, we focused on developing deep learning 
+    models to identify and classify RF signals emitted by drones. By analyzing the frequency-domain 
+    characteristics of these signals, we were able to train models that effectively distinguish drone signals 
+    from background noise and other RF sources. This work has applications in security and surveillance, 
+    enabling the detection of unauthorized drone activity.`,
+  },
+  {
+    title: "Computational Fluid Dynamics Simulations(CFD) and Static Structural Simulations",
+    slug: "cfd-and-structural-simulations",
+    tagline: "ANSYS-based flow + structural simulations for engineering systems and detectors.",
+    tags: ["CFD", "ANSYS", "Structural Analysis", "Simulation"],
+    highlights: [
+      "Conducted fluid flow simulations to optimize flow systems for detector systems.",
+      "Performed static structural analysis to ensure mechanical integrity under operational loads.",
+      "Analyzed simulation results to guide design improvements and engineering decisions.",
+    ],
+    images: [
+      { src: "/projects/gem_demo.gif", alt: "GEM gas flow simulations" },
+      { src: "/projects/Ansys-1.png", alt: "GEM gas flow simulations" },
+      { src: "/projects/NEMOH.png", alt: "GEM gas flow simulations" },
+  ],
+    description: ``,
+  },
+    {
+    title: "Graph Neural Networks (GNNs) for Nuclear Particle Tracking",
+    slug: "graph-neural-networks-gnns-for-nuclear-particle-tracking",
+    tagline: "GNN architectures to improve tracking accuracy in high-rate detector data.",
+    tags: ["Graph Neural Networks", "Detector ML", "Reconstruction"],
+    highlights: [
+      "Developed GNN models to capture complex spatial relationships in detector data.",
+      "Improved tracking efficiency and resolution compared to traditional methods.",
+    ],
+    images: [
+      { src: "/projects/GNN-2.png", alt: "GNNs" },
+      { src: "/projects/GNN-vid.mp4", alt: "GNNs" },
+  ],
+    video: { src: "/projects/GNN-vid.mp4", poster: "/projects/GNN-2.png" },
+    description: `Longer paragraph(s) about the project...`,
+  },
   {
     title: "Wind Turbine Blade Design Optimization using CFD Simulations",
     slug: "wind-turbine-blade-design-optimization-using-cfd-simulations",
@@ -151,39 +246,22 @@ export const FEATURED_PROJECTS: Project[] = [
     description: `Longer paragraph(s) about the project...`,
   },
   {
-    title: "Computational Fluid Dynamics Simulations(CFD) and Static Structural Simulations",
-    slug: "cfd-and-structural-simulations",
-    tagline: "ANSYS-based flow + structural simulations for engineering systems and detectors.",
-    tags: ["CFD", "ANSYS", "Structural Analysis", "Simulation"],
+    title: "Measurement of Neutron's Electromagnetic Form Factor at High Momentum Transfer",
+    slug: "measurement-of-neutrons-electromagnetic-form-factor-at-high-momentum-transfer",
+    tagline: "Experiment execution, data acquisition and data analysis for Neutron form factor measurement.",
+    tags: ["Experimental Nuclear Physics", "Data Analysis", "DAQ Systems"],
     highlights: [
-      "Conducted fluid flow simulations to optimize flow systems for detector systems.",
-      "Performed static structural analysis to ensure mechanical integrity under operational loads.",
-      "Analyzed simulation results to guide design improvements and engineering decisions.",
+      "Performed frontend electronic readout system installation",
+      "Performed real-time data acquisition system development and testing",
+      "C++ and Python based data analysis and reconstruction",
     ],
-    images: [{ src: "/projects/gem_demo.gif", alt: "GEM gas flow simulations" }],
-  },
-  {
-    title: "Deep Learning based RF Signal Detection and Classification for Drone Surveillance",
-    slug: "deep-learning-based-rf-signal-detection-and-classification-for-drone-surveillance",
-    tagline: "Frequency-domain RF analysis + deep learning models for drone detection.",
-    tags: ["Deep Learning", "RF Signal Processing", "Signal Analysis"],
-    highlights: [
-      "Analyzed RF signals in the frequency domain to identify characteristic emission patterns.",
-      "Trained deep learning models to detect and classify drone RF signals amid background noise.",
+    images: [
+      { src: "/projects/jlab-4.HEIC", alt: "HV testing fixture" },
+      { src: "/projects/SBS.png", alt: "HV testing fixture" },
+      { src: "/projects/jlab-2.png", alt: "HV testing fixture" },
+      { src: "/projects/jlab-3.png", alt: "HV testing fixture" },
+      { src: "/projects/jlab-4.png", alt: "HV testing fixture" },
     ],
-    images: [{ src: "/projects/Dedrone.png", alt: "RF signal detection" }],
-    description: `Longer paragraph(s) about the project...`,
-  },
-  {
-    title: "Graph Neural Networks (GNNs) for Nuclear Particle Tracking",
-    slug: "graph-neural-networks-gnns-for-nuclear-particle-tracking",
-    tagline: "GNN architectures to improve tracking accuracy in high-rate detector data.",
-    tags: ["Graph Neural Networks", "Detector ML", "Reconstruction"],
-    highlights: [
-      "Developed GNN models to capture complex spatial relationships in detector data.",
-      "Improved tracking efficiency and resolution compared to traditional methods.",
-    ],
-    images: [{ src: "/projects/GNN-2.png", alt: "GNNs" }],
     description: `Longer paragraph(s) about the project...`,
   },
 ];
@@ -276,4 +354,5 @@ export const WORK_LOGOS: Logo[] = [
   { name: "Jefferson Lab", src: "/logos/jlab.svg", href: "https://www.jlab.org" },
   { name: "Dedrone by Axon", src: "/logos/dedrone.svg", href: "https://www.dedrone.com" },
   { name: "Korea Maritime & Ocean University", src: "/logos/kmou_2.svg", href: "https://www.kmou.ac.kr" },
+  { name: "Sri Lanka Air Force Base", src: "/logos/air_force.svg", href: "https://www.airforce.lk/index.php" },
 ];

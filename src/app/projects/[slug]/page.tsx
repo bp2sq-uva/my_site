@@ -45,19 +45,18 @@ export default async function ProjectPage({ params }: PageProps) {
         )}
 
         {!!project.images?.length && (
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
             {project.images.map((img, idx) => (
-              <Image
+            <MediaItem
                 key={`${img.src}-${idx}`}
                 src={img.src}
-                alt={img.alt || project.title}
-                width={1200}
-                height={800}
-                className="rounded-lg"
-              />
+                alt={img.alt}
+                title={project.title}
+            />
             ))}
-          </div>
+        </div>
         )}
+
 
         {!!project.highlights?.length && (
           <div className="mt-8">
