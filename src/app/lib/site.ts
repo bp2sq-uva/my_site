@@ -104,7 +104,7 @@ export function slugify(input: unknown) {
 
 
 
-export type WorkLogo = { name: string; src: string; href?: string };
+export type WorkLogo = { name: string; src: string; className: string;href?: string };
 
 export type Experience = {
   title: string;
