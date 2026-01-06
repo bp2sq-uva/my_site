@@ -8,7 +8,7 @@ function PageBanner() {
   return (
     <section className="relative h-[320px] w-full overflow-hidden border-b border-zinc-200">
       <Image
-        src="/banners/projects-1.jpg"
+        src="/banners/projects-1.png"
         alt="Projects banner"
         fill
         priority
