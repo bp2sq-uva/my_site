@@ -84,7 +84,8 @@ export function projectSlug(p: Project) {
 // };
 
 
-export const SITE = {
+
+export const SITE: Site = {
   name: "Bhasitha Dharmasena",
   tagline: "Engineering • Physics • Machine Learning • R&D",
   secondaryTagline: "Mechanical Engineering • ML for reconstruction & other • Experimental nuclear physics • detector instrumentation",
