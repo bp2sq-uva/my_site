@@ -274,7 +274,7 @@ function SkillsSection() {
             <div key={s.title}>
             <h3 className="text-sm font-semibold text-zinc-900">{s.title}</h3>
             <div className="mt-3 h-px w-10 bg-zinc-200" />
-            <ul className="mt-3 space-y-2 text-sm text-zinc-700">
+            <ul className="mt-3 space-y-1.5 text-sm text-zinc-700">
                 {s.items.map((it) => (
                 <li key={it}>• {it}</li>
                 ))}
@@ -320,7 +320,11 @@ function HeroSimple() {
         <p className="mt-4 max-w-2xl text-lg text-zinc-700 sm:text-xl leading-relaxed">
           {SITE.tagline}
         </p>
-
+        {SITE.secondaryTagline && (
+        <p className="mt-2 text-sm text-zinc-600">
+            {SITE.secondaryTagline}
+        </p>
+        )}
         <div className="mt-6 flex flex-wrap gap-2">
           {pills.map((x) => (
             <Pill key={x}>{x}</Pill>
@@ -480,9 +484,9 @@ function AboutPreview() {
           <div className="max-w-3xl">
             <h2 className="text-xl font-semibold text-zinc-900">About me</h2>
             <p className="mt-2 text-zinc-700 leading-relaxed">
-            I’m a cross-disciplinary engineer-scientist with hands-on experience across mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and data/ML pipelines. In my PhD work at the University of Virginia / Jefferson Lab, I’ve routinely owned problems end-to-end: turning requirements into practical designs, building and validating test setups, and developing analysis and calibration software that converts raw detector measurements into reliable, decision-ready results.
-            On the mechanical side, I’ve designed and built fixtures and tooling for detector assembly, alignment, handling, and high-voltage testing—working closely with technicians and engineers to iterate based on fabrication constraints, safety requirements, and performance feedback. I also use simulation-guided design (CFD and structural analysis) to evaluate options, understand failure modes, and make design decisions that translate cleanly from model to hardware.
-            On the electrical side, I’m comfortable operating at the hardware–software boundary: timing and synchronization issues, readout constraints, debugging workflows, and the engineering discipline required to make systems stable in real environments. I bring the same mindset to software—building maintainable pipelines, QA automation, and (when it helps) ML methods for signal detection and tracking in noisy, high-rate data.
+            I’m a cross-disciplinary engineer-scientist with hands on experience across mechanical design/build, instrumentation, electrical/DAQ adjacent workflows, and data/ML pipelines. In my PhD work at the University of Virginia / Jefferson Lab, I’ve routinely owned problems end to end: turning requirements into practical designs, building and validating test setups, and developing analysis and calibration software that converts raw detector measurements into reliable, decision-ready results.
+            On the mechanical side, I’ve designed and built fixtures and tooling for detector assembly, alignment, handling, and high voltage testing—working closely with technicians and engineers to iterate based on fabrication constraints, safety requirements, and performance feedback. I also use simulation guided design (CFD and structural analysis) to evaluate options, understand failure modes, and make design decisions that translate cleanly from model to hardware.
+            On the electrical side, I’m comfortable operating at the hardware vs software boundary: timing and synchronization issues, readout constraints, debugging workflows, and the engineering discipline required to make systems stable in real environments. I bring the same mindset to software building maintainable pipelines, QA automation, and (when it helps) ML methods for signal detection and tracking in noisy, high rate data.
             I work best in collaborative project environments where mechanical, electrical, and software decisions interact. My strength is bridging disciplines—communicating clearly across teams, keeping interfaces clean, validating with measurements, and iterating quickly—making me a strong fit for versatile engineering roles that involve designing, simulating, building, testing, and continuously improving complex systems.
             </p>
           </div>
@@ -599,7 +603,7 @@ function AboutPreviewCombined() {
     "Cross-disciplinary engineer-scientist spanning mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and ML/data pipelines. I work best owning problems end-to-end: design → simulate → build → test → iterate in collaborative teams.";
 
   const personal =
-    "Outside work, I enjoy building things, exploring new places, photography/video, and live music—especially projects that mix creativity with engineering.";
+    "Outside work, I enjoy building things, exploring new places, photography/video, and live music, especially projects that mix creativity with engineering.";
 
   return (
     <section className="w-full bg-white">
@@ -739,7 +743,11 @@ export function HeroWix() {
             <p className="mt-5 max-w-2xl text-base text-zinc-200 sm:text-xl leading-relaxed">
               {SITE.tagline}
             </p>
-
+            {SITE.secondaryTagline && (
+            <p className="mt-2 text-sm text-zinc-400">
+                {SITE.secondaryTagline}
+            </p>
+            )}
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="/cv.pdf"

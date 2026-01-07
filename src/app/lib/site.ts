@@ -40,6 +40,7 @@ export type Publication = {
 export type Site = {
   name: string;
   tagline: string;
+  secondaryTagline?: string;
   email: string;
   links: Link[];
   about: string[];
@@ -62,10 +63,31 @@ export function projectSlug(p: Project) {
 
 
 
-export const SITE: Site = {
+// export const SITE: Site = {
+//   name: "Bhasitha Dharmasena",
+//   tagline: "Mechanical Engineering • ML for reconstruction & other • Experimental nuclear physics • detector instrumentation",
+//   // location: "Virginia, USA",
+//   email: "bhasitha.d@gmail.com",
+//   links: [
+//     { label: "GitHub", href: "https://github.com/bp2sq-uva" },
+//     { label: "LinkedIn", href: "https://www.linkedin.com/in/bhasitha-dharmasena-877287177/" },
+//     { label: "Google Scholar", href: "https://scholar.google.com/citations?user=le3tNbYAAAAJ&hl=en" },
+//     { label: "CV (PDF)", href: "/cv.pdf" },
+//   ],
+//   about: [
+//     "I’m a cross-disciplinary engineer-scientist with experience across mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and data/ML pipelines.",
+//     "I thrive in collaborative environments where mechanical, electrical, and software decisions interact—and I like owning problems end-to-end: design, simulate, build, test, and iterate.",
+//   ],
+//   currentTitle: "PhD Researcher (Experimental Nuclear & Particle Physics)",
+//   currentOrg: "University of Virginia / Jefferson Lab",
+//   // phone: "+1 ...", // optional
+// };
+
+
+export const SITE = {
   name: "Bhasitha Dharmasena",
-  tagline: "Mechanical Engineering • ML for reconstruction & other • Experimental nuclear physics • detector instrumentation",
-  // location: "Virginia, USA",
+  tagline: "Engineering • Physics • Machine Learning • R&D",
+  secondaryTagline: "Mechanical Engineering • ML for reconstruction & other • Experimental nuclear physics • detector instrumentation",
   email: "bhasitha.d@gmail.com",
   links: [
     { label: "GitHub", href: "https://github.com/bp2sq-uva" },
@@ -79,8 +101,8 @@ export const SITE: Site = {
   ],
   currentTitle: "PhD Researcher (Experimental Nuclear & Particle Physics)",
   currentOrg: "University of Virginia / Jefferson Lab",
-  // phone: "+1 ...", // optional
-};
+} as const;
+
 
 
 
@@ -132,12 +154,7 @@ export const FEATURED_PROJECTS: Project[] = [
       "Trained deep learning models to detect and classify drone RF signals amid background noise.",
     ],
     images: [{ src: "/projects/Dedrone.png", alt: "RF signal detection" }],
-    description: `Drones use radio frequency (RF) signals for communication and control, which can be 
-    detected and analyzed for surveillance purposes. In this project, we focused on developing deep learning 
-    models to identify and classify RF signals emitted by drones. By analyzing the frequency-domain 
-    characteristics of these signals, we were able to train models that effectively distinguish drone signals 
-    from background noise and other RF sources. This work has applications in security and surveillance, 
-    enabling the detection of unauthorized drone activity.`,
+    description: `Drones use radio frequency (RF) signals for communication and control, which can be detected and analyzed for surveillance purposes. This project focused on developing deep learning  models to identify and classify RF signals emitted by drones. By analyzing the frequency-domain characteristics of these signals, the models were trained to effectively distinguish drone signals from background noise and other RF sources. This work has applications in security and surveillance, enabling the detection of unauthorized drone activity.`,
   },
   {
     title: "Computational Fluid Dynamics Simulation(CFD) and Static Structural Simulation Projects",
@@ -154,10 +171,16 @@ export const FEATURED_PROJECTS: Project[] = [
       { src: "/projects/Ansys-1.png", alt: "GEM gas flow simulations" },
       { src: "/projects/NEMOH.png", alt: "GEM gas flow simulations" },
   ],
-    description: ``,
+    description: `Built simulation driven studies across CFD, hydrodynamics, and structural FEA using ANSYS CFX, SolidWorks Flow Simulation, NEMOH, and ANSYS Static Structural.
+    
+    For the fluid side, end to end CFD workflows were executed including geometry preparation, meshing, boundary condition definition, and steady and transient solver setups. Results were post processed to interpret pressure and velocity fields, quantify performance trends such as flow distribution and pressure drop, and compare design iterations. This approach was applied in the SOLIDWORKS Flow project STUDY OF INTERNAL GAS FLOW OF SUBATOMIC PARTICLE DETECTORS.
+    
+    For wave body interaction work, the open source package NEMOH was used to model frequency domain hydrodynamic response and extract motion and force behavior across different conditions. This workflow was developed in HYDRODYNAMIC BEHAVIOR OF SUBMERGED PITCH SEA WAVE ENERGY DEVICE, where the focus was placed on understanding response trends and design relevant hydrodynamic behavior.
+   
+    Static structural simulations were carried out as separate projects on different mechanical components using ANSYS Static Structural. Realistic constraints and loading scenarios were applied to evaluate stress, deformation, and safety margins, with particular attention given to deflection driven requirements in DEFLECTION STUDY OF ELECTRON DETECTORS FOR MOLLER EXPERIMENT. Across all simulations, trustworthy results were emphasized through convergence checks, mesh refinement in critical regions, and sensitivity studies to ensure conclusions were robust and design relevant.`
   },
   {
-    title: "Measurement of Neutron's Electromagnetic Form Factor at High Momentum Transfer",
+    title: "Electromagnetic Form Factor Measurements (Experiment running, DAQ, and Data Analysis)",
     slug: "measurement-of-neutrons-electromagnetic-form-factor-at-high-momentum-transfer",
     tagline: "Experiment execution, data acquisition and data analysis for Neutron form factor measurement.",
     tags: ["Experimental Nuclear Physics", "Data Analysis", "DAQ Systems"],
@@ -169,12 +192,16 @@ export const FEATURED_PROJECTS: Project[] = [
     images: [
       { src: "/projects/jlab-4.HEIC", alt: "HV testing fixture" },
       { src: "/projects/SBS.png", alt: "HV testing fixture" },
-      { src: "/projects/jlab-2.png", alt: "HV testing fixture" },
-      { src: "/projects/jlab-3.png", alt: "HV testing fixture" },
-      { src: "/projects/jlab-4.png", alt: "HV testing fixture" },
+      { src: "/projects/jlab-2.HEIC", alt: "HV testing fixture" },
+      { src: "/projects/jlab-3.HEIC", alt: "HV testing fixture" },
+      { src: "/projects/jlab-1.HEIC", alt: "HV testing fixture" },
     ],
-    description: `Longer paragraph(s) about the project...`,
-  },
+    description: `The experiment aimed to measure the neutron electromagnetic form factor at high momentum transfer, providing insight into the neutron internal structure. A primary role was carried out in installing and testing the front end electronic readout systems, supporting particle detector installations, and performing troubleshooting and maintenance to ensure accurate and stable data capture throughout the run period.
+    
+    Work on data acquisition was carried out to support high rate operation, with systems configured and validated to reliably handle the data volumes produced during production running. Detector and electronics performance was monitored and issues were diagnosed and resolved to minimize downtime and protect data quality.
+    
+    Post experiment, data analysis and event reconstruction were carried out using C++ and Python based workflows. The collected datasets were processed, calibrated, and reconstructed, and physics observables relevant to the neutron form factor extraction were produced from the final analysis outputs.`,
+      },
   {
     title: "Graph Neural Networks (GNNs) for Nuclear Particle Tracking",
     slug: "graph-neural-networks-gnns-for-nuclear-particle-tracking",
@@ -188,7 +215,7 @@ export const FEATURED_PROJECTS: Project[] = [
       { src: "/projects/GNN-2.png", alt: "GNNs" },
       { src: "/projects/GNN_vid.gif", alt: "GNNs_vid" },
   ],
-    description: `Longer paragraph(s) about the project...`,
+    description: `Graph Neural Networks (GNNs) have emerged as powerful tools for modeling complex relationships in data, making them well-suited for particle tracking in high-rate nuclear physics detectors. This project focused on developing and implementing GNN architectures to enhance tracking accuracy and efficiency. By representing detector hit data as nodes and their spatial relationships as edges, the GNN models were able to learn intricate patterns in the data. This work has significant implications for advancing reconstruction techniques in nuclear and particle physics experiments.`,
   },
   {
     title: "Wind Turbine Blade Design Optimization using CFD Simulations",
@@ -204,13 +231,15 @@ export const FEATURED_PROJECTS: Project[] = [
       { src: "/projects/wind-2.png", alt: "wind turbine blade" },
       { src: "/projects/wind-3.png", alt: "wind blade" },
     ],
-    description: `Longer paragraph(s) about the project...`,
+    description: `This project focused on optimizing blade designs using Computational Fluid Dynamics (CFD) simulations conducted with Ansys CFX. Various blade geometries were modeled and analyzed to understand airflow patterns, pressure distributions, and performance metrics. Based on the simulation results, iterative design modifications were made to enhance aerodynamic efficiency and maximize energy capture. The optimized blade designs demonstrated improved performance characteristics, contributing to more effective wind energy generation.
+    
+    The project also included an added wind lense to the wind turbine blade to increase the efficiency and power output. CFD simulations were used to analyze the airflow around the wind lense and its impact on the overall performance of the wind turbine system.`,
   },
   {
     title: "Nuclear Particle Detectors Assembly and Testing Fixtures",
     slug: "nuclear-detector-fixtures",
     tagline: "Designed and built fixtures for assembly, alignment, and high-voltage testing.",
-    tags: ["Mechanical Design", "Fabrication", "Instrumentation"],
+    tags: ["Mechanical Design", "Fabrication", "Instrumentation", "SOLIDWORKS", "Machining"],
     highlights: [
       "Designed custom jigs and frames to meet precise alignment and handling requirements.",
       "Collaborated with technicians and engineers to iterate designs based on fabrication feedback.",
@@ -221,7 +250,7 @@ export const FEATURED_PROJECTS: Project[] = [
       { src: "/projects/HV_2.jpg", alt: "HV testing setup" },
       { src: "/projects/stretcher.jpg", alt: "GEM stretcher apparatus" },
     ],
-    description: `Longer paragraph(s) about the project...`,
+    description: `This project involved designing and fabricating custom fixtures for the assembly, alignment, and high-voltage testing of nuclear particle detectors. The fixtures were engineered to meet precise mechanical and electrical requirements, ensuring accurate positioning and safe operation during testing. The designs were iteratively refined through collaboration with technicians and engineers, incorporating feedback from fabrication processes. All fixtures were validated to meet safety standards for laboratory use.`,
   },
 ];
 

@@ -17,18 +17,18 @@ const PERSONAL = {
 const PROFESSIONAL = {
   title: "Professional",
   paragraphs: [
-    "I’m a cross-disciplinary engineer-scientist with hands-on experience across mechanical design/build, instrumentation, electrical/DAQ-adjacent workflows, and data/ML pipelines. I’m most effective when I can own problems end-to-end: design, simulate, build, test, and iterate.",
-    "In my current role, I work in experimental nuclear/particle physics at the University of Virginia / Jefferson Lab, developing reliable reconstruction and calibration workflows for detector systems and building software tools to make analysis repeatable and measurable.",
-    "I thrive in collaborative project environments where mechanical, electrical, and software decisions interact. I enjoy bridging disciplines that communicate clearly across teams, keep interfaces clean, and validate decisions with data and testing.",
+    "I’m a cross disciplinary engineer and researcher with hands on experience across mechanical design and build, data analysis, data and ML pipelines, instrumentation, and electrical and DAQ adjacent workflows. I have been most effective when problems have been owned end to end, with designs having been simulated, built, tested, and iterated with clear feedback loops.",
+    "In my current role, experimental nuclear and particle physics work has been carried out at the University of Virginia and Jefferson Lab, where reliable reconstruction and calibration workflows for detector systems have been developed and software tools have been built to make analysis repeatable and measurable. Close collaboration has been maintained with computer scientists, mechanical and electrical engineers, and physicists, with requirements and interfaces having been aligned across hardware and software so results have stayed robust under real experimental conditions.",
+    "Collaborative project environments have been valued most when mechanical, electrical, and software decisions have interacted tightly and tradeoffs have needed to be made quickly. Bridging disciplines has been enjoyed through clear communication, clean interfaces, and validation through data, testing, and iteration.",
   ],
   chips: [
     "Mechanical design & fixtures",
+    "ML for signal/tracking",
+    "C++/ROOT + Python",
     "Test rigs & HV setups",
     "CFD / structural simulation",
-    "Instrumentation mindset",
-    "DAQ/timing debugging",
-    "C++/ROOT + Python",
-    "ML for signal/tracking",
+    "Instrumentation",
+    "DAQ systems",
   ],
 };
 
