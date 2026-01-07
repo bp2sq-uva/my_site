@@ -7,7 +7,7 @@ import { Pill } from "@/app/components/ui";
 const PERSONAL = {
   title: "Personal",
   paragraphs: [
-   "When I’m not building or analyzing something, I’m usually out exploring—checking out new places, finding a good trail, or grabbing a beach day whenever I can. I like to stay active and keep some team energy in my week, whether that’s time at the gym or playing sports like soccer, rugby, volleyball, and field hockey. I’ve always enjoyed learning outside of work too. Lately that’s meant improving my guitar skills and picking up new tools, both technical and creative, just for the satisfaction of getting better at something.",
+   "I love things that move and I like stay moving too, so I like to stay active and keep some team energy in my week, whether that’s time at the gym or playing sports like soccer, rugby, volleyball, and field hockey. I also like exploring checking out new places, finding a good trail, or grabbing a beach day whenever I canI’ve always enjoyed learning outside of work too. Lately that’s meant improving my guitar skills and picking up new tools, both technical and creative, just for the satisfaction of getting better at something.",
     "I’m equally happy in the mountains or by the ocean, and I’m a huge fan of animals and pets of all kinds. If there’s a dog nearby, I’ll probably be the person saying hi. When I’m recharging indoors, I’m usually watching a movie or a great TV show when time allows, especially anything with good storytelling.",
     "I’m drawn to collaborative environments with kind, motivated people. I love live music, and I’m most excited by projects where creativity and engineering meet, where you can prototype, iterate, and build something real as a team."
   ],
@@ -41,7 +41,7 @@ export default function AboutPage() {
         <div className="flex flex-col gap-2">
           <h1 className="text-3xl font-semibold tracking-tight">About</h1>
           <p className="text-zinc-600">
-            A quick snapshot of who I am—split into professional and personal.
+            A quick snapshot of who I am.....
           </p>
         </div>
 

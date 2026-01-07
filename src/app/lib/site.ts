@@ -79,7 +79,7 @@ export function projectSlug(p: Project) {
 //     "I thrive in collaborative environments where mechanical, electrical, and software decisions interact—and I like owning problems end-to-end: design, simulate, build, test, and iterate.",
 //   ],
 //   currentTitle: "PhD Researcher (Experimental Nuclear & Particle Physics)",
-//   currentOrg: "University of Virginia / Jefferson Lab",
+//   currentOrg: "University of Virginia / Jefferson Lab",When I’m not building or analyzing something, 
 //   // phone: "+1 ...", // optional
 // };
 
