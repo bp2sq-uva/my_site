@@ -47,10 +47,14 @@ import { projectSlug } from "@/app/lib/site";
 
 
 const HOME_PROJECT_SLUGS = new Set([
-  "nuclear-detector-fixtures",
-  "cfd-and-structural-simulations",
+  // "deep-learning-based-rf-signal-detection-and-classification-for-drone-surveillance",
   "graph-neural-networks-gnns-for-nuclear-particle-tracking",
+  "cfd-and-structural-simulations",
+  "measurement-of-neutrons-electromagnetic-form-factor-at-high-momentum-transfer",
+  // "wind-turbine-blade-design-optimization-using-cfd-simulations",
+  // "nuclear-detector-fixtures",
 ]);
+
 
 
 const TILE_BGS = ["bg-white", "bg-zinc-50", "bg-sky-50"] as const;
