@@ -75,7 +75,10 @@ function accentForIndex(i: number) {
 }
 
 function ProjectsTilesHome() {
-  const projects = FEATURED_PROJECTS.filter((p) => HOME_PROJECT_SLUGS.has(projectSlug(p)));
+  // const projects = FEATURED_PROJECTS.filter((p) => HOME_PROJECT_SLUGS.has(projectSlug(p)));
+  const projects = Array.from(HOME_PROJECT_SLUGS)
+    .map((slug) => FEATURED_PROJECTS.find((p) => projectSlug(p) === slug))
+    .filter((p): p is (typeof FEATURED_PROJECTS)[number] => Boolean(p));
 
   return (
     <section className="border-t border-zinc-200/70 bg-white">
