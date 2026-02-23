@@ -82,7 +82,7 @@ function ProjectsTilesHome() {
 
   return (
     <section className="border-t border-zinc-200/70 bg-white">
-      <div className="mx-auto w-full max-w-6xl px-5 pt-6.8 pb-16">
+      <div className="mx-auto w-full max-w-6xl px-5 pt-6.95 pb-16">
         <div className="flex items-end justify-between gap-6">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
