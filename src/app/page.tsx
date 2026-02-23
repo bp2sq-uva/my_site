@@ -676,46 +676,87 @@ function AboutPreviewCombined() {
 
 
 
+// function CurrentStatus() {
+//   return (
+//     <section className="w-full bg-indigo-50">
+//       <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-56">
+//         <div className="grid gap-20 md:grid-cols-2 md:items-start">
+//           {/* Left */}
+//           <div>
+//             <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
+//               Current
+//             </p>
+
+//             <h2 className="mt-3 text-2xl font-semibold text-zinc-900">
+//               {CURRENT.title}
+//             </h2>
+
+//             <p className="mt-2 text-base text-zinc-800">{CURRENT.org}</p>
+//             <p className="mt-1 text-sm text-zinc-700">{CURRENT.supervisor}</p>
+//             <p className="mt-1 text-sm text-zinc-700">{CURRENT.location}</p>
+//           </div>
+
+//           {/* Right */}
+//           <div className="md:border-l md:border-zinc-900/10 md:pl-10">
+//             <p className="text-sm font-semibold text-zinc-900">Focus right now</p>
+//             <ul className="mt-3 space-y-1 text-sm text-zinc-700">
+//               {CURRENT.focus.map((x) => (
+//                 <li key={x}>• {x}</li>
+//               ))}
+//             </ul>
+
+//             <p className="mt-6 text-sm font-medium text-zinc-800">
+//               {CURRENT.availability}
+//             </p>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
 function CurrentStatus() {
   return (
     <section className="w-full bg-indigo-50">
-      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-56">
-        <div className="grid gap-20 md:grid-cols-2 md:items-start">
-          {/* Left */}
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
-              Current
-            </p>
+      <div className="mx-auto w-full max-w-6xl px-5 h-[100svh] flex items-center">
+        <div className="w-full py-10">
+          {/* your existing content goes here unchanged */}
+          <div className="grid gap-20 md:grid-cols-2 md:items-start">
+            {/* Left */}
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
+                Current
+              </p>
 
-            <h2 className="mt-3 text-2xl font-semibold text-zinc-900">
-              {CURRENT.title}
-            </h2>
+              <h2 className="mt-3 text-2xl font-semibold text-zinc-900">
+                {CURRENT.title}
+              </h2>
 
-            <p className="mt-2 text-base text-zinc-800">{CURRENT.org}</p>
-            <p className="mt-1 text-sm text-zinc-700">{CURRENT.supervisor}</p>
-            <p className="mt-1 text-sm text-zinc-700">{CURRENT.location}</p>
-          </div>
+              <p className="mt-2 text-base text-zinc-800">{CURRENT.org}</p>
+              <p className="mt-1 text-sm text-zinc-700">{CURRENT.supervisor}</p>
+              <p className="mt-1 text-sm text-zinc-700">{CURRENT.location}</p>
+            </div>
 
-          {/* Right */}
-          <div className="md:border-l md:border-zinc-900/10 md:pl-10">
-            <p className="text-sm font-semibold text-zinc-900">Focus right now</p>
-            <ul className="mt-3 space-y-1 text-sm text-zinc-700">
-              {CURRENT.focus.map((x) => (
-                <li key={x}>• {x}</li>
-              ))}
-            </ul>
+            {/* Right */}
+            <div className="md:border-l md:border-zinc-900/10 md:pl-10">
+              <p className="text-sm font-semibold text-zinc-900">Focus right now</p>
+              <ul className="mt-3 space-y-1 text-sm text-zinc-700">
+                {CURRENT.focus.map((x) => (
+                  <li key={x}>• {x}</li>
+                ))}
+              </ul>
 
-            <p className="mt-6 text-sm font-medium text-zinc-800">
-              {CURRENT.availability}
-            </p>
+              <p className="mt-6 text-sm font-medium text-zinc-800">
+                {CURRENT.availability}
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-
 
 
 
