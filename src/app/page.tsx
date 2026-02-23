@@ -840,24 +840,79 @@ export function HeroWix() {
 
 
 
+// export default function Page() {
+//   return (
+//     <div className="min-h-screen bg-white text-zinc-900">
+//       <SiteNav />
+//       <HeroWix />
+//       <AboutPreviewCombined />
+//       <LogoStrip logos={WORK_LOGOS} />
+//       <CurrentStatus />
+//       <SkillsSection />
+//       <ProjectsTilesHome />
+//       <NavTiles />
+//       <footer className="border-t border-zinc-200 py-8">
+//         <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
+//           © {new Date().getFullYear()} {SITE.name}
+//         </div>
+//       </footer>
+//     </div>
+//   );
+// }
+
+
 export default function Page() {
   return (
-    <div className="min-h-screen bg-white text-zinc-900">
+    <div className="bg-white text-zinc-900">
+      {/* Keep nav outside so it stays visible while snapping */}
       <SiteNav />
-      <HeroWix />
-      <AboutPreviewCombined />
-      <LogoStrip logos={WORK_LOGOS} />
-      <CurrentStatus />
-      <SkillsSection />
-      <ProjectsTilesHome />
-      <NavTiles />
-      <footer className="border-t border-zinc-200 py-8">
-        <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
-          © {new Date().getFullYear()} {SITE.name}
-        </div>
-      </footer>
+
+      {/* Scroll container that snaps */}
+      <main
+        className={[
+          "h-[100svh] overflow-y-auto",
+          "snap-y snap-mandatory",
+          "scroll-smooth motion-reduce:scroll-auto",
+          "scroll-pt-20", // offset for sticky nav height; adjust if needed
+        ].join(" ")}
+      >
+        <section className="snap-start min-h-[100svh]">
+          <HeroWix />
+        </section>
+
+        <section className="snap-start min-h-[100svh]">
+          <AboutPreviewCombined />
+        </section>
+
+        <section className="snap-start min-h-[100svh]">
+          <LogoStrip logos={WORK_LOGOS} />
+        </section>
+
+        <section className="snap-start min-h-[100svh]">
+          <CurrentStatus />
+        </section>
+
+        <section className="snap-start min-h-[100svh]">
+          <SkillsSection />
+        </section>
+
+        <section className="snap-start min-h-[100svh]">
+          <ProjectsTilesHome />
+        </section>
+
+        <section className="snap-start min-h-[100svh]">
+          <NavTiles />
+        </section>
+
+        {/* Footer can be a snap section too (optional) */}
+        <section className="snap-start">
+          <footer className="border-t border-zinc-200 py-8">
+            <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
+              © {new Date().getFullYear()} {SITE.name}
+            </div>
+          </footer>
+        </section>
+      </main>
     </div>
   );
 }
-
-
