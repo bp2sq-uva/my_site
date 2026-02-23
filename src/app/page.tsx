@@ -876,31 +876,31 @@ export default function Page() {
           "scroll-pt-20", // offset for sticky nav height; adjust if needed
         ].join(" ")}
       >
-        <section className="snap-start min-h-[100svh]">
+        <section className="snap-start min-h-[20svh]">
           <HeroWix />
         </section>
 
-        <section className="snap-start min-h-[100svh]">
+        <section className="snap-start min-h-[20svh]">
           <AboutPreviewCombined />
         </section>
 
-        <section className="snap-start min-h-[100svh]">
+        <section className="snap-start min-h-[20svh]">
           <LogoStrip logos={WORK_LOGOS} />
         </section>
 
-        <section className="snap-start min-h-[100svh]">
+        <section className="snap-start min-h-[20svh]">
           <CurrentStatus />
         </section>
 
-        <section className="snap-start min-h-[100svh]">
+        <section className="snap-start min-h-[20svh]">
           <SkillsSection />
         </section>
 
-        <section className="snap-start min-h-[100svh]">
+        <section className="snap-start min-h-[20svh]">
           <ProjectsTilesHome />
         </section>
 
-        <section className="snap-start min-h-[100svh]">
+        <section className="snap-start min-h-[20svh]">
           <NavTiles />
         </section>
 
