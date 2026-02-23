@@ -621,7 +621,7 @@ function AboutPreviewCombined() {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:py-36 lg:py-60">
+      <div className="mx-auto w-full max-w-6xl px-5 pt-12 pb-20 sm:pt-12 sm:pb-28 lg:pt-16 lg:pb-40">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-xl font-semibold text-zinc-900">About</h2>
