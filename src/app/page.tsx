@@ -165,13 +165,20 @@ function ProjectsTilesHome() {
                     </div>
                   ) : null}
 
-                  {(p.highlights ?? []).length ? (
+                  {/* {(p.highlights ?? []).length ? (
                     <ul className="mt-5 space-y-1.5 text-sm text-zinc-700/90">
                       {(p.highlights ?? []).slice(0, 2).map((h: string, idx: number) => (
                         <li key={idx}>• {h}</li>
                       ))}
                     </ul>
+                  ) : null} */}
+
+                  {p.tagline ? (
+                    <p className="mt-4 text-sm text-zinc-700/90 line-clamp-2">
+                      {p.tagline}
+                    </p>
                   ) : null}
+
 
                   <div className="mt-6 inline-flex items-center gap-2 border-b-2 border-zinc-900 pb-1 text-sm font-semibold text-zinc-900 group-hover:border-zinc-600">
                     See details <span aria-hidden>→</span>
