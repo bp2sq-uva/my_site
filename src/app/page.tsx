@@ -860,52 +860,53 @@ export function HeroWix() {
 //   );
 // }
 
-
 export default function Page() {
+  const SNAP_OFFSET = "20"; // <-- HARD CODE HERE (Tailwind unit: 20 = 5rem = 80px)
+
   return (
     <div className="bg-white text-zinc-900">
-      {/* Keep nav outside so it stays visible while snapping */}
       <SiteNav />
 
-      {/* Scroll container that snaps */}
       <main
         className={[
           "h-[100svh] overflow-y-auto",
           "snap-y snap-mandatory",
           "scroll-smooth motion-reduce:scroll-auto",
-          "scroll-pt-20", // offset for sticky nav height; adjust if needed
+
+          // ✅ HARD CODE #1: scroll padding top (accounts for fixed/sticky nav overlap)
+          `scroll-pt-${SNAP_OFFSET}`,
         ].join(" ")}
       >
-        <section className="snap-start min-h-[40svh]">
+        {/* ✅ HARD CODE #2: scroll margin top on EVERY snap section */}
+        <section className={`snap-start min-h-[40svh] scroll-mt-${SNAP_OFFSET}`}>
           <HeroWix />
         </section>
 
-        <section className="snap-start min-h-[40svh]">
+        <section className={`snap-start min-h-[40svh] scroll-mt-${SNAP_OFFSET}`}>
           <AboutPreviewCombined />
         </section>
 
-        <section className="snap-start min-h-[40svh]">
+        <section className={`snap-start min-h-[40svh] scroll-mt-${SNAP_OFFSET}`}>
           <LogoStrip logos={WORK_LOGOS} />
         </section>
 
-        <section className="snap-start min-h-[40svh]">
+        <section className={`snap-start min-h-[40svh] scroll-mt-${SNAP_OFFSET}`}>
           <CurrentStatus />
         </section>
 
-        <section className="snap-start min-h-[40svh]">
+        <section className={`snap-start min-h-[40svh] scroll-mt-${SNAP_OFFSET}`}>
           <SkillsSection />
         </section>
 
-        <section className="snap-start min-h-[40svh]">
+        <section className={`snap-start min-h-[40svh] scroll-mt-${SNAP_OFFSET}`}>
           <ProjectsTilesHome />
         </section>
 
-        <section className="snap-start min-h-[40svh]">
+        <section className={`snap-start min-h-[40svh] scroll-mt-${SNAP_OFFSET}`}>
           <NavTiles />
         </section>
 
-        {/* Footer can be a snap section too (optional) */}
-        <section className="snap-start">
+        <section className={`snap-start scroll-mt-${SNAP_OFFSET}`}>
           <footer className="border-t border-zinc-200 py-8">
             <div className="mx-auto w-full max-w-6xl px-5 text-xs text-zinc-500">
               © {new Date().getFullYear()} {SITE.name}
