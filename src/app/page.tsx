@@ -216,7 +216,7 @@ function LogoStrip({ logos }: { logos: Array<{ name: string; src: string }> }) {
   return (
     <section className="border-t border-zinc-200/70 bg-white">
       {/* <div className="mx-auto w-full max-w-6xl px-5 py-78"> */}
-      <div className="mx-auto w-full max-w-6xl px-5 pt-32 pb-110">
+      <div className="mx-auto w-full max-w-6xl px-5 pt-32 pb-88">
         <div className="flex items-end justify-between gap-6">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
@@ -622,7 +622,7 @@ function AboutPreviewCombined() {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto w-full max-w-6xl px-5 pt-12 pb-48 sm:pt-12 sm:pb-48 lg:pt-16 lg:pb-40">
+      <div className="mx-auto w-full max-w-6xl px-5 pt-12 pb-52 sm:pt-12 sm:pb-52 lg:pt-16 lg:pb-44">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-xl font-semibold text-zinc-900">About</h2>
