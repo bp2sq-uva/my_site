@@ -216,7 +216,7 @@ function LogoStrip({ logos }: { logos: Array<{ name: string; src: string }> }) {
   return (
     <section className="border-t border-zinc-200/70 bg-white">
       {/* <div className="mx-auto w-full max-w-6xl px-5 py-78"> */}
-      <div className="mx-auto w-full max-w-6xl px-5 pt-12 pb-44 sm:pt-12 sm:pb-48 lg:pt-16 lg:pb-40">
+      <div className="mx-auto w-full max-w-6xl px-5 pt-24 pb-16">
         <div className="flex items-end justify-between gap-6">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
@@ -241,10 +241,7 @@ function LogoStrip({ logos }: { logos: Array<{ name: string; src: string }> }) {
 }
 
 
-{/* <div className="mx-auto w-full max-w-6xl px-5 pt-12 pb-44 sm:pt-12 sm:pb-48 lg:pt-16 lg:pb-40"> */}
 
-
-</div>
 function SkillsSection() {
   const SKILLS = [
     {
