@@ -930,7 +930,7 @@ export default function Page() {
           <HeroWix />
         </section>
 
-        <section className={`snap-start min-h-[40svh] scroll-mt-${SNAP_OFFSET} pb-28`}>
+        <section className={`snap-start min-h-[40svh] scroll-mt-${SNAP_OFFSET} pb-30`}>
           <AboutPreviewCombined />
         </section>
 
