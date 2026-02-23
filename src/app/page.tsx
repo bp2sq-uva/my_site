@@ -216,7 +216,7 @@ function LogoStrip({ logos }: { logos: Array<{ name: string; src: string }> }) {
   return (
     <section className="border-t border-zinc-200/70 bg-white">
       {/* <div className="mx-auto w-full max-w-6xl px-5 py-78"> */}
-      <div className="mx-auto w-full max-w-6xl px-5 pt-32 pb-48">
+      <div className="mx-auto w-full max-w-6xl px-5 pt-32 pb-72">
         <div className="flex items-end justify-between gap-6">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
