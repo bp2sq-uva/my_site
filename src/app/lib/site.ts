@@ -168,7 +168,7 @@ export const FEATURED_PROJECTS: Project[] = [
       "Analyzed simulation results to guide design improvements and engineering decisions.",
     ],
     images: [
-      { src: "/projects/gem_demo.webp", alt: "GEM gas flow simulations" },
+      { src: "/projects/gem_demo.gif", alt: "GEM gas flow simulations" },
       { src: "/projects/Ansys-1.webp", alt: "GEM gas flow simulations" },
       { src: "/projects/NEMOH.webp", alt: "GEM gas flow simulations" },
   ],
@@ -214,7 +214,7 @@ export const FEATURED_PROJECTS: Project[] = [
     ],
     images: [
       { src: "/projects/GNN-2.webp", alt: "GNNs" },
-      { src: "/projects/GNN_vid.webp", alt: "GNNs_vid" },
+      { src: "/projects/GNN_vid.dif", alt: "GNNs_vid" },
   ],
     description: `Graph Neural Networks (GNNs) have emerged as powerful tools for modeling complex relationships in data, making them well-suited for particle tracking in high-rate nuclear physics detectors. This project focused on developing and implementing GNN architectures to enhance tracking accuracy and efficiency. By representing detector hit data as nodes and their spatial relationships as edges, the GNN models were able to learn intricate patterns in the data. This work has significant implications for advancing reconstruction techniques in nuclear and particle physics experiments.`,
   },
