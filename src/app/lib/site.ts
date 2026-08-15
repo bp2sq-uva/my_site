@@ -277,6 +277,10 @@ export const FEATURED_PROJECTS: Project[] = [
     ],
     images: [
       {
+        src: "/projects/GEM.png",
+        alt: "GEM detector hit reconstruction workflow",
+      },
+      {
         src: "/projects/image_to_ADC.png",
         alt: "GEM detector hit reconstruction workflow",
       },
@@ -285,7 +289,7 @@ export const FEATURED_PROJECTS: Project[] = [
         alt: "Reconstructed charged-particle hit candidates in a GEM tracker",
       },
       {
-        src: "/projects/visualizations.png",
+        src: "/projects/vizualizations.png",
         alt: "Reconstructed charged-particle hit candidates in a GEM tracker",
       },
     ],
