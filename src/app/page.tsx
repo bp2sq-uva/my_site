@@ -243,36 +243,48 @@ function LogoStrip({ logos }: { logos: Array<{ name: string; src: string }> }) {
 
 
 function SkillsSection() {
-  const SKILLS = [
-    {
-      title: "Mechanical Engineering",
-      items: [
-        "Numerical simulations, CFD, FEA",
-        "SolidWorks, ANSYS",
-        "Microcontroller programming, NDT testing",
-      ],
-    },
-    {
-      title: "Programming",
-      items: ["Python, C++, MATLAB", "Git", "UNIX/Linux, shell scripting"],
-    },
-    {
-      title: "Machine Learning",
-      items: [
-        "PyTorch, scikit-learn, NumPy, Pandas",
-        "GNNs, Transformers, CNNs, LSTMs",
-        "Classification, regression, clustering",
-      ],
-    },
-    {
-      title: "Electrical Engineering",
-      items: ["DSP", "FPGA", "ASIC design", "Verilog"],
-    },
-    {
-      title: "Data Visualization",
-      items: ["Matplotlib, Plotly, Seaborn", "ROOT"],
-    },
-  ];
+const SKILLS = [
+  {
+    title: "Mechanical Engineering",
+    items: [
+      "CFD, FEA, numerical simulation",
+      "SolidWorks, ANSYS",
+      "NDT and experimental testing",
+    ],
+  },
+  {
+    title: "Programming & Scientific Computing",
+    items: [
+      "Python, C++, MATLAB",
+      "NumPy, Pandas, SciPy",
+      "Git, Linux/UNIX, shell scripting",
+    ],
+  },
+  {
+    title: "Machine Learning",
+    items: [
+      "PyTorch, scikit-learn",
+      "GNNs, Transformers, CNNs, LSTMs",
+      "Classification, regression, clustering",
+    ],
+  },
+  {
+    title: "Embedded & Electrical Systems",
+    items: [
+      "Microcontroller programming",
+      "Digital signal processing",
+      "FPGA and ASIC design (through coursework and projects)",
+    ],
+  },
+  {
+    title: "Data Analysis & Visualization",
+    items: [
+      "Matplotlib, Plotly, Seaborn",
+      "ROOT",
+      "Statistical and experimental data analysis",
+    ],
+  },
+];
 
   return (
     <section className="border-t border-zinc-200/70 bg-white">
