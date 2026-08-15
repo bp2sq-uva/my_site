@@ -253,6 +253,64 @@ export const FEATURED_PROJECTS: Project[] = [
     ],
     description: `This project involved designing and fabricating custom fixtures for the assembly, alignment, and high-voltage testing of nuclear particle detectors. The fixtures were engineered to meet precise mechanical and electrical requirements, ensuring accurate positioning and safe operation during testing. The designs were iteratively refined through collaboration with technicians and engineers, incorporating feedback from fabrication processes. All fixtures were validated to meet safety standards for laboratory use.`,
   },
+  {
+    title: "ML Assisted Hit Reconstruction for GEM Detector Based Particle Trackers",
+    slug: "charged-particle-hit-reconstruction",
+    tagline:
+      "Developed machine learning methods to reconstruct charged particle hit patterns in GEM detector readout data under high background experimental conditions.",
+    tags: [
+      "Machine Learning",
+      "Detector Reconstruction",
+      "Particle Physics",
+      "Scientific Computing",
+      "C++",
+      "Python",
+      "ROOT",
+      "PyTorch",
+    ],
+    highlights: [
+      "Proposed and initiated an ML assisted reconstruction approach to improve GEM hit finding in high background Jefferson Lab SBS experiments.",
+      "Built event processing pipelines to extract GEM strip, ADC waveform, timing, occupancy, and simulation-truth information from replayed ROOT files.",
+      "Trained PyTorch image segmentation models to identify particle induced hit regions while suppressing incorrect strip pairings, fake candidates, and background hits.",
+      "Developed detector relevant evaluation metrics connecting computer vision outputs to reconstruction needs, including event level hit success, hit multiplicity, empty event rejection, and false candidate reduction.",
+      "Integrated trained models toward the C++-based SBS OFFLINE reconstruction workflow using ONNX Runtime, enabling ML based reconstruction during standard replay with conventional reconstruction available as a fallback.",
+    ],
+    images: [
+      {
+        src: "/projects/image_to_ADC.png",
+        alt: "GEM detector hit reconstruction workflow",
+      },
+      {
+        src: "/projects/performances.png",
+        alt: "Reconstructed charged-particle hit candidates in a GEM tracker",
+      },
+      {
+        src: "/projects/visualizations.png",
+        alt: "Reconstructed charged-particle hit candidates in a GEM tracker",
+      },
+    ],
+    description: `This project focuses on developing machine learning assisted reconstruction methods for Gas Electron Multiplier (GEM) detector data in high background Jefferson Lab SBS experimental environments. GEM detectors produce strip based readout signals that must be combined into physically meaningful two dimensional hit candidates before track reconstruction. In high rate conditions, incorrect strip pairings and background signals can create large numbers of fake candidates, reducing reconstruction efficiency and increasing downstream processing costs.
+                  I proposed and initiated this project after identifying an opportunity to improve the existing GEM reconstruction workflow used by the collaboration. I developed event processing pipelines to extract detector strip information, ADC waveforms, timing, occupancy, and simulation truth labels from replayed ROOT files generated through the Geant4 simulation, digitization, and SBS replay chain. I then trained and evaluated PyTorch models to identify particle induced hit regions while suppressing fake and background candidates.
+  A major part of the project involved developing detector relevant evaluation metrics rather than relying only on standard computer vision metrics. These metrics measure whether the ML output improves reconstruction in physically meaningful ways, including event level hit recovery, hit multiplicity, empty event rejection, centroid agreement, and false candidate reduction. Current validation studies show improved GEM hit finding performance and a substantial reduction in fake hit candidates passed to downstream tracking.
+  The project is now being integrated into the C++ based SBS OFFLINE reconstruction framework using ONNX Runtime, allowing ML based hit reconstruction to run during standard data and simulation replay while preserving the conventional reconstruction as a configurable fallback method.`,
+  },
+  {
+    title: "Custom Fixture Design for Nuclear Particle Detectors",
+    slug: "custom-fixture-design",
+    tagline: "Designed and fabricated custom fixtures for assembly and testing of nuclear particle detectors.",
+    tags: ["Mechanical Engineering", "Fabrication", "Laboratory Safety"],
+    highlights: [
+      "Designed custom jigs and frames to meet precise alignment and handling requirements.",
+      "Collaborated with technicians and engineers to iterate designs based on fabrication feedback.",
+      "Ensured all fixtures met safety and operational standards for lab use.",
+    ],
+    images: [
+      { src: "/projects/HV_1.jpg", alt: "HV testing fixture" },
+      { src: "/projects/HV_2.jpg", alt: "HV testing setup" },
+      { src: "/projects/stretcher.jpg", alt: "GEM stretcher apparatus" },
+    ],
+    description: `This project involved designing and fabricating custom fixtures for the assembly, alignment, and high-voltage testing of nuclear particle detectors. The fixtures were engineered to meet precise mechanical and electrical requirements, ensuring accurate positioning and safe operation during testing. The designs were iteratively refined through collaboration with technicians and engineers, incorporating feedback from fabrication processes. All fixtures were validated to meet safety standards for laboratory use.`,
+  },
 ];
 
 export const PUBLICATIONS: Publication[] = [
