@@ -154,7 +154,7 @@ export const FEATURED_PROJECTS: Project[] = [
       "Analyzed RF signals in the frequency domain to identify characteristic emission patterns.",
       "Trained deep learning models to detect and classify drone RF signals amid background noise.",
     ],
-    images: [{ src: "/projects/Dedrone.png", alt: "RF signal detection" }],
+    images: [{ src: "/projects/Dedrone.webp", alt: "RF signal detection" }],
     description: `Drones use radio frequency (RF) signals for communication and control, which can be detected and analyzed for surveillance purposes. This project focused on developing deep learning  models to identify and classify RF signals emitted by drones. By analyzing the frequency-domain characteristics of these signals, the models were trained to effectively distinguish drone signals from background noise and other RF sources. This work has applications in security and surveillance, enabling the detection of unauthorized drone activity.`,
   },
   {
@@ -169,8 +169,8 @@ export const FEATURED_PROJECTS: Project[] = [
     ],
     images: [
       { src: "/projects/gem_demo.gif", alt: "GEM gas flow simulations" },
-      { src: "/projects/Ansys-1.png", alt: "GEM gas flow simulations" },
-      { src: "/projects/NEMOH.png", alt: "GEM gas flow simulations" },
+      { src: "/projects/Ansys-1.webp", alt: "GEM gas flow simulations" },
+      { src: "/projects/NEMOH.webp", alt: "GEM gas flow simulations" },
   ],
     description: `Built simulation driven studies across CFD, hydrodynamics, and structural FEA using ANSYS CFX, SolidWorks Flow Simulation, NEMOH, and ANSYS Static Structural.
     
@@ -191,11 +191,11 @@ export const FEATURED_PROJECTS: Project[] = [
       "C++ and Python based data analysis and reconstruction",
     ],
     images: [
-      { src: "/projects/jlab-4.HEIC", alt: "HV testing fixture" },
-      { src: "/projects/SBS.png", alt: "HV testing fixture" },
-      { src: "/projects/jlab-2.HEIC", alt: "HV testing fixture" },
-      { src: "/projects/jlab-3.HEIC", alt: "HV testing fixture" },
-      { src: "/projects/jlab-1.HEIC", alt: "HV testing fixture" },
+      { src: "/projects/jlab-4.webp", alt: "HV testing fixture" },
+      { src: "/projects/SBS.webp", alt: "HV testing fixture" },
+      { src: "/projects/jlab-2.webp", alt: "HV testing fixture" },
+      { src: "/projects/jlab-3.webp", alt: "HV testing fixture" },
+      { src: "/projects/jlab-1.webp", alt: "HV testing fixture" },
     ],
     description: `The experiment aimed to measure the neutron electromagnetic form factor at high momentum transfer, providing insight into the neutron internal structure. A primary role was carried out in installing and testing the front end electronic readout systems, supporting particle detector installations, and performing troubleshooting and maintenance to ensure accurate and stable data capture throughout the run period.
     
@@ -213,7 +213,7 @@ export const FEATURED_PROJECTS: Project[] = [
       "Improved tracking efficiency and resolution compared to traditional methods.",
     ],
     images: [
-      { src: "/projects/GNN-2.png", alt: "GNNs" },
+      { src: "/projects/GNN-2.webp", alt: "GNNs" },
       { src: "/projects/GNN_vid.gif", alt: "GNNs_vid" },
   ],
     description: `Graph Neural Networks (GNNs) have emerged as powerful tools for modeling complex relationships in data, making them well-suited for particle tracking in high-rate nuclear physics detectors. This project focused on developing and implementing GNN architectures to enhance tracking accuracy and efficiency. By representing detector hit data as nodes and their spatial relationships as edges, the GNN models were able to learn intricate patterns in the data. This work has significant implications for advancing reconstruction techniques in nuclear and particle physics experiments.`,
@@ -228,9 +228,9 @@ export const FEATURED_PROJECTS: Project[] = [
       "Optimized blade geometry to enhance efficiency and power output based on simulation results.",
     ],
     images: [
-      { src: "/projects/wind-11.png", alt: "wind turbine blade" },
-      { src: "/projects/wind-2.png", alt: "wind turbine blade" },
-      { src: "/projects/wind-3.png", alt: "wind blade" },
+      { src: "/projects/wind-11.webp", alt: "wind turbine blade" },
+      { src: "/projects/wind-2.webp", alt: "wind turbine blade" },
+      { src: "/projects/wind-3.webp", alt: "wind blade" },
     ],
     description: `This project focused on optimizing blade designs using Computational Fluid Dynamics (CFD) simulations conducted with Ansys CFX. Various blade geometries were modeled and analyzed to understand airflow patterns, pressure distributions, and performance metrics. Based on the simulation results, iterative design modifications were made to enhance aerodynamic efficiency and maximize energy capture. The optimized blade designs demonstrated improved performance characteristics, contributing to more effective wind energy generation.
     
@@ -247,9 +247,9 @@ export const FEATURED_PROJECTS: Project[] = [
       "Ensured all fixtures met safety and operational standards for lab use.",
     ],
     images: [
-      { src: "/projects/HV_1.jpg", alt: "HV testing fixture" },
-      { src: "/projects/HV_2.jpg", alt: "HV testing setup" },
-      { src: "/projects/stretcher.jpg", alt: "GEM stretcher apparatus" },
+      { src: "/projects/HV_1.webp", alt: "HV testing fixture" },
+      { src: "/projects/HV_2.webp", alt: "HV testing setup" },
+      { src: "/projects/stretcher.webp", alt: "GEM stretcher apparatus" },
     ],
     description: `This project involved designing and fabricating custom fixtures for the assembly, alignment, and high-voltage testing of nuclear particle detectors. The fixtures were engineered to meet precise mechanical and electrical requirements, ensuring accurate positioning and safe operation during testing. The designs were iteratively refined through collaboration with technicians and engineers, incorporating feedback from fabrication processes. All fixtures were validated to meet safety standards for laboratory use.`,
   },
@@ -277,19 +277,19 @@ export const FEATURED_PROJECTS: Project[] = [
     ],
     images: [
       {
-        src: "/projects/GEM.png",
+        src: "/projects/GEM.webp",
         alt: "GEM detector hit reconstruction workflow",
       },
       {
-        src: "/projects/image_to_ADC.png",
+        src: "/projects/image_to_ADC.webp",
         alt: "GEM detector hit reconstruction workflow",
       },
       {
-        src: "/projects/performances.png",
+        src: "/projects/performances.webp",
         alt: "Reconstructed charged-particle hit candidates in a GEM tracker",
       },
       {
-        src: "/projects/vizualizations.png",
+        src: "/projects/vizualizations.webp",
         alt: "Reconstructed charged-particle hit candidates in a GEM tracker",
       },
     ],
