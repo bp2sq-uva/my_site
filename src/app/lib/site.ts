@@ -213,8 +213,9 @@ export const FEATURED_PROJECTS: Project[] = [
       "Improved tracking efficiency and resolution compared to traditional methods.",
     ],
     images: [
-      { src: "/projects/GNN-2.webp", alt: "GNNs" },
       { src: "/projects/GNN_vid.gif", alt: "GNNs_vid" },
+      { src: "/projects/GNN-2.webp", alt: "GNNs" },
+
   ],
     description: `Graph Neural Networks (GNNs) have emerged as powerful tools for modeling complex relationships in data, making them well-suited for particle tracking in high-rate nuclear physics detectors. This project focused on developing and implementing GNN architectures to enhance tracking accuracy and efficiency. By representing detector hit data as nodes and their spatial relationships as edges, the GNN models were able to learn intricate patterns in the data. This work has significant implications for advancing reconstruction techniques in nuclear and particle physics experiments.`,
   },
