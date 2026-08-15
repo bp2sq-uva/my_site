@@ -298,23 +298,6 @@ export const FEATURED_PROJECTS: Project[] = [
   A major part of the project involved developing detector relevant evaluation metrics rather than relying only on standard computer vision metrics. These metrics measure whether the ML output improves reconstruction in physically meaningful ways, including event level hit recovery, hit multiplicity, empty event rejection, centroid agreement, and false candidate reduction. Current validation studies show improved GEM hit finding performance and a substantial reduction in fake hit candidates passed to downstream tracking.
   The project is now being integrated into the C++ based SBS OFFLINE reconstruction framework using ONNX Runtime, allowing ML based hit reconstruction to run during standard data and simulation replay while preserving the conventional reconstruction as a configurable fallback method.`,
   },
-  {
-    title: "Custom Fixture Design for Nuclear Particle Detectors",
-    slug: "custom-fixture-design",
-    tagline: "Designed and fabricated custom fixtures for assembly and testing of nuclear particle detectors.",
-    tags: ["Mechanical Engineering", "Fabrication", "Laboratory Safety"],
-    highlights: [
-      "Designed custom jigs and frames to meet precise alignment and handling requirements.",
-      "Collaborated with technicians and engineers to iterate designs based on fabrication feedback.",
-      "Ensured all fixtures met safety and operational standards for lab use.",
-    ],
-    images: [
-      { src: "/projects/HV_1.jpg", alt: "HV testing fixture" },
-      { src: "/projects/HV_2.jpg", alt: "HV testing setup" },
-      { src: "/projects/stretcher.jpg", alt: "GEM stretcher apparatus" },
-    ],
-    description: `This project involved designing and fabricating custom fixtures for the assembly, alignment, and high-voltage testing of nuclear particle detectors. The fixtures were engineered to meet precise mechanical and electrical requirements, ensuring accurate positioning and safe operation during testing. The designs were iteratively refined through collaboration with technicians and engineers, incorporating feedback from fabrication processes. All fixtures were validated to meet safety standards for laboratory use.`,
-  },
 ];
 
 export const PUBLICATIONS: Publication[] = [
